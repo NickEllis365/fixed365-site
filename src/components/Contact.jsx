@@ -2,9 +2,9 @@ import { useState } from 'react';
 import Logo from './Logo.jsx';
 import { SIZES } from '../data.js';
 
-// Web3Forms access key (https://web3forms.com). While empty, the form shows
-// "Request sent." without sending anything, exactly as the v5 design does.
-const WEB3FORMS_KEY = '';
+// Web3Forms access key (https://web3forms.com). It's a public key meant to live in
+// front-end code; submissions are emailed to the address registered with Web3Forms.
+const WEB3FORMS_KEY = '1166aaa0-0e28-4048-8f44-d16fbddaf765';
 
 export default function Contact() {
   const [size, setSize] = useState(0);
@@ -21,7 +21,8 @@ export default function Contact() {
     try {
       const body = {
         access_key: WEB3FORMS_KEY, subject: 'New health check request', from_name: 'Fixed365 website',
-        name: fd.get('name'), email: fd.get('email'), company: fd.get('company'), team_size: SIZES[size]
+        name: fd.get('name'), email: fd.get('email'), company: fd.get('company'), team_size: SIZES[size],
+        botcheck: Boolean(fd.get('botcheck'))
       };
       const r = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -53,6 +54,8 @@ export default function Contact() {
               <label className="field">Your name<input name="name" required autoComplete="name" /></label>
               <label className="field">Work email<input name="email" type="email" required autoComplete="email" /></label>
               <label className="field">Company<input name="company" autoComplete="organization" /></label>
+              {/* Spam trap: hidden from people, bots tick it and Web3Forms rejects the submission. */}
+              <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" style={{ display: 'none' }} aria-hidden="true" />
               <div className="field" role="group" aria-label="Team size">Team size
                 <div className="sizes">
                   {SIZES.map((label, i) => (
