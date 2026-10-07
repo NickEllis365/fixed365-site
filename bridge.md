@@ -1,5 +1,11 @@
 # Fixed365 site — working log
 
+## 2026-10-07 — Mobile: compact "What we look after" (branch `mobile-tweaks`)
+
+- Owner: on mobile the section took up too much space (about a third of the page).
+- Phones (≤560px) now show 2-column tiles (logo + name only). Tapping one opens a `.cover-detail` panel under its group with the one-liner and the three points. Desktop and tablet keep the flip cards. Section height on a phone is roughly halved (≈2900px → ≈1300px at 500px wide).
+- Status: committed on `mobile-tweaks`, pushed as a branch (no deploy). Waiting for the owner's OK to merge to `main`.
+
 ## 2026-10-07 — LIVE: `light-theme` merged into `main` (29db083) and deployed to Azure; deploy succeeded and the live site serves the new build and logos.
 
 ## 2026-10-07 — Interactive product cards in "What we look after" (branch `light-theme`)

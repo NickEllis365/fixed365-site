@@ -29,7 +29,10 @@ export default function WhatWeCover() {
           <p className="cover-note">It all comes with Microsoft 365 or Azure. Tap a card to see what we do with it.</p>
         </div>
 
-        {CATS.map(c => (
+        {CATS.map(c => {
+          // Phones: the open product's details show in a panel under its group (see .cover-detail).
+          const openItem = c.items.find(it => it[0] === open);
+          return (
           <div key={c.name} className="cover-group">
             <h3 className="cover-group-head">{c.name} <span>{CAT_BLURBS[c.name]}</span></h3>
             <div className="cover-cards">
@@ -53,8 +56,16 @@ export default function WhatWeCover() {
                 );
               })}
             </div>
+            {openItem && (
+              <div key={openItem[0]} className="cover-detail">
+                <p className="cover-detail-title">{openItem[1]}</p>
+                <p className="cover-detail-what">{openItem[2]}</p>
+                <ul>{openItem[3].map(w => <li key={w}>{w}</li>)}</ul>
+              </div>
+            )}
           </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

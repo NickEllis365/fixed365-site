@@ -159,6 +159,11 @@ button { -webkit-tap-highlight-color: transparent; }
 .cover-what { font-size: 15px; line-height: 1.45; color: var(--muted); }
 .cover-hint { margin-top: auto; font-size: 14px; font-weight: 700; color: var(--eyebrow); }
 .cover-back-title { font-size: 15px; font-weight: 700; color: var(--eyebrow); }
+.cover-detail { display: none; flex-direction: column; gap: 8px; padding: 18px; background: var(--panel); border: 1px solid #2BA3D9; border-radius: var(--r-md); animation: f365up .3s ease-out both; }
+.cover-detail p { margin: 0; }
+.cover-detail-title { font-size: 17px; font-weight: 700; }
+.cover-detail-what { font-size: 15px; line-height: 1.45; color: var(--muted); }
+.cover-detail ul { margin: 4px 0 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 1.4; }
 .cover-back ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 14.5px; line-height: 1.4; color: var(--text); }
 
 /* — how it starts — */
@@ -333,12 +338,14 @@ button { -webkit-tap-highlight-color: transparent; }
   .migrate-lines { display: none; }
   .device-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sizes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .cover-cards { grid-template-columns: minmax(0, 1fr); }
+  .cover-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
   .cover-card { min-height: 0; }
-  .cover-front { position: static; }
-  .cover-hint { margin-top: 6px; }
-  .cover-card[aria-expanded="true"] .cover-front { display: none; }
-  .cover-card[aria-expanded="true"] .cover-back { position: static; }
+  .cover-front { position: static; flex-direction: row; align-items: center; gap: 10px; padding: 12px; min-height: 56px; }
+  .cover-card[aria-expanded="true"] .cover-front { opacity: 1; transform: none; }
+  .cover-what, .cover-hint, .cover-back { display: none; }
+  .cover-logo { width: 28px; height: 28px; margin: 0; }
+  .cover-name { font-size: 14.5px; font-weight: 600; line-height: 1.25; }
+  .cover-detail { display: flex; }
   .cover-group-head span { display: block; margin: 4px 0 0; }
 }
 @media (prefers-reduced-motion: reduce) {
