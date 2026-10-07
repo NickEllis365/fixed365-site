@@ -8,7 +8,7 @@
 - `HERO_LOGOS` now has all 13 logos (added Exchange, Purview, Power Automate, Power BI, Copilot).
 - Phones: one scrolling row instead of a 4×2 grid, so the hero is shorter.
 - Verified: build passes; desktop and 500px screenshots (headless can't show the motion; the owner checks it in the browser).
-- Status: on branch `logo-carousel`, pushed as a branch (no deploy). Waiting for the owner's OK.
+- Status: LIVE. Merged `logo-carousel` into `main` and pushed on owner's "push".
 
 ## 2026-10-07 — Mobile: compact "What we look after" (branch `mobile-tweaks`)
 
