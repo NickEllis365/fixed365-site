@@ -5,7 +5,7 @@
 - Owner: on mobile, tapping a service (e.g. Secure) changed a panel below the screen, so the change wasn't visible.
   - Under 900px the service list works as an accordion: the active service's diagram renders in `.svc-inline` directly under its button (the side panel `.svc-panel` is hidden). After a tap, the tapped button scrolls to the top (`scrollIntoView`, `scroll-margin-top: 84px` for the sticky header), because closing the previous one can shift it upwards. Desktop is unchanged.
 - Owner: on mobile the large interactive F looked out of place.
-  - Under 900px the F is a 92px mark, absolutely positioned at the top right of the hero beside the headline (headline gets `padding-right: 88px`), without the dashed frame. It still animates and replays on tap. Desktop is unchanged.
+  - Under 900px the F is a 92px mark, absolutely positioned at the top right of the hero beside the headline (headline gets `padding-right: 100px`; nudged ~15px left at the owner's request), without the dashed frame. It still animates and replays on tap. Desktop is unchanged.
 - Verified: build passes; screenshots at 500px (Secure open inline, hero), 820px (tablet hero) and 1366px (services unchanged).
 - Status: on branch `mobile-services`, pushed as a branch (no deploy). Waiting for the owner's OK.
 
