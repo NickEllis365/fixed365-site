@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { SVCS, SVC_COLORS, TICKET, DEVICES } from '../data.js';
+import { SVCS, TICKET, DEVICES } from '../data.js';
 import { darkBand } from '../theme.js';
 
-// Official Microsoft architecture icons (Azure and Entra icon sets), used in diagrams only.
-function Icon({ name, size = 20 }) {
-  return <img src={`/icons/${name}.svg`} alt="" width={size} height={size} className="ms-icon" />;
+function Logo({ name, size = 20 }) {
+  return <img src={`/logos/${name}.svg`} alt="" width={size} height={size} className="ms-icon" />;
 }
 
 function Migrate() {
@@ -24,24 +23,20 @@ function Migrate() {
           ))}
         </div>
         <div className="migrate-targets">
-          <div className="migrate-target">
+          <div className="azure-target">
             <div className="migrate-target-title">Microsoft 365</div>
-            {['Exchange', 'SharePoint', 'OneDrive'].map(n => (
-              <div key={n} className="migrate-target-row">{n} <span>✓</span></div>
+            {[['exchange', 'Exchange'], ['sharepoint', 'SharePoint'], ['onedrive', 'OneDrive']].map(([f, n]) => (
+              <div key={f} className="azure-row"><span><Logo name={f} />{n}</span></div>
             ))}
           </div>
           <div className="azure-target">
-            <div className="migrate-target-title">Azure</div>
-            <div className="azure-row"><span><Icon name="azure-vm" />Virtual machines</span><span>✓</span></div>
-            <div className="azure-row"><span><Icon name="azure-virtual-desktop" />Azure Virtual Desktop</span><span>✓</span></div>
+            <div className="migrate-target-title"><Logo name="azure" size={22} />Azure</div>
+            <div className="azure-row"><span>Virtual machines</span></div>
+            <div className="azure-row"><span>Azure Virtual Desktop</span></div>
           </div>
         </div>
       </div>
-      <div className="step-strip">
-        {['Plan around how you work', 'Copy mail and files in the background', 'Switch over out of hours'].map((t, i) => (
-          <div key={t}><span className="step-strip-num">0{i + 1}</span><span>{t}</span></div>
-        ))}
-      </div>
+      <p className="diagram-note">We plan around how you work, copy mail and files across in the background, then switch over out of hours.</p>
     </div>
   );
 }
@@ -51,8 +46,8 @@ function Secure() {
     <div className="layer-head">
       <span className="layer-name">{name}</span>
       <span className="layer-detail">
-        {items.map(([icon, label]) => (
-          <span key={label} className="layer-item">{icon && <Icon name={icon} />}{label}</span>
+        {items.map(([logo, label]) => (
+          <span key={label} className="layer-item">{logo && <Logo name={logo} />}{label}</span>
         ))}
       </span>
     </div>
@@ -61,11 +56,11 @@ function Secure() {
     <div className="diagram">
       <div className="diagram-label">Security in layers</div>
       <div className="layer">
-        {layer('IDENTITY', [['entra-id', 'Entra ID'], [null, 'MFA'], [null, 'Conditional Access']])}
+        {layer('Identity', [['entra-id', 'Entra ID'], [null, 'MFA'], [null, 'Conditional Access']])}
         <div className="layer" style={{ background: 'rgba(94,209,182,.06)' }}>
-          {layer('DEVICES', [['intune', 'Intune compliance'], [null, 'Defender']])}
+          {layer('Devices', [['intune', 'Intune'], ['defender', 'Defender']])}
           <div className="layer" style={{ background: 'rgba(94,209,182,.1)' }}>
-            {layer('DATA', [[null, 'Purview'], [null, 'DLP'], [null, 'Backup']])}
+            {layer('Data', [['purview', 'Purview'], [null, 'Backup']])}
             <div className="layer-core">Your business</div>
           </div>
         </div>
@@ -76,22 +71,22 @@ function Secure() {
 }
 
 function Devices() {
-  const device = (name, delay) => (
-    <div key={name} className="device" style={{ animationDelay: delay + 's' }}>
+  const device = (name, i) => (
+    <div key={i} className="device">
       <span className="device-name">{name}</span>
-      <span className="device-badge">Compliant ✓</span>
+      <span className="device-badge">Compliant</span>
     </div>
   );
   return (
     <div className="diagram">
       <div className="diagram-label">Every device, managed from one place</div>
       <div className="device-grid">
-        {DEVICES.slice(0, 3).map((n, i) => device(n, i * 0.15))}
+        {DEVICES.slice(0, 3).map((n, i) => device(n, i))}
         <div className="intune-bar">
-          <span className="intune-title"><Icon name="intune" size={28} />Intune</span>
-          <span className="intune-detail">Policies · Apps · Updates · Remote wipe</span>
+          <span className="intune-title"><Logo name="intune" size={28} />Intune</span>
+          <span className="intune-detail">Policies, apps, updates and remote wipe</span>
         </div>
-        {DEVICES.slice(3).map((n, i) => device(n, 0.45 + i * 0.15))}
+        {DEVICES.slice(3).map((n, i) => device(n, i + 3))}
       </div>
       <p className="diagram-note">New laptops arrive ready to use with Autopilot. A lost phone can be wiped in minutes, and updates install without anyone chasing them.</p>
     </div>
@@ -105,8 +100,8 @@ function Support() {
       <div className="ticket">
         <div className="ticket-track"><span className="ticket-fill" /></div>
         <div className="ticket-list">
-          {TICKET.map(([time, text], i) => (
-            <div key={time} className="ticket-row" style={{ animationDelay: i * 0.5 + 's' }}>
+          {TICKET.map(([time, text]) => (
+            <div key={time} className="ticket-row">
               <span className="ticket-time">{time}</span>
               <span className="ticket-text">{text}</span>
             </div>
@@ -128,15 +123,14 @@ export default function Services() {
     <section id="services" className={"section section-dark" + darkBand}>
       <div className="section-inner">
         <div className="heading-group" style={{ maxWidth: 720 }}>
-          <div className="eyebrow">How we help</div>
-          <h2 className="h2">Four services, start to finish.</h2>
+          <h2 className="h2">How we help</h2>
+          <p className="section-lede">Pick a service to see how it works in practice.</p>
         </div>
         <div className="svc-body">
           <div className="svc-list">
             {SVCS.map(([title, line], i) => (
-              <button key={title} type="button" className="svc-btn" onClick={() => setSvc(i)} aria-pressed={i === svc}
-                style={{ borderLeftColor: i === svc ? SVC_COLORS[i] : 'transparent', background: i === svc ? 'var(--panel)' : 'transparent' }}>
-                <span className="svc-title">{title}<span className="svc-num">0{i + 1}</span></span>
+              <button key={title} type="button" className="svc-btn" onClick={() => setSvc(i)} aria-pressed={i === svc}>
+                <span className="svc-title">{title}</span>
                 <span className="svc-line">{line}</span>
               </button>
             ))}

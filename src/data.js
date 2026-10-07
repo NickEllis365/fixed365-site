@@ -33,17 +33,31 @@ export const SVCS = [
   ['Support', 'A real engineer who knows your setup, when you need one.']
 ];
 
-export const SVC_COLORS = ['#2BA3D9', '#5ED1B6', '#F2B84B', '#B49CF0'];
 
 export const TICKET = [['09:02', 'You report Outlook not syncing'], ['09:06', 'Picked up by your Fixed365 engineer'], ['09:19', 'Remote session, cause found'], ['09:41', 'Fixed and confirmed with you']];
 
-export const DEVICES = ['Laptop · Sarah', 'Laptop · James', 'iPhone · Priya', 'Laptop · Tom', 'Android · Mia', 'Surface · Office'];
+export const DEVICES = ['Windows laptop', 'MacBook', 'iPhone', 'Windows laptop', 'Android phone', 'Surface tablet'];
 
 export const SIZES = ['1–10', '11–25', '26–50', '50+'];
 
-export const BLOCKS = [
-  { l: 16.07, t: 16.07, w: 21.4, h: 67.9, c: 'var(--text)', from: 'translate(-70px,50px) rotate(-14deg)' },
-  { l: 42.9, t: 16.07, w: 41.1, h: 19.6, c: 'var(--text)', from: 'translate(90px,-60px) rotate(18deg)' },
-  { l: 42.9, t: 41.07, w: 26.8, h: 19.6, c: 'var(--text)', from: 'translate(-40px,-100px) rotate(-24deg)' },
-  { l: 58.9, t: 64.3, w: 25, h: 19.6, c: '#2BA3D9', from: 'translate(130px,110px) rotate(40deg)' }
+
+// Product symbol → logo file in public/logos/. Products without a logo show text only.
+export const LOGOS = {
+  Ex: 'exchange', Tm: 'teams', Sp: 'sharepoint', Od: 'onedrive',
+  En: 'entra-id', Df: 'defender', Pv: 'purview',
+  In: 'intune', Az: 'azure',
+  Pa: 'power-automate', Cp: 'copilot', Bi: 'power-bi'
+};
+
+export const CAT_BLURBS = {
+  Collaborate: 'Email, chat, meetings and files.',
+  Secure: 'Sign-ins, threats and sensitive data.',
+  Manage: 'Laptops, phones, licences and cloud servers.',
+  Automate: 'Less admin, better numbers, AI used sensibly.'
+};
+
+// Logos shown in the hero.
+export const HERO_LOGOS = [
+  ['outlook', 'Outlook'], ['teams', 'Teams'], ['sharepoint', 'SharePoint'], ['onedrive', 'OneDrive'],
+  ['entra-id', 'Entra ID'], ['intune', 'Intune'], ['defender', 'Defender'], ['azure', 'Azure']
 ];

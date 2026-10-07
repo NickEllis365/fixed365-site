@@ -43,8 +43,8 @@ export default function Contact() {
           <h2 className="contact-title">Book your free health check.</h2>
           <p className="contact-lede">Thirty minutes on a call. You get a clear list of what's right, what's risky and what it would take to fix.</p>
           <div className="contact-links">
-            <a href="tel:+447950428513">Call 07950 428513 <span>→</span></a>
-            <a href="mailto:hello@fixed365.co.uk">hello@fixed365.co.uk <span>→</span></a>
+            <a href="tel:+447950428513">Call 07950 428513</a>
+            <a href="mailto:hello@fixed365.co.uk">hello@fixed365.co.uk</a>
           </div>
         </div>
         <div className="contact-form-wrap">
@@ -65,7 +65,7 @@ export default function Contact() {
                 </div>
               </div>
               <button type="submit" className="submit" disabled={sending}>
-                {sending ? 'Sending…' : 'Request my health check'} <span>→</span>
+                {sending ? 'Sending…' : 'Request my health check'}
               </button>
               {err && <div className="form-error">Something went wrong. Please call or email us instead.</div>}
             </form>

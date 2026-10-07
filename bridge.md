@@ -1,5 +1,25 @@
 # Fixed365 site — working log
 
+## 2026-10-07 — "Less AI" pass + real Microsoft app logos (branch `light-theme`)
+
+**Owner feedback:** the site still looked AI-made. They agreed with this list of tells: uppercase labels above headings, huge squashed headlines, arrows on every button, 01/02/03 numbering, grid background with a glowing abstract block, symmetric cards, pill tabs, coloured dots, snappy fragment headlines, made-up people. They also wanted visible M365 logos and asked us not to claim "we know every setting".
+
+**Owner decision on logos:** use the real app logos, knowing it's outside Microsoft's published icon terms (we explained this twice; their call as owner). Logos come from Wikimedia Commons SVGs in `public/logos/`: Outlook, Exchange, Teams, SharePoint, OneDrive, Entra ID, Defender, Purview, Intune, Azure, Power Automate, Copilot, Power BI. Each was checked for scripts/external refs. Backup, Autopilot and Licensing have no logo.
+
+**What changed**
+- Hero: the animated block "F" and the grid background are gone; the right side now shows a grid of 8 app logos ("The Microsoft tools we look after every day"). Headline is calmer (Archivo 800, less tight, smaller). Lede is now "…for small UK businesses. It's all we work on."
+- "What we look after" (`WhatWeCover.jsx`): no tabs or cards; all 15 products are listed under plain category headings, with their logo, a one-liner and three bullets. Category blurbs are in `CAT_BLURBS` in `data.js`.
+- "How we help": no labels, no 01–04. Diagrams use the real logos (Exchange/SharePoint/OneDrive/Azure in migrate; Entra/Intune/Defender/Purview in security; Intune bar). Device names replaced with device types. The migration steps strip is now one sentence.
+- "How it starts" (`GettingStarted.jsx`): three short paragraphs instead of 01/02/03 cards.
+- Arrows removed from all buttons and links; all font-weight 900 → 800; smaller corners (6–12px); no shadows; menu labels match the section names.
+- Removed: `Hero` block animation and the `BLOCKS` data, `SVC_COLORS`, `public/icons/`.
+
+**Verified:** build passes; desktop full-page and 390px mobile screenshots checked; fixed the service buttons showing a grey default background.
+
+**Status:** committed on `light-theme`; not merged or pushed. Waiting for the owner.
+
+**Still worth doing (needs owner content):** a real photo, client quotes, location, years in business and a price guide would do more for the "not AI" feel than any styling.
+
 ## 2026-10-07 — Lighter, friendlier pages + new "What we cover" (branch `light-theme`)
 
 **Owner decisions**
