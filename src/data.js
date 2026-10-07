@@ -10,7 +10,11 @@ export const CATS = [
   { name: 'Secure', color: '#5ED1B6', items: [
     ['En', 'Entra ID', 'Who can sign in, from where, on what.', ['MFA for everyone, with no exceptions left open', 'Conditional Access blocking risky sign-ins', 'Joiners and leavers handled the same day']],
     ['Df', 'Defender', 'Threat protection for email, devices and accounts.', ['Defender for Business deployed to every device', 'Safe Links and Safe Attachments switched on', 'Alerts watched and acted on by us']],
-    ['Pv', 'Purview', 'Keep sensitive data where it belongs.', ['Sensitivity labels for confidential files', 'Data loss prevention for card and personal data', 'Retention set to meet UK GDPR']],
+    ['Pv', 'Purview', 'Keep sensitive data where it belongs.', ['Sensitivity labels for confidential files', 'Data loss prevention for card and personal data', 'Retention set to meet UK GDPR']]
+  ]},
+  { name: 'Essentials', color: '#2BA3D9', items: [
+    ['Dm', 'Domain hosting', 'Your domain names and DNS, looked after.', ['Domains registered and renewed so they never lapse', 'DNS records managed for your email and website', 'One place for it all, not logins scattered across old providers']],
+    ['Es', 'Email security', 'Phishing and spam stopped before they reach anyone.', ['Phishing, malware and impersonation filtering', 'SPF, DKIM and DMARC set up and monitored', 'Suspicious messages quarantined and checked']],
     ['Bk', 'Backup', 'Your Microsoft 365 data, recoverable.', ['Mail, OneDrive, SharePoint and Teams backed up daily', 'Restores of a file or a whole mailbox on request', 'Tested so it works when you need it']]
   ]},
   { name: 'Manage', color: '#F2B84B', items: [
@@ -52,6 +56,7 @@ export const LOGOS = {
 export const CAT_BLURBS = {
   Collaborate: 'Email, chat, meetings and files.',
   Secure: 'Sign-ins, threats and sensitive data.',
+  Essentials: 'Domains, email security and backups.',
   Manage: 'Laptops, phones, licences and cloud servers.',
   Automate: 'Less admin, better numbers, AI used sensibly.'
 };

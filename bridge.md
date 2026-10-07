@@ -1,5 +1,13 @@
 # Fixed365 site — working log
 
+## 2026-10-07 — New "Essentials" group (branch `essentials`)
+
+- Owner: "we also do domain hosting, backups and email security".
+- `data.js`: a new `Essentials` category (after Secure; blurb "Domains, email security and backups.") with new cards Domain hosting (`Dm`) and Email security (`Es`), plus Backup moved here from Secure. Every group now has 3–4 cards.
+- Line icons added in `WhatWeCover.jsx` (globe for domains, envelope + shield for email security); Microsoft has no logos for these.
+- The card wording was DRAFTED by us (no vendors or specifics claimed); the owner needs to confirm it. Open question: does Backup cover more than Microsoft 365 (laptops, servers)?
+- Status: on branch `essentials`, pushed as a branch (no deploy). Waiting for the owner's OK.
+
 ## 2026-10-07 — Intune diagram colours (branch `intune-colours`)
 
 - Owner: the orange "Compliant" badges didn't match the Intune logo. The logo is blue/cyan (brightest stop #35DDFF), so the Intune bar is a light cyan #E6FBFF (was orange #F2B84B), letting the logo stand out. "Compliant" badges: owner said they should be green, so they use Microsoft's success green #107C10 with white text. Checked on desktop and phone.
