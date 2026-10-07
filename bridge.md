@@ -6,6 +6,8 @@
 - `data.js`: a new `Essentials` category (after Secure; blurb "Domains, email security and backups.") with new cards Domain hosting (`Dm`) and Email security (`Es`), plus Backup moved here from Secure. Every group now has 3–4 cards.
 - Line icons added in `WhatWeCover.jsx` (globe for domains, envelope + shield for email security); Microsoft has no logos for these.
 - The card wording was DRAFTED by us (no vendors or specifics claimed); the owner needs to confirm it. Open question: does Backup cover more than Microsoft 365 (laptops, servers)?
+- LinkedIn company page added (https://www.linkedin.com/company/fixed-365/; clean URL, the admin tracking params stripped): a "Follow us on LinkedIn" row in the contact links, plus footer links (email, phone, LinkedIn now clickable).
+- Company status: NOT registered yet (owner, 2026-10-07) — so no company number or "Ltd" anywhere. Owner was told sole traders using a business name should show their own name + an address; their call, not added.
 - Status: on branch `essentials`, pushed as a branch (no deploy). Waiting for the owner's OK.
 
 ## 2026-10-07 — Intune diagram colours (branch `intune-colours`)

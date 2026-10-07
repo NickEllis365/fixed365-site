@@ -46,6 +46,7 @@ export default function Contact() {
           <div className="contact-links">
             <a href="tel:+447950428513">Call 07950 428513</a>
             <a href="mailto:hello@fixed365.co.uk">hello@fixed365.co.uk</a>
+            <a href="https://www.linkedin.com/company/fixed-365/" target="_blank" rel="noopener">Follow us on LinkedIn</a>
           </div>
         </div>
         <div className="contact-form-wrap">
