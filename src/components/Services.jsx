@@ -1,26 +1,40 @@
 import { useState } from 'react';
 import { SVCS, SVC_COLORS, TICKET, DEVICES } from '../data.js';
+import { darkBand } from '../theme.js';
+
+// Official Microsoft architecture icons (Azure and Entra icon sets), used in diagrams only.
+function Icon({ name, size = 20 }) {
+  return <img src={`/icons/${name}.svg`} alt="" width={size} height={size} className="ms-icon" />;
+}
 
 function Migrate() {
   return (
     <div className="diagram">
-      <div className="diagram-label">Moving you onto Microsoft 365</div>
+      <div className="diagram-label">Moving you onto Microsoft 365 and Azure</div>
       <div className="migrate-grid">
         <div className="migrate-sources">
           <div className="box">Old email server</div>
           <div className="box">Google Workspace</div>
           <div className="box">File shares &amp; USB drives</div>
+          <div className="box">Office server</div>
         </div>
         <div className="migrate-lines">
-          {[0, 0.7, 1.4].map(d => (
+          {[0, 0.55, 1.1, 1.65].map(d => (
             <div key={d} className="flow-line"><span className="flow-dot" style={{ animationDelay: d + 's' }} /></div>
           ))}
         </div>
-        <div className="migrate-target">
-          <div className="migrate-target-title">Microsoft 365</div>
-          {['Exchange', 'SharePoint', 'OneDrive'].map(n => (
-            <div key={n} className="migrate-target-row">{n} <span>✓</span></div>
-          ))}
+        <div className="migrate-targets">
+          <div className="migrate-target">
+            <div className="migrate-target-title">Microsoft 365</div>
+            {['Exchange', 'SharePoint', 'OneDrive'].map(n => (
+              <div key={n} className="migrate-target-row">{n} <span>✓</span></div>
+            ))}
+          </div>
+          <div className="azure-target">
+            <div className="migrate-target-title">Azure</div>
+            <div className="azure-row"><span><Icon name="azure-vm" />Virtual machines</span><span>✓</span></div>
+            <div className="azure-row"><span><Icon name="azure-virtual-desktop" />Azure Virtual Desktop</span><span>✓</span></div>
+          </div>
         </div>
       </div>
       <div className="step-strip">
@@ -33,18 +47,25 @@ function Migrate() {
 }
 
 function Secure() {
-  const layer = (name, detail) => (
-    <div className="layer-head"><span style={{ color: '#5ED1B6' }}>{name}</span><span className="layer-detail">{detail}</span></div>
+  const layer = (name, items) => (
+    <div className="layer-head">
+      <span className="layer-name">{name}</span>
+      <span className="layer-detail">
+        {items.map(([icon, label]) => (
+          <span key={label} className="layer-item">{icon && <Icon name={icon} />}{label}</span>
+        ))}
+      </span>
+    </div>
   );
   return (
     <div className="diagram">
       <div className="diagram-label">Security in layers</div>
       <div className="layer">
-        {layer('IDENTITY', 'MFA · Conditional Access · Entra ID')}
+        {layer('IDENTITY', [['entra-id', 'Entra ID'], [null, 'MFA'], [null, 'Conditional Access']])}
         <div className="layer" style={{ background: 'rgba(94,209,182,.06)' }}>
-          {layer('DEVICES', 'Intune compliance · Defender')}
+          {layer('DEVICES', [['intune', 'Intune compliance'], [null, 'Defender']])}
           <div className="layer" style={{ background: 'rgba(94,209,182,.1)' }}>
-            {layer('DATA', 'Purview · DLP · Backup')}
+            {layer('DATA', [[null, 'Purview'], [null, 'DLP'], [null, 'Backup']])}
             <div className="layer-core">Your business</div>
           </div>
         </div>
@@ -67,7 +88,7 @@ function Devices() {
       <div className="device-grid">
         {DEVICES.slice(0, 3).map((n, i) => device(n, i * 0.15))}
         <div className="intune-bar">
-          <span className="intune-title">Intune</span>
+          <span className="intune-title"><Icon name="intune" size={28} />Intune</span>
           <span className="intune-detail">Policies · Apps · Updates · Remote wipe</span>
         </div>
         {DEVICES.slice(3).map((n, i) => device(n, 0.45 + i * 0.15))}
@@ -104,7 +125,7 @@ export default function Services() {
   const Panel = PANELS[svc];
 
   return (
-    <section id="services" className="section section-dark">
+    <section id="services" className={"section section-dark" + darkBand}>
       <div className="section-inner">
         <div className="heading-group" style={{ maxWidth: 720 }}>
           <div className="eyebrow">How we help</div>
@@ -114,7 +135,7 @@ export default function Services() {
           <div className="svc-list">
             {SVCS.map(([title, line], i) => (
               <button key={title} type="button" className="svc-btn" onClick={() => setSvc(i)} aria-pressed={i === svc}
-                style={{ borderLeftColor: i === svc ? SVC_COLORS[i] : 'transparent', background: i === svc ? '#14212C' : 'transparent' }}>
+                style={{ borderLeftColor: i === svc ? SVC_COLORS[i] : 'transparent', background: i === svc ? 'var(--panel)' : 'transparent' }}>
                 <span className="svc-title">{title}<span className="svc-num">0{i + 1}</span></span>
                 <span className="svc-line">{line}</span>
               </button>

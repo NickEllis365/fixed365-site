@@ -58,8 +58,8 @@ export default function Contact() {
                   {SIZES.map((label, i) => (
                     <button key={label} type="button" onClick={() => setSize(i)} aria-pressed={i === size}
                       style={{
-                        borderColor: i === size ? '#2BA3D9' : '#3A5064', background: i === size ? '#2BA3D9' : '#101A23',
-                        color: i === size ? '#0B1219' : '#EEF3F6'
+                        borderColor: i === size ? '#2BA3D9' : 'var(--line-3)', background: i === size ? '#2BA3D9' : 'var(--bg)',
+                        color: i === size ? '#0B1219' : 'var(--text)'
                       }}>{label}</button>
                   ))}
                 </div>

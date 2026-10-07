@@ -42,8 +42,8 @@ export const DEVICES = ['Laptop · Sarah', 'Laptop · James', 'iPhone · Priya',
 export const SIZES = ['1–10', '11–25', '26–50', '50+'];
 
 export const BLOCKS = [
-  { l: 16.07, t: 16.07, w: 21.4, h: 67.9, c: '#EEF3F6', from: 'translate(-70px,50px) rotate(-14deg)' },
-  { l: 42.9, t: 16.07, w: 41.1, h: 19.6, c: '#EEF3F6', from: 'translate(90px,-60px) rotate(18deg)' },
-  { l: 42.9, t: 41.07, w: 26.8, h: 19.6, c: '#EEF3F6', from: 'translate(-40px,-100px) rotate(-24deg)' },
+  { l: 16.07, t: 16.07, w: 21.4, h: 67.9, c: 'var(--text)', from: 'translate(-70px,50px) rotate(-14deg)' },
+  { l: 42.9, t: 16.07, w: 41.1, h: 19.6, c: 'var(--text)', from: 'translate(90px,-60px) rotate(18deg)' },
+  { l: 42.9, t: 41.07, w: 26.8, h: 19.6, c: 'var(--text)', from: 'translate(-40px,-100px) rotate(-24deg)' },
   { l: 58.9, t: 64.3, w: 25, h: 19.6, c: '#2BA3D9', from: 'translate(130px,110px) rotate(40deg)' }
 ];

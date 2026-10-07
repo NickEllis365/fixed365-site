@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Logo from './Logo.jsx';
+import { darkBand } from '../theme.js';
 
 const LINKS = [['#stack', 'What we cover'], ['#services', 'How we help'], ['#start', 'Getting started']];
 
@@ -8,7 +9,7 @@ export default function Header() {
   const close = () => setOpen(false);
 
   return (
-    <header className="site-header">
+    <header className={"site-header" + darkBand}>
       <div className="header-bar">
         <a href="#top" className="brand"><Logo />Fixed365</a>
         <nav className="nav-wide">

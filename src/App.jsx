@@ -1,6 +1,6 @@
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
-import ProductTable from './components/ProductTable.jsx';
+import WhatWeCover from './components/WhatWeCover.jsx';
 import Services from './components/Services.jsx';
 import GettingStarted from './components/GettingStarted.jsx';
 import Contact from './components/Contact.jsx';
@@ -12,7 +12,7 @@ export default function App() {
       <Header />
       <main>
         <Hero />
-        <ProductTable />
+        <WhatWeCover />
         <Services />
         <GettingStarted />
         <Contact />

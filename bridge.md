@@ -1,5 +1,26 @@
 # Fixed365 site — working log
 
+## 2026-10-07 — Lighter, friendlier pages + new "What we cover" (branch `light-theme`)
+
+**Owner decisions**
+- Lighter site: owner picked the "light + dark bands" version and asked for it to be "more friendly".
+- "What we cover": owner didn't like the periodic-table style, so it was replaced.
+- Logos: official Microsoft icons only (Intune, Entra ID, Azure), inside the "How we help" diagrams.
+
+**What changed**
+- Theme: colours are now CSS variables (`src/styles.css`). The page is light (`class="theme-light"` on `<html>`); the header, hero, "How we help" and footer stay dark via `darkBand` in `src/theme.js`. The dark navy is a little bluer and softer than before. Category label colours are darkened automatically on light backgrounds (`color-mix`, falling back to the plain colour).
+- Friendlier: rounded corners (8/12/16/20px), soft shadows on light panels, pill tabs, rounded badges, a rounded contact card. Fonts unchanged (Archivo).
+- "What we cover" (`src/components/WhatWeCover.jsx`, replaces `ProductTable.jsx`): category pill tabs (Collaborate / Secure / Manage / Automate) and a card for each product showing its name, one line on what it is, three "what we do" points and an "Ask us about…" link. Same data as before (`CATS`).
+- Icons (`public/icons/`): Entra ID (Microsoft Entra icon set, Oct 2023), Intune, Azure Virtual Machine and Azure Virtual Desktop (Azure icon set V24). Used in Secure (identity: Entra ID; devices: Intune), Manage devices (Intune bar) and Migrate (a new "Office server → Azure" target with VM + AVD rows).
+- Microsoft has no diagram-use icons for SharePoint or OneDrive.
+
+**Licence caution**
+- Microsoft's icon terms allow use "in architectural diagrams, training materials, or documentation". The Entra page also says "Don't use Microsoft product icons in Marketing communications." A business website is arguably marketing even when the icons are inside diagrams. Flagged to the owner.
+
+**Verified:** `npm run build` passes; screenshots at desktop (all sections, all three icon diagrams) and at 390px mobile.
+
+**Status:** committed on branch `light-theme`, not merged or pushed. Waiting for the owner's OK.
+
 ## 2026-10-07 — Font/icon experiment reverted
 
 - Tried Fraunces headings (with Public Sans, then Archivo body text) plus official Microsoft architecture icons in the "How we help" diagrams. Owner asked to go fully back to the original v5 design.

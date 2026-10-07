@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { BLOCKS } from '../data.js';
+import { darkBand } from '../theme.js';
 
 function HeroMark({ built }) {
   return (
@@ -15,7 +16,7 @@ function HeroMark({ built }) {
           }} />
         );
       })}
-      <div style={{ position: 'absolute', inset: '8%', border: '1px dashed #2E4256', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', inset: '8%', border: '1px dashed var(--line-dash)', pointerEvents: 'none' }} />
     </>
   );
 }
@@ -41,7 +42,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="top" className="hero">
+    <section id="top" className={"hero" + darkBand}>
       <div className="hero-inner">
         <div className="hero-copy">
           <div className="eyebrow"><span className="eyebrow-dot" />Microsoft 365 &amp; cloud specialists</div>
