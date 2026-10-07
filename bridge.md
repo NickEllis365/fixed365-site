@@ -1,23 +1,27 @@
 # Fixed365 site — working log
 
-## 2026-10-07 — Redesign (abandoned) and phone number update
+## 2026-10-07 — v5 rebuilt as React (Vite)
 
-**Goal:** redesign `index.html` so it doesn't look AI-generated.
+**Task:** follow `v5-handoff/README.md` to rebuild `v5-handoff/design/Fixed365 Website v5.dc.html` as a React site, build it and push.
 
-**Decisions so far**
-- Direction: "local firm, real people". Warm off-white paper, serif headlines (Source Serif 4), Source Sans 3 body, one deep-green accent, hairline rules instead of coloured bands. No numbered cards, arrow-on-every-link or pill tags.
-- No team photos available, so it has to feel human through type, layout and specifics. Real phone number and company number to be supplied by the owner.
-- Stays a single static `index.html` (Azure Static Web Apps deploy unchanged).
+**What was done**
+- Vite + React 18 project at the repo root: `index.html` (Vite entry), `src/main.jsx`, `src/App.jsx`, `src/data.js` (CATS/SVCS/TICKET/SIZES/BLOCKS ported as-is), `src/styles.css`, and one component per section in `src/components/` (Header, Hero, ProductTable, Services, GettingStarted, Contact, Footer, Logo).
+- Hover states and the 900px breakpoint are in CSS (the design used JS width checks). Under 900px: hamburger menu, everything stacks, hero buttons go full-width (56px tall), and the product detail panel stops being sticky. Under 560px: the migration diagram stacks, there are 2 device columns, and team-size buttons go 2x2.
+- iOS/Safari: `-webkit-backdrop-filter`, `appearance: none` on inputs, 17px input text (stops iOS zooming in), square corners.
+- Added `prefers-reduced-motion` handling and a block-F `public/favicon.svg`.
+- Meta description: the design file has none, so I used the one from the old site.
+- Old single-file site moved to `legacy/index-v4.html` (outside the build).
+- Azure workflow: `output_location: "dist"` (`app_location` was already `/`). Azure's build step runs `npm run build`.
+- Node.js LTS installed for the user via winget (it wasn't on the machine).
 
-**Done**
-- Built a throwaway preview (session scratchpad, not in repo) and opened it in the browser for review.
-- The superpowers visual-preview server couldn't start because Node.js isn't installed. Used a standalone HTML file instead.
+**Verified**
+- `npm run build` passes (dist: about 160 kB JS / 52 kB gzipped).
+- Screenshots in headless Edge at 1366px desktop and in a true 390px frame: the layout matches the design and stacks cleanly on mobile.
 
-**Outcome**
-- Owner rejected the new-direction preview: they want to keep their existing design. Redesign dropped. `index.html` was never touched by it.
-- Owner supplied an updated `index.html` (from Downloads). The only change is the real phone number 07950 428513 on the contact "Call" link (`tel:+447950428513`). Copied in, committed and pushed.
+**Open items**
+- `WEB3FORMS_KEY` in `src/components/Contact.jsx` is EMPTY. Until a key is added, the form shows "Request sent." but sends nothing (same as the design). Get a free key at web3forms.com and paste it in.
+- Not tested on a real iPhone or Mac Safari.
 
-**Next steps / open items**
-- If asked again: keep the existing navy/blue design and only remove specific "AI-looking" details, each one approved first.
-- Company no. is still the placeholder `00000000` in the footer.
-- The health-check form doesn't submit anywhere yet. Separate job.
+## 2026-10-07 — Earlier: redesign abandoned, phone number update
+- A "local firm" restyle preview was rejected; the owner wants to keep their own design. Nothing from it was used.
+- Real phone number 07950 428513 added to the old `index.html` and pushed (commit f484df1).

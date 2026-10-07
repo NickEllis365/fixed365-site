@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fixed365 | Microsoft 365 &amp; cloud support for small businesses</title>
+<link rel="stylesheet" href="_ds/modernist-ebb3df9b-7171-41e1-b2e1-e99ddcb2c2b6/styles.css">
+<style>
+body{margin:0;background:#101A23;color:#EEF3F6;font-family:var(--font-body);-webkit-text-size-adjust:100%}
+*{box-sizing:border-box}
+a{color:#EEF3F6;text-decoration:none}a:hover{color:#7CCBEE}
+html{scroll-behavior:smooth}
+button,input{font-family:inherit}
+:focus-visible{outline:2px solid #2BA3D9;outline-offset:2px}
+@keyframes f365flow{0%{left:0;opacity:0}10%{opacity:1}90%{opacity:1}100%{left:calc(100% - 10px);opacity:0}}
+@keyframes f365up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes f365pulse{0%{box-shadow:0 0 0 0 rgba(43,163,217,.55)}100%{box-shadow:0 0 0 28px rgba(43,163,217,0)}}
+@keyframes f365pop{0%{opacity:0;transform:scale(.6)}100%{opacity:1;transform:scale(1)}}
+@keyframes f365fill{from{height:0}to{height:100%}}
+</style>
+</helmet>
+
+<header style="position:sticky;top:0;z-index:20;background:rgba(16,26,35,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #263646">
+  <div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 clamp(20px,4vw,40px);height:72px">
+    <a href="#top" style="display:flex;align-items:center;gap:12px;font-family:var(--font-heading);font-weight:800;font-size:24px;letter-spacing:-.02em;color:#EEF3F6">
+      <svg viewBox="22 22 56 56" style="width:34px;height:34px"><rect x="22" y="22" width="18" height="56" fill="#EEF3F6"></rect><rect x="44" y="22" width="34" height="16" fill="#EEF3F6"></rect><rect x="44" y="42" width="22" height="16" fill="#EEF3F6"></rect><rect x="58" y="62" width="20" height="16" fill="#2BA3D9"></rect></svg>
+      Fixed365
+    </a>
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <nav style="display:flex;align-items:center;gap:32px;font-size:16px;font-weight:600">
+        <a href="#stack" style="color:#B9C7D2">What we cover</a>
+        <a href="#services" style="color:#B9C7D2">How we help</a>
+        <a href="#start" style="color:#B9C7D2">Getting started</a>
+        <a href="#contact" style="display:flex;align-items:center;gap:10px;background:#2BA3D9;color:#0B1219;padding:12px 18px;font-weight:700" style-hover="background:#57B9E4;color:#0B1219">Free health check <span>→</span></a>
+      </nav>
+    </sc-if>
+    <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+      <button type="button" onClick="{{ toggleMenu }}" aria-label="Menu" style="width:48px;height:48px;border:1px solid #33475A;background:transparent;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer"><span style="width:20px;height:2px;background:#EEF3F6"></span><span style="width:20px;height:2px;background:#EEF3F6"></span><span style="width:20px;height:2px;background:#EEF3F6"></span></button>
+    </sc-if>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;flex-direction:column;border-top:1px solid #263646">
+      <a href="#stack" onClick="{{ closeMenu }}" style="padding:18px 20px;font-size:18px;font-weight:700;border-bottom:1px solid #263646">What we cover</a>
+      <a href="#services" onClick="{{ closeMenu }}" style="padding:18px 20px;font-size:18px;font-weight:700;border-bottom:1px solid #263646">How we help</a>
+      <a href="#start" onClick="{{ closeMenu }}" style="padding:18px 20px;font-size:18px;font-weight:700;border-bottom:1px solid #263646">Getting started</a>
+      <a href="#contact" onClick="{{ closeMenu }}" style="padding:18px 20px;font-size:18px;font-weight:700;background:#2BA3D9;color:#0B1219">Free health check →</a>
+    </div>
+  </sc-if>
+</header>
+
+<section id="top" data-screen-label="Hero" style="position:relative;overflow:hidden;border-bottom:1px solid #263646;background-image:linear-gradient(#1A2733 1px,transparent 1px),linear-gradient(90deg,#1A2733 1px,transparent 1px);background-size:56px 56px">
+  <div style="max-width:1280px;margin:0 auto;padding:clamp(56px,10vw,120px) clamp(20px,4vw,40px);display:flex;flex-wrap:wrap;align-items:center;gap:clamp(40px,6vw,80px)">
+    <div style="flex:1 1 460px;min-width:0;display:flex;flex-direction:column;gap:28px;animation:f365up .8s ease-out both">
+      <div style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7CCBEE"><span style="width:10px;height:10px;background:#2BA3D9"></span>Microsoft 365 &amp; cloud specialists</div>
+      <h1 style="margin:0;font-family:var(--font-heading);font-weight:900;font-size:clamp(44px,7vw,92px);line-height:.95;letter-spacing:-.045em;text-wrap:balance">Microsoft 365, set up right and kept that way.</h1>
+      <p style="margin:0;max-width:560px;font-size:clamp(18px,2vw,21px);line-height:1.55;color:#B9C7D2;text-wrap:pretty">We set up, secure and support Microsoft 365 and Azure for small UK businesses. Because it's all we work on, we know every setting.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <a href="#contact" style="display:flex;align-items:center;justify-content:space-between;gap:28px;min-width:min(260px,100%);background:#2BA3D9;color:#0B1219;padding:18px 22px;font-weight:700;font-size:17px" style-hover="background:#57B9E4;color:#0B1219">Book a free health check <span>→</span></a>
+        <a href="#stack" style="display:flex;align-items:center;gap:12px;padding:18px 22px;font-weight:700;font-size:17px;border:1px solid #3A5064" style-hover="border-color:#2BA3D9;color:#EEF3F6">See what we cover</a>
+      </div>
+    </div>
+    <div style="flex:1 1 340px;min-width:0;display:flex;justify-content:center">
+      <div onMouseEnter="{{ replay }}" onClick="{{ replay }}" style="width:min(100%,440px);aspect-ratio:1;position:relative;cursor:pointer">{{ heroMark }}</div>
+    </div>
+  </div>
+</section>
+
+<section id="stack" data-screen-label="Product table" style="border-bottom:1px solid #263646">
+  <div style="max-width:1280px;margin:0 auto;padding:clamp(56px,9vw,104px) clamp(20px,4vw,40px);display:flex;flex-direction:column;gap:48px">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px">
+      <div style="display:flex;flex-direction:column;gap:16px;max-width:680px">
+        <div style="font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7CCBEE">What we cover</div>
+        <h2 style="margin:0;font-family:var(--font-heading);font-weight:900;font-size:clamp(34px,5vw,60px);line-height:1;letter-spacing:-.04em;text-wrap:balance">The whole Microsoft 365 stack.</h2>
+      </div>
+      <p style="margin:0;max-width:380px;font-size:17px;line-height:1.55;color:#9FB0BF">Pick any product to see what we do with it.</p>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start">
+      <div style="flex:3 1 560px;min-width:0;display:flex;flex-direction:column;gap:14px">
+        <sc-for list="{{ cats }}" as="cat" hint-placeholder-count="4">
+          <div style="display:flex;flex-wrap:wrap;align-items:stretch;gap:10px">
+            <div style="flex:0 0 112px;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:4px 0">
+              <span style="width:24px;height:4px;background:{{ cat.color }}"></span>
+              <span style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#B9C7D2">{{ cat.name }}</span>
+            </div>
+            <sc-for list="{{ cat.items }}" as="it" hint-placeholder-count="4">
+              <button type="button" onClick="{{ it.pick }}" onMouseEnter="{{ it.pick }}" aria-pressed="{{ it.sel }}" style="width:clamp(72px,9vw,96px);aspect-ratio:1;padding:10px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;text-align:left;cursor:pointer;border:1px solid {{ it.border }};background:{{ it.bg }};color:{{ it.fg }};transform:{{ it.lift }};transition:background .25s,color .25s,transform .25s,border-color .25s">
+                <span style="font-size:11px;font-weight:600;opacity:.75">{{ it.num }}</span>
+                <span style="font-family:var(--font-heading);font-weight:900;font-size:clamp(24px,3vw,32px);line-height:1;letter-spacing:-.03em">{{ it.sym }}</span>
+                <span style="font-size:10px;font-weight:600;line-height:1.15;opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%">{{ it.short }}</span>
+              </button>
+            </sc-for>
+          </div>
+        </sc-for>
+      </div>
+      <div style="flex:2 1 340px;min-width:0;position:sticky;top:96px">
+        <div key="{{ cur.sym }}" style="border:1px solid #2C3E50;background:#14212C;display:flex;flex-direction:column;animation:f365up .45s ease-out both">
+          <div style="display:flex;align-items:center;gap:20px;padding:28px;border-bottom:1px solid #2C3E50">
+            <div style="width:88px;height:88px;flex:0 0 88px;background:{{ cur.color }};color:#0B1219;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:900;font-size:40px;letter-spacing:-.03em">{{ cur.sym }}</div>
+            <div style="display:flex;flex-direction:column;gap:6px;min-width:0">
+              <span style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:{{ cur.color }}">{{ cur.cat }}</span>
+              <span style="font-family:var(--font-heading);font-weight:800;font-size:28px;line-height:1.05;letter-spacing:-.02em">{{ cur.name }}</span>
+            </div>
+          </div>
+          <p style="margin:0;padding:24px 28px 8px;font-size:17px;line-height:1.55;color:#B9C7D2">{{ cur.what }}</p>
+          <div style="display:flex;flex-direction:column;padding:8px 28px 24px">
+            <sc-for list="{{ cur.we }}" as="w" hint-placeholder-count="3">
+              <div style="display:flex;gap:14px;align-items:baseline;padding:14px 0;border-bottom:1px solid #22323F;font-size:16px;line-height:1.45"><span style="width:8px;height:8px;flex:0 0 8px;background:{{ cur.color }};transform:translateY(-2px)"></span>{{ w }}</div>
+            </sc-for>
+          </div>
+          <a href="#contact" style="display:flex;justify-content:space-between;align-items:center;padding:20px 28px;border-top:1px solid #2C3E50;font-weight:700" style-hover="background:#1B2A37;color:#EEF3F6">Ask us about {{ cur.name }} <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" data-screen-label="Service diagrams" style="border-bottom:1px solid #263646;background:#0C151D">
+  <div style="max-width:1280px;margin:0 auto;padding:clamp(56px,9vw,104px) clamp(20px,4vw,40px);display:flex;flex-direction:column;gap:48px">
+    <div style="display:flex;flex-direction:column;gap:16px;max-width:720px">
+      <div style="font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7CCBEE">How we help</div>
+      <h2 style="margin:0;font-family:var(--font-heading);font-weight:900;font-size:clamp(34px,5vw,60px);line-height:1;letter-spacing:-.04em;text-wrap:balance">Four services, start to finish.</h2>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:32px;align-items:stretch">
+      <div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;border-top:1px solid #2C3E50">
+        <sc-for list="{{ svcs }}" as="s" hint-placeholder-count="4">
+          <button type="button" onClick="{{ s.pick }}" style="display:flex;flex-direction:column;gap:8px;text-align:left;padding:22px 20px;border:none;border-bottom:1px solid #2C3E50;border-left:4px solid {{ s.edge }};background:{{ s.bg }};color:#EEF3F6;cursor:pointer;transition:background .2s,border-color .2s">
+            <span style="display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--font-heading);font-weight:800;font-size:22px;letter-spacing:-.02em">{{ s.title }}<span style="font-size:14px;font-weight:600;color:#7CCBEE">{{ s.num }}</span></span>
+            <span style="font-size:15px;line-height:1.5;color:#9FB0BF">{{ s.line }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <div style="flex:2 1 520px;min-width:0;border:1px solid #2C3E50;background:#101A23;padding:clamp(20px,4vw,40px);display:flex;flex-direction:column;gap:28px;min-height:460px">
+        <sc-if value="{{ svc0 }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:28px;animation:f365up .5s ease-out both">
+            <div style="font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#9FB0BF">Moving you onto Microsoft 365</div>
+            <div style="display:grid;grid-template-columns:minmax(0,1.1fr) minmax(40px,1fr) minmax(0,1.2fr);gap:12px;align-items:center">
+              <div style="display:flex;flex-direction:column;gap:12px">
+                <div style="border:1px solid #3A5064;padding:14px;font-size:15px;font-weight:600">Old email server</div>
+                <div style="border:1px solid #3A5064;padding:14px;font-size:15px;font-weight:600">Google Workspace</div>
+                <div style="border:1px solid #3A5064;padding:14px;font-size:15px;font-weight:600">File shares &amp; USB drives</div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:12px;height:100%;justify-content:space-around">
+                <div style="position:relative;height:2px;background:#2C3E50"><span style="position:absolute;top:-4px;width:10px;height:10px;background:#2BA3D9;animation:f365flow 2.2s linear infinite"></span></div>
+                <div style="position:relative;height:2px;background:#2C3E50"><span style="position:absolute;top:-4px;width:10px;height:10px;background:#2BA3D9;animation:f365flow 2.2s linear .7s infinite"></span></div>
+                <div style="position:relative;height:2px;background:#2C3E50"><span style="position:absolute;top:-4px;width:10px;height:10px;background:#2BA3D9;animation:f365flow 2.2s linear 1.4s infinite"></span></div>
+              </div>
+              <div style="background:#2BA3D9;color:#0B1219;padding:18px;display:flex;flex-direction:column;gap:10px">
+                <div style="font-family:var(--font-heading);font-weight:900;font-size:22px;letter-spacing:-.02em">Microsoft 365</div>
+                <div style="display:flex;justify-content:space-between;font-size:14px;font-weight:700;border-top:1px solid rgba(11,18,25,.25);padding-top:8px">Exchange <span>✓</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:14px;font-weight:700;border-top:1px solid rgba(11,18,25,.25);padding-top:8px">SharePoint <span>✓</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:14px;font-weight:700;border-top:1px solid rgba(11,18,25,.25);padding-top:8px">OneDrive <span>✓</span></div>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:#2C3E50;border:1px solid #2C3E50">
+              <div style="background:#101A23;padding:16px;display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;color:#7CCBEE;font-weight:700">01</span><span style="font-size:15px;line-height:1.4">Plan around how you work</span></div>
+              <div style="background:#101A23;padding:16px;display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;color:#7CCBEE;font-weight:700">02</span><span style="font-size:15px;line-height:1.4">Copy mail and files in the background</span></div>
+              <div style="background:#101A23;padding:16px;display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;color:#7CCBEE;font-weight:700">03</span><span style="font-size:15px;line-height:1.4">Switch over out of hours</span></div>
+            </div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ svc1 }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:28px;animation:f365up .5s ease-out both">
+            <div style="font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#9FB0BF">Security in layers</div>
+            <div style="border:1px solid #5ED1B6;padding:clamp(14px,3vw,24px);display:flex;flex-direction:column;gap:12px">
+              <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:14px;font-weight:700"><span style="color:#5ED1B6">IDENTITY</span><span style="color:#9FB0BF;font-weight:500">MFA · Conditional Access · Entra ID</span></div>
+              <div style="border:1px solid #5ED1B6;background:rgba(94,209,182,.06);padding:clamp(14px,3vw,24px);display:flex;flex-direction:column;gap:12px">
+                <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:14px;font-weight:700"><span style="color:#5ED1B6">DEVICES</span><span style="color:#9FB0BF;font-weight:500">Intune compliance · Defender</span></div>
+                <div style="border:1px solid #5ED1B6;background:rgba(94,209,182,.1);padding:clamp(14px,3vw,24px);display:flex;flex-direction:column;gap:12px">
+                  <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:14px;font-weight:700"><span style="color:#5ED1B6">DATA</span><span style="color:#9FB0BF;font-weight:500">Purview · DLP · Backup</span></div>
+                  <div style="background:#5ED1B6;color:#0B1219;padding:20px;font-family:var(--font-heading);font-weight:900;font-size:22px;letter-spacing:-.02em;animation:f365pulse 2s ease-out infinite">Your business</div>
+                </div>
+              </div>
+            </div>
+            <p style="margin:0;font-size:16px;line-height:1.55;color:#B9C7D2">Each layer stops what gets past the one before. We set them to Microsoft's own security baselines, then check them every month.</p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ svc2 }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:28px;animation:f365up .5s ease-out both">
+            <div style="font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#9FB0BF">Every device, managed from one place</div>
+            <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
+              <sc-for list="{{ devicesTop }}" as="d" hint-placeholder-count="3">
+                <div style="border:1px solid #3A5064;padding:14px;display:flex;flex-direction:column;gap:10px;animation:f365pop .4s ease-out both;animation-delay:{{ d.delay }}"><span style="font-size:15px;font-weight:700">{{ d.name }}</span><span style="align-self:flex-start;font-size:12px;font-weight:700;background:#F2B84B;color:#0B1219;padding:3px 8px">Compliant ✓</span></div>
+              </sc-for>
+              <div style="grid-column:1 / 4;background:#F2B84B;color:#0B1219;padding:20px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px">
+                <span style="font-family:var(--font-heading);font-weight:900;font-size:24px;letter-spacing:-.02em">Intune</span>
+                <span style="font-size:14px;font-weight:700">Policies · Apps · Updates · Remote wipe</span>
+              </div>
+              <sc-for list="{{ devicesBottom }}" as="d" hint-placeholder-count="3">
+                <div style="border:1px solid #3A5064;padding:14px;display:flex;flex-direction:column;gap:10px;animation:f365pop .4s ease-out both;animation-delay:{{ d.delay }}"><span style="font-size:15px;font-weight:700">{{ d.name }}</span><span style="align-self:flex-start;font-size:12px;font-weight:700;background:#F2B84B;color:#0B1219;padding:3px 8px">Compliant ✓</span></div>
+              </sc-for>
+            </div>
+            <p style="margin:0;font-size:16px;line-height:1.55;color:#B9C7D2">New laptops arrive ready to use with Autopilot. A lost phone can be wiped in minutes, and updates install without anyone chasing them.</p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ svc3 }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:28px;animation:f365up .5s ease-out both">
+            <div style="font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#9FB0BF">Example ticket</div>
+            <div style="display:flex;gap:24px">
+              <div style="width:4px;background:#2C3E50;position:relative;flex:0 0 4px"><span style="position:absolute;left:0;top:0;width:4px;background:#B49CF0;animation:f365fill 2.4s ease-out both"></span></div>
+              <div style="display:flex;flex-direction:column;flex:1;min-width:0">
+                <sc-for list="{{ ticket }}" as="t" hint-placeholder-count="4">
+                  <div style="display:flex;gap:20px;align-items:baseline;padding:18px 0;border-bottom:1px solid #22323F;animation:f365up .45s ease-out both;animation-delay:{{ t.delay }}">
+                    <span style="font-family:var(--font-heading);font-weight:800;font-size:20px;color:#B49CF0;flex:0 0 64px">{{ t.time }}</span>
+                    <span style="font-size:16px;line-height:1.45">{{ t.text }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+            <p style="margin:0;font-size:16px;line-height:1.55;color:#B9C7D2">You talk to an engineer who knows your setup. No call centre, no ticket bouncing between teams.</p>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="start" data-screen-label="Getting started" style="border-bottom:1px solid #263646">
+  <div style="max-width:1280px;margin:0 auto;padding:clamp(56px,9vw,104px) clamp(20px,4vw,40px);display:flex;flex-direction:column;gap:48px">
+    <div style="display:flex;flex-direction:column;gap:16px;max-width:720px">
+      <div style="font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7CCBEE">Getting started</div>
+      <h2 style="margin:0;font-family:var(--font-heading);font-weight:900;font-size:clamp(34px,5vw,60px);line-height:1;letter-spacing:-.04em;text-wrap:balance">Three steps, no long contracts.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1px;background:#2C3E50;border:1px solid #2C3E50">
+      <div style="background:#101A23;padding:32px;display:flex;flex-direction:column;gap:16px;min-height:240px">
+        <span style="font-family:var(--font-heading);font-weight:900;font-size:56px;line-height:1;color:#2BA3D9;letter-spacing:-.04em">01</span>
+        <span style="font-family:var(--font-heading);font-weight:800;font-size:24px;letter-spacing:-.02em">Free health check</span>
+        <span style="font-size:16px;line-height:1.55;color:#9FB0BF">We review your tenant's security, licences and setup, then talk you through what we find.</span>
+      </div>
+      <div style="background:#101A23;padding:32px;display:flex;flex-direction:column;gap:16px;min-height:240px">
+        <span style="font-family:var(--font-heading);font-weight:900;font-size:56px;line-height:1;color:#2BA3D9;letter-spacing:-.04em">02</span>
+        <span style="font-family:var(--font-heading);font-weight:800;font-size:24px;letter-spacing:-.02em">Fix what matters</span>
+        <span style="font-size:16px;line-height:1.55;color:#9FB0BF">A fixed-price plan for the gaps, done in the order that reduces your risk fastest.</span>
+      </div>
+      <div style="background:#101A23;padding:32px;display:flex;flex-direction:column;gap:16px;min-height:240px">
+        <span style="font-family:var(--font-heading);font-weight:900;font-size:56px;line-height:1;color:#2BA3D9;letter-spacing:-.04em">03</span>
+        <span style="font-family:var(--font-heading);font-weight:800;font-size:24px;letter-spacing:-.02em">Kept fixed</span>
+        <span style="font-size:16px;line-height:1.55;color:#9FB0BF">Monthly support per user: help desk, monitoring and changes as Microsoft updates things.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" data-screen-label="Contact" style="border-bottom:1px solid #263646">
+  <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap">
+    <div style="flex:1 1 420px;min-width:0;padding:clamp(56px,9vw,104px) clamp(20px,4vw,40px);display:flex;flex-direction:column;gap:28px;background:#2BA3D9;color:#0B1219">
+      <h2 style="margin:0;font-family:var(--font-heading);font-weight:900;font-size:clamp(38px,5.5vw,68px);line-height:.98;letter-spacing:-.04em;text-wrap:balance">Book your free health check.</h2>
+      <p style="margin:0;max-width:480px;font-size:18px;line-height:1.55">Thirty minutes on a call. You get a clear list of what's right, what's risky and what it would take to fix.</p>
+      <div style="display:flex;flex-direction:column;border-top:2px solid #0B1219;margin-top:auto">
+        <a href="tel:+447950428513" style="display:flex;justify-content:space-between;padding:18px 0;border-bottom:2px solid #0B1219;font-weight:700;font-size:18px;color:#0B1219" style-hover="color:#0B1219;padding-left:8px">Call 07950 428513 <span>→</span></a>
+        <a href="mailto:hello@fixed365.co.uk" style="display:flex;justify-content:space-between;padding:18px 0;border-bottom:2px solid #0B1219;font-weight:700;font-size:18px;color:#0B1219" style-hover="color:#0B1219;padding-left:8px">hello@fixed365.co.uk <span>→</span></a>
+      </div>
+    </div>
+    <div style="flex:1 1 420px;min-width:0;padding:clamp(56px,9vw,104px) clamp(20px,4vw,40px);background:#14212C">
+      <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:18px">
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:15px;font-weight:700">Your name<input name="name" required="required" style="height:56px;padding:0 16px;border:1px solid #3A5064;background:#101A23;color:#EEF3F6;font-size:17px;border-radius:0"></input></label>
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:15px;font-weight:700">Work email<input name="email" type="email" required="required" style="height:56px;padding:0 16px;border:1px solid #3A5064;background:#101A23;color:#EEF3F6;font-size:17px;border-radius:0"></input></label>
+          <label style="display:flex;flex-direction:column;gap:8px;font-size:15px;font-weight:700">Company<input name="company" style="height:56px;padding:0 16px;border:1px solid #3A5064;background:#101A23;color:#EEF3F6;font-size:17px;border-radius:0"></input></label>
+          <div style="display:flex;flex-direction:column;gap:8px;font-size:15px;font-weight:700">Team size
+            <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px">
+              <sc-for list="{{ sizes }}" as="z" hint-placeholder-count="4">
+                <button type="button" onClick="{{ z.pick }}" style="height:52px;border:1px solid {{ z.border }};background:{{ z.bg }};color:{{ z.fg }};font-weight:700;font-size:16px;cursor:pointer">{{ z.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+          <button type="submit" style="height:60px;margin-top:8px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;border:none;background:#EEF3F6;color:#0B1219;font-weight:800;font-size:17px;cursor:pointer" style-hover="background:#2BA3D9">{{ submitLabel }} <span>→</span></button>
+          <sc-if value="{{ err }}" hint-placeholder-val="{{ false }}"><div style="font-size:15px;color:#F2B84B">Something went wrong. Please call or email us instead.</div></sc-if>
+        </form>
+      </sc-if>
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:16px;animation:f365up .5s ease-out both">
+          <svg viewBox="22 22 56 56" style="width:56px;height:56px"><rect x="22" y="22" width="18" height="56" fill="#EEF3F6"></rect><rect x="44" y="22" width="34" height="16" fill="#EEF3F6"></rect><rect x="44" y="42" width="22" height="16" fill="#EEF3F6"></rect><rect x="58" y="62" width="20" height="16" fill="#2BA3D9"></rect></svg>
+          <div style="font-family:var(--font-heading);font-weight:900;font-size:40px;letter-spacing:-.03em">Request sent.</div>
+          <div style="font-size:17px;line-height:1.55;color:#B9C7D2">We'll email you within one working day to book a time.</div>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<footer style="padding:40px clamp(20px,4vw,40px)">
+  <div style="max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-size:14px;color:#9FB0BF">
+    <span>© 2026 Fixed365. Microsoft 365 &amp; cloud support for small businesses.</span>
+    <span>hello@fixed365.co.uk · 07950 428513</span>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const CATS = [
+  { name: 'Collaborate', color: '#2BA3D9', items: [
+    ['Ex', 'Exchange Online', 'Email, calendars and shared mailboxes that just work.', ['Mailboxes, shared inboxes and distribution lists set up properly', 'Spam, phishing and spoofing protection tuned (SPF, DKIM, DMARC)', 'Moves from old servers or Google with no lost mail']],
+    ['Tm', 'Teams', 'Chat, meetings and calling in one place.', ['Teams and channels structured around how you work', 'Guest access and external sharing kept under control', 'Teams Phone and meeting rooms configured']],
+    ['Sp', 'SharePoint', 'Company files and intranet, organised.', ['Sites and libraries laid out so people find things', 'Permissions that match your teams, not one big free-for-all', 'File server and Dropbox migrations']],
+    ['Od', 'OneDrive', 'Every user\'s files, synced and backed up.', ['Desktop and Documents redirected automatically', 'Sync health monitored across every device', 'Sharing links set to sensible defaults']]
+  ]},
+  { name: 'Secure', color: '#5ED1B6', items: [
+    ['En', 'Entra ID', 'Who can sign in, from where, on what.', ['MFA for everyone, with no exceptions left open', 'Conditional Access blocking risky sign-ins', 'Joiners and leavers handled the same day']],
+    ['Df', 'Defender', 'Threat protection for email, devices and accounts.', ['Defender for Business deployed to every device', 'Safe Links and Safe Attachments switched on', 'Alerts watched and acted on by us']],
+    ['Pv', 'Purview', 'Keep sensitive data where it belongs.', ['Sensitivity labels for confidential files', 'Data loss prevention for card and personal data', 'Retention set to meet UK GDPR']],
+    ['Bk', 'Backup', 'Your Microsoft 365 data, recoverable.', ['Mail, OneDrive, SharePoint and Teams backed up daily', 'Restores of a file or a whole mailbox on request', 'Tested so it works when you need it']]
+  ]},
+  { name: 'Manage', color: '#F2B84B', items: [
+    ['In', 'Intune', 'Every laptop and phone, managed centrally.', ['Security policies and BitLocker on every laptop', 'Apps and updates pushed automatically', 'Lost device? Locked or wiped in minutes']],
+    ['Ap', 'Autopilot', 'New laptops ready straight out of the box.', ['Ship a laptop direct to a new starter', 'They sign in and everything installs itself', 'No imaging, no setup visits']],
+    ['Lc', 'Licensing', 'Pay for what you use, nothing more.', ['Right plan for each person (Basic, Standard, Premium)', 'Unused licences found and removed', 'Renewals and changes handled for you']],
+    ['Az', 'Azure', 'Cloud servers and storage, without the server room.', ['Old on-site servers moved to Azure', 'Azure Virtual Desktop for remote working', 'Spend limits and cost alerts set up']]
+  ]},
+  { name: 'Automate', color: '#B49CF0', items: [
+    ['Pa', 'Power Automate', 'Repetitive admin, done automatically.', ['Approvals, forms and notifications automated', 'Connect Microsoft 365 to the apps you already use', 'Built and documented by us']],
+    ['Cp', 'Copilot', 'Microsoft\'s AI, rolled out safely.', ['Data permissions checked before switching it on', 'Licences for the people who\'ll actually use it', 'Practical training for your team']],
+    ['Bi', 'Power BI', 'Your numbers in one dashboard.', ['Reports from Excel, SharePoint and your systems', 'Shared securely inside Microsoft 365', 'Refreshed automatically']]
+  ]}
+];
+const SVCS = [
+  ['Migrate', 'Move email and files onto Microsoft 365 with no downtime.'],
+  ['Secure', 'Lock down accounts, devices and data in layers.'],
+  ['Manage devices', 'Every laptop and phone set up, patched and protected.'],
+  ['Support', 'A real engineer who knows your setup, when you need one.']
+];
+const TICKET = [['09:02', 'You report Outlook not syncing'], ['09:06', 'Picked up by your Fixed365 engineer'], ['09:19', 'Remote session, cause found'], ['09:41', 'Fixed and confirmed with you']];
+const SIZES = ['1–10', '11–25', '26–50', '50+'];
+const WEB3FORMS_KEY = '';
+const BLOCKS = [
+  { l: 16.07, t: 16.07, w: 21.4, h: 67.9, c: '#EEF3F6', from: 'translate(-70px,50px) rotate(-14deg)' },
+  { l: 42.9, t: 16.07, w: 41.1, h: 19.6, c: '#EEF3F6', from: 'translate(90px,-60px) rotate(18deg)' },
+  { l: 42.9, t: 41.07, w: 26.8, h: 19.6, c: '#EEF3F6', from: 'translate(-40px,-100px) rotate(-24deg)' },
+  { l: 58.9, t: 64.3, w: 25, h: 19.6, c: '#2BA3D9', from: 'translate(130px,110px) rotate(40deg)' }
+];
+
+class Component extends DCLogic {
+  state = { w: typeof window !== 'undefined' ? window.innerWidth : 1280, menu: false, prod: 'In', svc: 0, built: false, size: 0, sent: false, sending: false, err: false, svcKey: 0 };
+  componentDidMount() {
+    this._r = () => this.setState({ w: window.innerWidth });
+    window.addEventListener('resize', this._r); this._r();
+    this._t = setTimeout(() => this.setState({ built: true }), 250);
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this._r); clearTimeout(this._t); }
+  replay = () => {
+    if (this._busy) return; this._busy = true;
+    this.setState({ built: false });
+    setTimeout(() => this.setState({ built: true }), 380);
+    setTimeout(() => { this._busy = false; }, 2200);
+  };
+  submit = async (e) => {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    if (!WEB3FORMS_KEY) { this.setState({ sent: true }); return; }
+    this.setState({ sending: true, err: false });
+    try {
+      const body = { access_key: WEB3FORMS_KEY, subject: 'New health check request', from_name: 'Fixed365 website', name: fd.get('name'), email: fd.get('email'), company: fd.get('company'), team_size: SIZES[this.state.size] };
+      const r = await fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(body) });
+      const j = await r.json();
+      this.setState(j.success ? { sent: true, sending: false } : { err: true, sending: false });
+    } catch (_) { this.setState({ err: true, sending: false }); }
+  };
+  heroMark() {
+    const b = this.state.built;
+    return React.createElement(React.Fragment, null,
+      ...BLOCKS.map((k, i) => React.createElement('div', { key: i, style: {
+        position: 'absolute', left: k.l + '%', top: k.t + '%', width: k.w + '%', height: k.h + '%', background: k.c,
+        transform: b ? 'none' : k.from, opacity: b ? 1 : 0,
+        transition: `transform 900ms cubic-bezier(.2,.9,.25,1.15) ${b ? (i === 3 ? 900 : i * 140) : 0}ms, opacity 500ms ease ${b ? (i === 3 ? 900 : i * 140) : 0}ms`,
+        boxShadow: i === 3 && b ? '0 0 60px rgba(43,163,217,.45)' : 'none'
+      } })),
+      React.createElement('div', { key: 'f', style: { position: 'absolute', inset: '8%', border: '1px dashed #2E4256', pointerEvents: 'none' } })
+    );
+  }
+  renderVals() {
+    const s = this.state, wide = s.w >= 900;
+    let cur = null;
+    const cats = CATS.map(c => ({ name: c.name, color: c.color, items: c.items.map((it, i) => {
+      const sel = it[0] === s.prod;
+      const o = { sym: it[0], name: it[1], what: it[2], we: it[3], cat: c.name, color: c.color };
+      if (sel) cur = o;
+      return { sym: it[0], short: it[1], num: String(CATS.indexOf(c) * 4 + i + 1).padStart(2, '0'), sel,
+        bg: sel ? c.color : '#14212C', fg: sel ? '#0B1219' : '#EEF3F6', border: sel ? c.color : '#2C3E50',
+        lift: sel ? 'translateY(-4px)' : 'none', pick: () => this.state.prod !== it[0] && this.setState({ prod: it[0] }) };
+    }) }));
+    const svcColors = ['#2BA3D9', '#5ED1B6', '#F2B84B', '#B49CF0'];
+    const dev = ['Laptop · Sarah', 'Laptop · James', 'iPhone · Priya', 'Laptop · Tom', 'Android · Mia', 'Surface · Office'];
+    return {
+      wide, narrow: !wide, menuOpen: !wide && s.menu,
+      toggleMenu: () => this.setState(x => ({ menu: !x.menu })), closeMenu: () => this.setState({ menu: false }),
+      heroMark: this.heroMark(), replay: this.replay,
+      cats, cur,
+      svcs: SVCS.map((v, i) => ({ title: v[0], line: v[1], num: '0' + (i + 1), bg: i === s.svc ? '#14212C' : 'transparent', edge: i === s.svc ? svcColors[i] : 'transparent', pick: () => this.setState({ svc: i }) })),
+      svc0: s.svc === 0, svc1: s.svc === 1, svc2: s.svc === 2, svc3: s.svc === 3,
+      devicesTop: dev.slice(0, 3).map((n, i) => ({ name: n, delay: (i * 0.15) + 's' })),
+      devicesBottom: dev.slice(3).map((n, i) => ({ name: n, delay: (0.45 + i * 0.15) + 's' })),
+      ticket: TICKET.map((t, i) => ({ time: t[0], text: t[1], delay: (i * 0.5) + 's' })),
+      sizes: SIZES.map((l, i) => ({ label: l, bg: i === s.size ? '#2BA3D9' : '#101A23', fg: i === s.size ? '#0B1219' : '#EEF3F6', border: i === s.size ? '#2BA3D9' : '#3A5064', pick: () => this.setState({ size: i }) })),
+      submit: this.submit, sent: s.sent, notSent: !s.sent, err: s.err,
+      submitLabel: s.sending ? 'Sending…' : 'Request my health check'
+    };
+  }
+}
+</script>
+</body>
+</html>
