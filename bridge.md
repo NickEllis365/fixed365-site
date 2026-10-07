@@ -1,5 +1,7 @@
 # Fixed365 site — working log
 
+## 2026-10-07 — LIVE: `light-theme` merged into `main` (29db083) and deployed to Azure; deploy succeeded and the live site serves the new build and logos.
+
 ## 2026-10-07 — Interactive product cards in "What we look after" (branch `light-theme`)
 
 - Owner: the logos look great, but there were too many words; they want interactive cards.
@@ -25,7 +27,7 @@
 
 **Verified:** build passes; desktop full-page and 390px mobile screenshots checked; fixed the service buttons showing a grey default background.
 
-**Status:** committed on `light-theme`; not merged or pushed. Waiting for the owner.
+**Status:** live (see top entry).
 
 **Still worth doing (needs owner content):** a real photo, client quotes, location, years in business and a price guide would do more for the "not AI" feel than any styling.
 
