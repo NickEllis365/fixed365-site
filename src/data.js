@@ -56,10 +56,11 @@ export const CAT_BLURBS = {
   Automate: 'Less admin, better numbers, AI used sensibly.'
 };
 
-// Logos shown in the hero.
+// Logos in the hero carousel (scrolls in this order, then loops).
 export const HERO_LOGOS = [
   ['outlook', 'Outlook'], ['teams', 'Teams'], ['sharepoint', 'SharePoint'], ['onedrive', 'OneDrive'],
-  ['entra-id', 'Entra ID'], ['intune', 'Intune'], ['defender', 'Defender'], ['azure', 'Azure']
+  ['exchange', 'Exchange'], ['entra-id', 'Entra ID'], ['intune', 'Intune'], ['defender', 'Defender'], ['purview', 'Purview'],
+  ['azure', 'Azure'], ['power-automate', 'Power Automate'], ['power-bi', 'Power BI'], ['copilot', 'Copilot']
 ];
 
 // Blocks of the interactive "F" in the hero: position/size in %, colour, and where each flies in from.

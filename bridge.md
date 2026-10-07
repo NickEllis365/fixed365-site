@@ -1,5 +1,15 @@
 # Fixed365 site — working log
 
+## 2026-10-07 — Hero logo carousel (branch `logo-carousel`)
+
+- Owner asked for the "Microsoft tools we look after every day" logos to be a carousel.
+- `Hero.jsx` renders `HERO_LOGOS` twice inside `.logo-marquee`; `.logo-track` slides left by 50% over 45s and loops seamlessly (CSS only; spacing is per-item padding so the halves match). It pauses on hover, and the edges fade via `mask-image` (with the `-webkit-` prefix for Safari). The duplicate copy is `aria-hidden`.
+- Reduced motion: no animation; a wrapped static row showing each logo once.
+- `HERO_LOGOS` now has all 13 logos (added Exchange, Purview, Power Automate, Power BI, Copilot).
+- Phones: one scrolling row instead of a 4×2 grid, so the hero is shorter.
+- Verified: build passes; desktop and 500px screenshots (headless can't show the motion; the owner checks it in the browser).
+- Status: on branch `logo-carousel`, pushed as a branch (no deploy). Waiting for the owner's OK.
+
 ## 2026-10-07 — Mobile: compact "What we look after" (branch `mobile-tweaks`)
 
 - Owner: on mobile the section took up too much space (about a third of the page).

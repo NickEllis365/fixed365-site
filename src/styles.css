@@ -116,16 +116,24 @@ button { -webkit-tap-highlight-color: transparent; }
 .hero-mark { width: min(100%, 400px); aspect-ratio: 1; position: relative; cursor: pointer; }
 .hero-logos { flex: 1 1 100%; min-width: 0; }
 .hero-logos-label { margin: 0 0 16px; font-size: 15px; color: var(--muted-2); }
-.logo-grid {
-  list-style: none; margin: 0; padding: 0;
-  display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 1px;
-  background: var(--line); border: 1px solid var(--line); border-radius: var(--r-sm); overflow: hidden;
+.logo-marquee {
+  overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
-.logo-grid li {
-  background: var(--bg); padding: 20px 8px 16px; display: flex; flex-direction: column; align-items: center; gap: 10px;
+/* Two copies of the list sit side by side; sliding left by exactly half loops seamlessly.
+   Spacing is per-item padding (not gap) so the halves are identical widths. */
+.logo-track {
+  list-style: none; margin: 0; padding: 0; display: flex; width: max-content;
+  animation: f365marquee 45s linear infinite;
+}
+.logo-marquee:hover .logo-track { animation-play-state: paused; }
+.logo-track li {
+  flex: none; width: 132px; padding: 20px 8px 16px; display: flex; flex-direction: column; align-items: center; gap: 10px;
   font-size: 14px; font-weight: 600; color: var(--muted); text-align: center;
 }
-.logo-grid img { width: 40px; height: 40px; object-fit: contain; }
+.logo-track img { width: 40px; height: 40px; object-fit: contain; }
+@keyframes f365marquee { to { transform: translateX(-50%); } }
 
 /* — what we look after: product cards that flip to show what we do — */
 .cover-intro { display: flex; flex-direction: column; gap: 12px; max-width: 720px; }
@@ -327,7 +335,6 @@ button { -webkit-tap-highlight-color: transparent; }
   .start { grid-template-columns: minmax(0, 1fr); }
   .cover-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cover-card { min-height: 264px; }
-  .logo-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .hero-mark { width: min(100%, 300px); }
 }
 @media (min-width: 900px) {
@@ -351,4 +358,7 @@ button { -webkit-tap-highlight-color: transparent; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .logo-track { animation: none !important; width: auto; flex-wrap: wrap; justify-content: center; }
+  .logo-track li[aria-hidden="true"] { display: none; }
+  .logo-marquee { -webkit-mask-image: none; mask-image: none; }
 }
