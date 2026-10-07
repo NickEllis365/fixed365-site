@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 import { SVCS, TICKET, DEVICES } from '../data.js';
 import { darkBand } from '../theme.js';
 
@@ -115,9 +115,24 @@ function Support() {
 
 const PANELS = [Migrate, Secure, Devices, Support];
 
+// Under 900px the list and panel stack, so the panel opens inline under the tapped button instead.
+const NARROW = '(max-width: 899px)';
+
 export default function Services() {
   const [svc, setSvc] = useState(0);
   const Panel = PANELS[svc];
+  const buttons = useRef([]);
+  const tapped = useRef(false);
+
+  // On narrow screens, bring the tapped service to the top once its details have opened
+  // (closing the previous one can shift it upwards, off screen).
+  useEffect(() => {
+    if (!tapped.current || !window.matchMedia(NARROW).matches) return;
+    tapped.current = false;
+    buttons.current[svc]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, [svc]);
+
+  const pick = (i) => { tapped.current = true; setSvc(i); };
 
   return (
     <section id="services" className={"section section-dark" + darkBand}>
@@ -129,10 +144,14 @@ export default function Services() {
         <div className="svc-body">
           <div className="svc-list">
             {SVCS.map(([title, line], i) => (
-              <button key={title} type="button" className="svc-btn" onClick={() => setSvc(i)} aria-pressed={i === svc}>
-                <span className="svc-title">{title}</span>
-                <span className="svc-line">{line}</span>
-              </button>
+              <Fragment key={title}>
+                <button type="button" className="svc-btn" ref={el => { buttons.current[i] = el; }}
+                  onClick={() => pick(i)} aria-pressed={i === svc}>
+                  <span className="svc-title">{title}</span>
+                  <span className="svc-line">{line}</span>
+                </button>
+                {i === svc && <div className="svc-inline"><Panel /></div>}
+              </Fragment>
             ))}
           </div>
           <div className="svc-panel">

@@ -320,6 +320,8 @@ button { -webkit-tap-highlight-color: transparent; }
 .svc-list { border-top: 0; gap: 8px; }
 .svc-btn { border-bottom: 0; border-radius: var(--r-md); background: transparent; }
 .svc-btn[aria-pressed="true"] { background: var(--panel); border-left-color: #2BA3D9; }
+.svc-btn { scroll-margin-top: 84px; }
+.svc-inline { display: none; }
 .contact { padding: var(--pad-y) var(--pad-x); border-bottom: 0; }
 .contact-inner { max-width: calc(1280px - 2 * var(--pad-x)); border-radius: var(--r-xl); overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--line); }
 .contact-pitch, .contact-form-wrap { padding: clamp(32px, 5vw, 64px); }
@@ -330,12 +332,18 @@ button { -webkit-tap-highlight-color: transparent; }
   .menu-btn { display: flex; }
   .hero-copy, .hero-mark-wrap, .svc-list, .svc-panel,
   .contact-pitch, .contact-form-wrap { flex-basis: 100%; }
-  .svc-panel { min-height: 0; }
+  .svc-panel { display: none; }
+  .svc-inline { display: block; padding: 20px 4px 12px; }
   .hero-actions > a { flex: 1 1 100%; min-height: 56px; }
   .start { grid-template-columns: minmax(0, 1fr); }
   .cover-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cover-card { min-height: 264px; }
-  .hero-mark { width: min(100%, 300px); }
+  .hero-inner { gap: 28px; }
+  .hero-inner { position: relative; }
+  .hero-mark-wrap { position: absolute; top: clamp(56px, 9vw, 112px); right: var(--pad-x); }
+  .hero-mark { width: 92px; margin: -15px -15px 0 0; }
+  .hero-title { padding-right: 88px; }
+  .hero-mark-frame { display: none; }
 }
 @media (min-width: 900px) {
   .mobile-menu { display: none; }

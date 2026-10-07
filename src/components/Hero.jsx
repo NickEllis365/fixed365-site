@@ -16,7 +16,7 @@ function HeroMark({ built }) {
           }} />
         );
       })}
-      <div style={{ position: 'absolute', inset: '8%', border: '1px dashed var(--line-dash)', pointerEvents: 'none' }} />
+      <div className="hero-mark-frame" style={{ position: 'absolute', inset: '8%', border: '1px dashed var(--line-dash)', pointerEvents: 'none' }} />
     </>
   );
 }
