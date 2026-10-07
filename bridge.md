@@ -3,7 +3,7 @@
 ## 2026-10-07 — Removed the dotted frame round the hero F (branch `no-f-frame`)
 
 - Owner asked to remove the dotted border around the animated F. Removed the frame element from `Hero.jsx`, its mobile rule, and the unused `--line-dash` colour. The F animation is unchanged.
-- Status: on branch `no-f-frame`, pushed as a branch (no deploy). Waiting for the owner's OK.
+- Status: LIVE. Merged `no-f-frame` into `main` and pushed on owner's "push".
 
 ## 2026-10-07 — New "Essentials" group (branch `essentials`)
 
