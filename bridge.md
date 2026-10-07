@@ -1,5 +1,14 @@
 # Fixed365 site — working log
 
+## 2026-10-07 — Interactive product cards in "What we look after" (branch `light-theme`)
+
+- Owner: the logos look great, but there were too many words; they want interactive cards.
+- `WhatWeCover.jsx`: each product is a card showing its logo, name, one-liner and a "What we do +" hint. Hovering (on devices with a mouse) or tapping/clicking (or Enter/Space) flips the content to the three "what we do" points. One card is open at a time. Cards are `div role="button"` with `aria-expanded` (a `<ul>` inside a `<button>` isn't valid HTML).
+- Simple line icons stand in for the products with no Microsoft logo (Backup, Autopilot, Licensing).
+- Layout: 4 per row on desktop (cards 236px tall), 2 on tablet (264px), 1 on phones. On phones closed cards are compact and an opened card grows to fit its list.
+- Verified: build passes; desktop closed + all-open (no overflow; Exchange is the longest) and phone closed + one-open screenshots.
+- Testing note: headless Edge iframe screenshots at 390px started coming back blank (the DOM rendered fine); loading the page directly at 500px wide gives the same phone layout and works.
+
 ## 2026-10-07 — "Less AI" pass + real Microsoft app logos (branch `light-theme`)
 
 **Owner feedback:** the site still looked AI-made. They agreed with this list of tells: uppercase labels above headings, huge squashed headlines, arrows on every button, 01/02/03 numbering, grid background with a glowing abstract block, symmetric cards, pill tabs, coloured dots, snappy fragment headlines, made-up people. They also wanted visible M365 logos and asked us not to claim "we know every setting".
