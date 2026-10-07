@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { SVCS, TICKET, DEVICES } from '../data.js';
 import { darkBand } from '../theme.js';
 
@@ -11,6 +11,7 @@ function Migrate() {
     <div className="diagram">
       <div className="diagram-label">Moving you onto Microsoft 365 and Azure</div>
       <div className="migrate-grid">
+        <div className="migrate-step">From</div>
         <div className="migrate-sources">
           <div className="box">Old email server</div>
           <div className="box">Google Workspace</div>
@@ -22,6 +23,7 @@ function Migrate() {
             <div key={d} className="flow-line"><span className="flow-dot" style={{ animationDelay: d + 's' }} /></div>
           ))}
         </div>
+        <div className="migrate-step migrate-step-to" aria-hidden="true">↓ To</div>
         <div className="migrate-targets">
           <div className="azure-target">
             <div className="migrate-target-title">Microsoft 365</div>
@@ -115,24 +117,38 @@ function Support() {
 
 const PANELS = [Migrate, Secure, Devices, Support];
 
-// Under 900px the list and panel stack, so the panel opens inline under the tapped button instead.
+// Under 900px the services become an accordion: each one is a panel that opens (and closes) in place.
 const NARROW = '(max-width: 899px)';
 
+function Chevron() {
+  return (
+    <svg className="svc-chev" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"
+      fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M6 9l6 6 6-6" />
+    </svg>
+  );
+}
+
 export default function Services() {
+  // -1 = all closed (only possible on narrow screens); the desktop panel then falls back to the first service.
   const [svc, setSvc] = useState(0);
-  const Panel = PANELS[svc];
+  const Panel = PANELS[Math.max(svc, 0)];
   const buttons = useRef([]);
   const tapped = useRef(false);
 
   // On narrow screens, bring the tapped service to the top once its details have opened
   // (closing the previous one can shift it upwards, off screen).
   useEffect(() => {
-    if (!tapped.current || !window.matchMedia(NARROW).matches) return;
+    if (!tapped.current || svc < 0 || !window.matchMedia(NARROW).matches) return;
     tapped.current = false;
     buttons.current[svc]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, [svc]);
 
-  const pick = (i) => { tapped.current = true; setSvc(i); };
+  const pick = (i) => {
+    const narrow = window.matchMedia(NARROW).matches;
+    tapped.current = true;
+    setSvc(narrow && i === svc ? -1 : i);
+  };
 
   return (
     <section id="services" className={"section section-dark" + darkBand}>
@@ -144,14 +160,14 @@ export default function Services() {
         <div className="svc-body">
           <div className="svc-list">
             {SVCS.map(([title, line], i) => (
-              <Fragment key={title}>
+              <div key={title} className="svc-item" data-open={i === svc || undefined}>
                 <button type="button" className="svc-btn" ref={el => { buttons.current[i] = el; }}
-                  onClick={() => pick(i)} aria-pressed={i === svc}>
-                  <span className="svc-title">{title}</span>
+                  onClick={() => pick(i)} aria-pressed={i === svc} aria-expanded={i === svc}>
+                  <span className="svc-title">{title}<Chevron /></span>
                   <span className="svc-line">{line}</span>
                 </button>
                 {i === svc && <div className="svc-inline"><Panel /></div>}
-              </Fragment>
+              </div>
             ))}
           </div>
           <div className="svc-panel">
