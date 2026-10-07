@@ -9,7 +9,7 @@
 - LinkedIn company page added (https://www.linkedin.com/company/fixed-365/; clean URL, the admin tracking params stripped): a "Follow us on LinkedIn" row in the contact links, plus footer links (email, phone, LinkedIn now clickable).
 - Company status: NOT registered yet (owner, 2026-10-07) — so no company number or "Ltd" anywhere. Owner was told sole traders using a business name should show their own name + an address; their call, not added.
 - Owner also offers Cyber Essentials certificate support: new "Cyber Essentials" card (`Ce`) in Secure (4 cards now), shield-with-tick line icon. Worded as helping clients get and stay certified (gap check, fixes in M365/Intune/Defender, questionnaire + yearly renewal support), NOT as certifying them. The official CE badge is not used (only certified orgs may show it). Secure blurb now mentions Cyber Essentials.
-- Status: on branch `essentials`, pushed as a branch (no deploy). Waiting for the owner's OK.
+- Status: LIVE. Merged `essentials` into `main` and pushed on owner's "push".
 
 ## 2026-10-07 — Intune diagram colours (branch `intune-colours`)
 
