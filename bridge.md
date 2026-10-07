@@ -1,5 +1,10 @@
 # Fixed365 site — working log
 
+## 2026-10-07 — Intune diagram colours (branch `intune-colours`)
+
+- Owner: the orange "Compliant" badges didn't match the Intune logo. The logo is blue/cyan (brightest stop #35DDFF), so the badges are now #35DDFF and the Intune bar is a light cyan #E6FBFF (was orange #F2B84B), letting the logo stand out. Checked on desktop and phone.
+- Status: on branch `intune-colours`, pushed as a branch (no deploy). Waiting for the owner's OK.
+
 ## 2026-10-07 — Mobile fixes: "How we help" + hero F (branch `mobile-services`)
 
 - Owner: on mobile, tapping a service (e.g. Secure) changed a panel below the screen, so the change wasn't visible.
