@@ -232,7 +232,7 @@ button { -webkit-tap-highlight-color: transparent; }
   animation: f365pop .4s ease-out both;
 }
 .device-name { font-size: 15px; font-weight: 700; }
-.device-badge { align-self: flex-start; font-size: 12px; font-weight: 700; background: #35DDFF; color: #0B1219; padding: 3px 8px; }
+.device-badge { align-self: flex-start; font-size: 12px; font-weight: 700; background: #107C10; color: #FFFFFF; padding: 3px 8px; } /* Microsoft "success" green, as Intune uses for compliant */
 .intune-bar {
   grid-column: 1 / -1; background: #E6FBFF; color: #0B1219; padding: 20px; /* tints taken from the Intune logo */
   display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px;
