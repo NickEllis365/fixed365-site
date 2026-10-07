@@ -1,5 +1,11 @@
 # Fixed365 site — working log
 
+## 2026-10-07 — Font/icon experiment reverted
+
+- Tried Fraunces headings (with Public Sans, then Archivo body text) plus official Microsoft architecture icons in the "How we help" diagrams. Owner asked to go fully back to the original v5 design.
+- Reset `main` to 395d5be (the live React v5 site). The experiment is kept on the local branch `backup/fraunces-icons` (not pushed) in case it's wanted later.
+- Notes for next time: Microsoft's official icons are licensed only for diagrams/training/documentation. There are no diagram-use icons for Exchange, SharePoint, OneDrive or Teams.
+
 ## 2026-10-07 — v5 rebuilt as React (Vite)
 
 **Task:** follow `v5-handoff/README.md` to rebuild `v5-handoff/design/Fixed365 Website v5.dc.html` as a React site, build it and push.
