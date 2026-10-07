@@ -14,14 +14,14 @@
 }
 :root, .theme-dark {
   --bg: #10243B; --panel: #163050; --band: #0D1E32;
-  --line: #23405F; --line-2: #2A4A6B; --line-3: #3B5C80; --line-soft: #213C59; --line-btn: #3B5C80; --line-dash: #2E4F72;
+  --line: #23405F; --line-2: #2A4A6B; --line-3: #3B5C80; --line-soft: #213C59; --line-btn: #3B5C80;
   --grid: #172E4A; --hover: #1A3554; --header-bg: rgba(16,36,59,.92);
   --text: #F1F6FA; --muted: #C2D1DE; --muted-2: #A6BACB; --eyebrow: #7CCBEE; --warn: #F2B84B;
   --label-mix: 0%; --shadow: none;
 }
 .theme-light {
   --bg: #F7F9FB; --panel: #FFFFFF; --band: #EDF2F6;
-  --line: #DCE3EA; --line-2: #D3DCE4; --line-3: #B7C4D0; --line-soft: #E6ECF1; --line-btn: #C5D0DA; --line-dash: #C5D0DA;
+  --line: #DCE3EA; --line-2: #D3DCE4; --line-3: #B7C4D0; --line-soft: #E6ECF1; --line-btn: #C5D0DA;
   --grid: #E8EDF2; --hover: #F0F4F8; --header-bg: rgba(247,249,251,.92);
   --text: #101A23; --muted: #3D4F5E; --muted-2: #566878; --eyebrow: #1679A8; --warn: #9A6200;
   --label-mix: 40%; --shadow: none;
@@ -355,7 +355,6 @@ button { -webkit-tap-highlight-color: transparent; }
   .hero-mark-wrap { position: absolute; top: clamp(56px, 9vw, 112px); right: var(--pad-x); }
   .hero-mark { width: 92px; margin: -15px 0 0 0; }
   .hero-title { padding-right: 100px; }
-  .hero-mark-frame { display: none; }
 }
 @media (min-width: 900px) {
   .mobile-menu { display: none; }
