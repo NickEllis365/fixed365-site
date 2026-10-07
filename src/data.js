@@ -61,3 +61,11 @@ export const HERO_LOGOS = [
   ['outlook', 'Outlook'], ['teams', 'Teams'], ['sharepoint', 'SharePoint'], ['onedrive', 'OneDrive'],
   ['entra-id', 'Entra ID'], ['intune', 'Intune'], ['defender', 'Defender'], ['azure', 'Azure']
 ];
+
+// Blocks of the interactive "F" in the hero: position/size in %, colour, and where each flies in from.
+export const BLOCKS = [
+  { l: 16.07, t: 16.07, w: 21.4, h: 67.9, c: 'var(--text)', from: 'translate(-70px,50px) rotate(-14deg)' },
+  { l: 42.9, t: 16.07, w: 41.1, h: 19.6, c: 'var(--text)', from: 'translate(90px,-60px) rotate(18deg)' },
+  { l: 42.9, t: 41.07, w: 26.8, h: 19.6, c: 'var(--text)', from: 'translate(-40px,-100px) rotate(-24deg)' },
+  { l: 58.9, t: 64.3, w: 25, h: 19.6, c: '#2BA3D9', from: 'translate(130px,110px) rotate(40deg)' }
+];
