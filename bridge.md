@@ -8,7 +8,7 @@
   - Under 900px the F is a 92px mark, absolutely positioned at the top right of the hero beside the headline (headline gets `padding-right: 100px`; nudged ~15px left at the owner's request), without the dashed frame. It still animates and replays on tap. Desktop is unchanged.
 - Verified: build passes; screenshots at 500px (Secure open inline, hero), 820px (tablet hero) and 1366px (services unchanged).
 - Owner: "How we help" still felt unintuitive on mobile. Reworked under 900px into a proper accordion: each service is a bordered panel (`.svc-item`) with a chevron; the open one has a blue border and its diagram inside; tapping it again closes it (`svc = -1`; the desktop panel falls back to the first service). Phones (≤560px): the migration becomes a compact "From" (2×2 sources) → "↓ To" (Microsoft 365 | Azure side by side) layout, and devices sit 3 across in smaller tiles. Desktop unchanged (checked).
-- Status: on branch `mobile-services`, pushed as a branch (no deploy). Waiting for the owner's OK.
+- Status: LIVE. Merged `mobile-services` into `main` and pushed on owner's "push".
 
 ## 2026-10-07 — Hero logo carousel (branch `logo-carousel`)
 
