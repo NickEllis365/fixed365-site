@@ -1,5 +1,12 @@
 # Fixed365 site — working log
 
+## 2026-10-08 — Mobile "What we look after": swipeable strip + detail card (LIVE)
+
+- Owner: on phones the new section looked the same as before (phones already had 2-per-row tiles that opened inline). They asked for something closer to desktop and said "do it and go live".
+- Under 900px the grouped tiles are hidden; instead there is one horizontal, swipeable strip of every product (logo above name, small group labels Collaborate/Secure/…), with scroll-snap (`scroll-padding-inline` keeps it in line with the page margin), a faded right edge and a "Swipe for more" hint. Below it, the same detail card as desktop (`.cover-panel`, not sticky) shows the tapped product. Default: Exchange Online.
+- Removed the inline-details code (`open` state, `.cover-detail`). Desktop is unchanged (checked).
+- Built on branch `mobile-strip` from main, merged (a44c3c9) and pushed. The `logo-365` branch (blue "365" in the header) is still waiting for the owner's OK.
+
 ## 2026-10-08 — "What we look after" as a compact explorer (branch `cover-explorer`)
 
 - Owner: the section still felt large and could be more interactive.
