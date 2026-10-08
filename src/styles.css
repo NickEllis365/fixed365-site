@@ -87,6 +87,7 @@ button { -webkit-tap-highlight-color: transparent; }
   display: flex; align-items: center; gap: 12px; color: var(--text);
   font-family: var(--font-heading); font-weight: 800; font-size: 24px; letter-spacing: -.02em;
 }
+.brand-365 { color: #2BA3D9; }
 .nav-wide { display: flex; align-items: center; gap: 32px; font-size: 16px; font-weight: 600; }
 .nav-link { color: var(--muted); }
 .nav-cta { padding: 12px 18px; }

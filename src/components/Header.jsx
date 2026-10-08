@@ -11,7 +11,7 @@ export default function Header() {
   return (
     <header className={"site-header" + darkBand}>
       <div className="header-bar">
-        <a href="#top" className="brand"><Logo />Fixed365</a>
+        <a href="#top" className="brand"><Logo /><span>Fixed<span className="brand-365">365</span></span></a>
         <nav className="nav-wide">
           {LINKS.map(([href, label]) => <a key={href} href={href} className="nav-link">{label}</a>)}
           <a href="#contact" className="btn-sky nav-cta">Free health check</a>

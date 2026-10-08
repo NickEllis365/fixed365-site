@@ -1,5 +1,10 @@
 # Fixed365 site — working log
 
+## 2026-10-08 — Header logo: "365" in blue (branch `logo-365`)
+
+- Owner didn't like the all-white "Fixed365" in the header. We mocked up 4 options on the real header; the owner chose A: "Fixed" white, "365" in the logo blue #2BA3D9 (matches the F's blue block). `Header.jsx` wraps the wordmark in one span (so the flex gap doesn't split it), and adds `.brand-365`.
+- Status: on branch `logo-365`, pushed as a branch (no deploy). Waiting for the owner's OK.
+
 ## 2026-10-08 — "What we look after" as a compact explorer (branch `cover-explorer`)
 
 - Owner: the section still felt large and could be more interactive.
