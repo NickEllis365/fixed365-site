@@ -1,11 +1,16 @@
 # Fixed365 site — working log
 
+## 2026-10-08 — Header logo: "365" in blue (branch `logo-365`)
+
+- Owner didn't like the all-white "Fixed365" in the header. We mocked up 4 options on the real header; the owner chose A: "Fixed" white, "365" in the logo blue #2BA3D9 (matches the F's blue block). `Header.jsx` wraps the wordmark in one span (so the flex gap doesn't split it), and adds `.brand-365`.
+- Status: LIVE. Cherry-picked onto main after the mobile strip and pushed on owner's "push".
+
 ## 2026-10-08 — Mobile "What we look after": swipeable strip + detail card (LIVE)
 
 - Owner: on phones the new section looked the same as before (phones already had 2-per-row tiles that opened inline). They asked for something closer to desktop and said "do it and go live".
 - Under 900px the grouped tiles are hidden; instead there is one horizontal, swipeable strip of every product (logo above name, small group labels Collaborate/Secure/…), with scroll-snap (`scroll-padding-inline` keeps it in line with the page margin), a faded right edge and a "Swipe for more" hint. Below it, the same detail card as desktop (`.cover-panel`, not sticky) shows the tapped product. Default: Exchange Online.
 - Removed the inline-details code (`open` state, `.cover-detail`). Desktop is unchanged (checked).
-- Built on branch `mobile-strip` from main, merged (a44c3c9) and pushed. The `logo-365` branch (blue "365" in the header) is still waiting for the owner's OK.
+- Built on branch `mobile-strip` from main, merged (a44c3c9) and pushed. The blue "365" logo went live straight after (entry above).
 
 ## 2026-10-08 — "What we look after" as a compact explorer (branch `cover-explorer`)
 
