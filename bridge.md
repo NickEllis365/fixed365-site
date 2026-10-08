@@ -8,7 +8,7 @@
 - Removed the old flip-card styles. Desktop section height ≈960px (was ≈1700px).
 - Verified: build passes; desktop, 820px tablet, 500px phone (closed + one open) screenshots.
 - 2026-10-08: two alternatives were also built — `cover-problems` (problem-first, client quotes) and `cover-hub` (map around a "Your business" hub). The owner CHOSE this one (option 1). The alternatives stay on their branches, not merged.
-- Status: chosen; on branch `cover-explorer`, waiting for the owner's "push".
+- Status: LIVE. Merged `cover-explorer` into `main` and pushed on owner's "push".
 
 ## 2026-10-07 — Removed the dotted frame round the hero F (branch `no-f-frame`)
 
