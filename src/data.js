@@ -76,3 +76,35 @@ export const BLOCKS = [
   { l: 42.9, t: 41.07, w: 26.8, h: 19.6, c: 'var(--text)', from: 'translate(-40px,-100px) rotate(-24deg)' },
   { l: 58.9, t: 64.3, w: 25, h: 19.6, c: '#2BA3D9', from: 'translate(130px,110px) rotate(40deg)' }
 ];
+
+// "What we look after" (problem-first version): everyday problems, the products we'd use, and what we'd do.
+// [problem, short answer, product symbols (see CATS), steps]. Steps are drawn from the product points above.
+export const SCENARIOS = [
+  ['We keep getting phishing emails', 'We tighten up email security so most of it never reaches anyone.',
+    ['Es', 'Df', 'Ex'],
+    ['Phishing, malware and impersonation filtering switched on', 'Safe Links and Safe Attachments set up in Defender', 'SPF, DKIM and DMARC set up and monitored']],
+  ['Someone new starts on Monday', 'Their laptop, account and apps are ready before they arrive.',
+    ['Ap', 'In', 'En', 'Lc'],
+    ['Laptop shipped straight to them; they sign in and everything installs itself', 'Account, MFA and the right licence set up the same day', 'Security policies and BitLocker applied automatically']],
+  ['A laptop has been lost or stolen', 'We lock it down in minutes, and nothing is lost.',
+    ['In', 'En', 'Bk'],
+    ['Device locked or wiped remotely through Intune', 'Sign-ins blocked and sessions revoked', 'Files restored from OneDrive and backup']],
+  ["We're moving off Google or an old server", 'We move you across with no lost mail and no downtime.',
+    ['Ex', 'Sp', 'Od', 'Az'],
+    ['Plan the move around how you work', 'Copy mail and files across in the background', 'Switch over out of hours; old servers moved to Azure if needed']],
+  ['A client wants us to have Cyber Essentials', 'We get you ready, and keep you ready for renewal.',
+    ['Ce', 'In', 'Df', 'En'],
+    ['Gap check against the Cyber Essentials requirements', 'Fixes made in Microsoft 365, Intune and Defender', 'Support with the questionnaire and yearly renewal']],
+  ['Our files are everywhere', 'One sensible home for files, with the right people able to see them.',
+    ['Sp', 'Od', 'Tm', 'Pv'],
+    ['Sites and libraries laid out so people find things', 'Permissions that match your teams', 'Sensitivity labels on confidential files']],
+  ["We're paying for licences nobody uses", 'We check every seat and cut what you don’t need.',
+    ['Lc'],
+    ['Right plan for each person (Basic, Standard, Premium)', 'Unused licences found and removed', 'Renewals and changes handled for you']],
+  ['Too much admin is done by hand', 'We automate the repetitive bits and put your numbers in one place.',
+    ['Pa', 'Bi', 'Cp'],
+    ['Approvals, forms and notifications automated', 'Reports from Excel, SharePoint and your systems in one dashboard', 'Copilot rolled out safely to the people who’ll use it']],
+  ['Nobody knows who controls our domain', 'We take it over, tidy it up and keep it renewed.',
+    ['Dm', 'Es'],
+    ['Domains registered and renewed so they never lapse', 'DNS records managed for your email and website', 'Email authentication (SPF, DKIM, DMARC) set up properly']]
+];

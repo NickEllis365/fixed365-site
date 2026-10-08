@@ -1,5 +1,13 @@
 # Fixed365 site — working log
 
+## 2026-10-08 — Alternative "What we look after": problem-first (branch `cover-problems`, from main)
+
+- Owner liked the tile explorer (`cover-explorer`, kept as an option) but asked to also try something completely different.
+- Problem-first version: nine everyday client problems written in the client's words (shown in quotes), e.g. "We keep getting phishing emails", "Someone new starts on Monday". Picking one shows a short answer, three steps, and "What we'd use" with the real product logos. A slim "Everything we look after" strip below lists all 18 products, so none are hidden.
+- Data: `SCENARIOS` in `data.js` (problem, answer, product symbols, steps); steps are drawn from existing product points (no new claims). Wide screens: 3×3 grid, answer card below. Narrow: one list, answer opens under the tapped problem.
+- Desktop section ≈930px.
+- Status: on branch `cover-problems`, pushed as a branch (no deploy). The owner is choosing between `cover-explorer` and `cover-problems`.
+
 ## 2026-10-07 — Removed the dotted frame round the hero F (branch `no-f-frame`)
 
 - Owner asked to remove the dotted border around the animated F. Removed the frame element from `Hero.jsx`, its mobile rule, and the unused `--line-dash` colour. The F animation is unchanged.
