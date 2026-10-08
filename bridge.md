@@ -1,5 +1,14 @@
 # Fixed365 site — working log
 
+## 2026-10-08 — "What we look after" as a compact explorer (branch `cover-explorer`)
+
+- Owner: the section still felt large and could be more interactive.
+- `WhatWeCover.jsx` rewritten: every product is a compact tile (logo + name), 4 per row under its group heading. On wide screens (≥900px) one sticky detail panel on the right shows the selected product (big logo, group, one-liner, 3 points, "Ask us about…"); it follows hover, keyboard focus and clicks. Default: Exchange Online.
+- Narrow screens keep the tap-to-open behaviour: the detail opens under its group, and tapping again closes it. Tablets 4 per row, phones 2.
+- Removed the old flip-card styles. Desktop section height ≈960px (was ≈1700px).
+- Verified: build passes; desktop, 820px tablet, 500px phone (closed + one open) screenshots.
+- Status: on branch `cover-explorer`, pushed as a branch (no deploy). Waiting for the owner's OK.
+
 ## 2026-10-07 — Removed the dotted frame round the hero F (branch `no-f-frame`)
 
 - Owner asked to remove the dotted border around the animated F. Removed the frame element from `Hero.jsx`, its mobile rule, and the unused `--line-dash` colour. The F animation is unchanged.
