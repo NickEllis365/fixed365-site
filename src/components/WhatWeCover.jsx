@@ -45,10 +45,7 @@ function Details({ item, size }) {
 // Wide screens: tiles on the left, one detail panel on the right that follows hover, focus and clicks.
 // Narrow screens: no side panel; a tapped tile opens its details under its own group (tap again to close).
 export default function WhatWeCover() {
-  const [sel, setSel] = useState('Ex');      // what the side panel shows
-  const [open, setOpen] = useState(null);    // narrow screens: which tile is expanded, if any
-
-  const choose = (sym) => { setSel(sym); setOpen(open === sym ? null : sym); };
+  const [sel, setSel] = useState('Ex');      // what the detail panel shows
   const current = find(sel);
 
   return (
@@ -60,26 +57,42 @@ export default function WhatWeCover() {
         </div>
 
         <div className="cover-explorer">
+          {/* Wide screens: grouped tiles; the panel follows hover, focus and clicks. */}
           <div className="cover-groups">
-            {CATS.map(c => {
-              const openItem = c.items.some(it => it[0] === open) ? find(open) : null;
-              return (
-                <div key={c.name} className="cover-group">
-                  <h3 className="cover-group-head">{c.name} <span>{CAT_BLURBS[c.name]}</span></h3>
-                  <div className="cover-tiles">
+            {CATS.map(c => (
+              <div key={c.name} className="cover-group">
+                <h3 className="cover-group-head">{c.name} <span>{CAT_BLURBS[c.name]}</span></h3>
+                <div className="cover-tiles">
+                  {c.items.map(([sym, name]) => (
+                    <button key={sym} type="button" className="cover-tile" aria-pressed={sel === sym}
+                      onClick={() => setSel(sym)} onMouseEnter={() => setSel(sym)} onFocus={() => setSel(sym)}>
+                      <ProductIcon sym={sym} />
+                      <span>{name}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Narrow screens: one swipeable strip of every product, grouped by label; tap to show it in the panel below. */}
+          <div className="cover-strip-wrap">
+            <div className="cover-strip">
+              {CATS.map(c => (
+                <div key={c.name} className="strip-group" role="group" aria-label={c.name}>
+                  <span className="strip-label">{c.name}</span>
+                  <div className="strip-items">
                     {c.items.map(([sym, name]) => (
-                      <button key={sym} type="button" className="cover-tile" aria-pressed={sel === sym}
-                        aria-expanded={open === sym} onClick={() => choose(sym)}
-                        onMouseEnter={() => setSel(sym)} onFocus={() => setSel(sym)}>
-                        <ProductIcon sym={sym} />
+                      <button key={sym} type="button" className="strip-tile" aria-pressed={sel === sym} onClick={() => setSel(sym)}>
+                        <ProductIcon sym={sym} size={32} />
                         <span>{name}</span>
                       </button>
                     ))}
                   </div>
-                  {openItem && <div key={openItem.sym} className="cover-detail"><Details item={openItem} size={36} /></div>}
                 </div>
-              );
-            })}
+              ))}
+            </div>
+            <p className="strip-hint">Swipe for more. Tap a product to see what we do with it.</p>
           </div>
 
           <aside className="cover-panel" aria-live="polite">

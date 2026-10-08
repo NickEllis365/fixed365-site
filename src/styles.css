@@ -157,16 +157,34 @@ button { -webkit-tap-highlight-color: transparent; }
   position: sticky; top: 96px; min-height: 380px; padding: 28px;
   background: var(--panel); border: 1px solid var(--line-2); border-radius: var(--r-lg);
 }
-.cover-panel-inner, .cover-detail { display: flex; flex-direction: column; gap: 14px; animation: f365up .3s ease-out both; }
+.cover-panel-inner { display: flex; flex-direction: column; gap: 14px; animation: f365up .3s ease-out both; }
 .cover-detail-head { display: flex; align-items: center; gap: 14px; }
 .cover-detail-head p { margin: 0; }
 .cover-detail-cat { font-size: 13px; font-weight: 700; color: var(--eyebrow); }
 .cover-detail-title { font-family: var(--font-heading); font-size: 22px; font-weight: 800; letter-spacing: -.01em; line-height: 1.2; }
 .cover-detail-what { margin: 0; font-size: 16px; line-height: 1.5; color: var(--muted); }
-.cover-panel ul, .cover-detail ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; line-height: 1.45; }
+.cover-panel ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; line-height: 1.45; }
 .cover-ask { margin-top: 4px; font-weight: 700; color: var(--eyebrow); }
 .cover-ask:hover { text-decoration: underline; }
-.cover-detail { display: none; padding: 18px; background: var(--panel); border: 1px solid #2BA3D9; border-radius: var(--r-md); }
+/* Narrow screens only (shown in the 899px media query): one swipeable strip of products. */
+.cover-strip-wrap { display: none; min-width: 0; }
+.cover-strip {
+  display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch;
+  margin: 0 calc(-1 * var(--pad-x)); padding: 2px var(--pad-x) 8px; scroll-padding-inline: var(--pad-x); scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent);
+}
+.cover-strip::-webkit-scrollbar { display: none; }
+.strip-group { flex: none; display: flex; flex-direction: column; gap: 8px; scroll-snap-align: start; }
+.strip-label { font-size: 13px; font-weight: 700; color: var(--muted-2); }
+.strip-items { display: flex; gap: 8px; }
+.strip-tile {
+  flex: none; width: 92px; min-height: 92px; padding: 12px 6px 10px; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-align: center;
+  background: var(--panel); color: var(--text); border: 1px solid var(--line-2); border-radius: var(--r-md);
+  font: inherit; font-size: 12.5px; font-weight: 600; line-height: 1.2;
+}
+.strip-tile[aria-pressed="true"] { border-color: #2BA3D9; box-shadow: inset 0 0 0 1px #2BA3D9; }
+.strip-hint { margin: 6px 0 0; font-size: 13px; color: var(--muted-2); }
 
 /* — how it starts — */
 .start { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 32px 64px; align-items: start; }
@@ -342,12 +360,11 @@ button { -webkit-tap-highlight-color: transparent; }
   .svc-inline .diagram { gap: 20px; }
   .hero-actions > a { flex: 1 1 100%; min-height: 56px; }
   .start { grid-template-columns: minmax(0, 1fr); }
-  .cover-explorer { grid-template-columns: minmax(0, 1fr); }
-  .cover-panel { display: none; }
-  .cover-detail { display: flex; }
-  .cover-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .cover-tile[aria-pressed="true"] { border-color: var(--line-2); box-shadow: none; }
-  .cover-tile[aria-expanded="true"] { border-color: #2BA3D9; box-shadow: inset 0 0 0 1px #2BA3D9; }
+  .cover-explorer { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .cover-groups { display: none; }
+  .cover-strip-wrap { display: block; }
+  .cover-panel { position: static; min-height: 0; padding: 22px; }
+  .cover-panel .cover-detail-title { font-size: 20px; }
   .hero-inner { gap: 28px; }
   .hero-inner { position: relative; }
   .hero-mark-wrap { position: absolute; top: clamp(56px, 9vw, 112px); right: var(--pad-x); }
@@ -376,7 +393,6 @@ button { -webkit-tap-highlight-color: transparent; }
   .intune-bar { padding: 14px; }
   .sizes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cover-group-head span { display: block; margin: 4px 0 0; }
-  .cover-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
