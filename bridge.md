@@ -1,5 +1,14 @@
 # Fixed365 site — working log
 
+## Contact form: confetti on submit (branch form-confetti, built on hero-burst, PREVIEW)
+- Owner asked: confetti when the form's button is clicked, made of the product logos and the F logo too.
+- `src/confetti.js` `throwConfetti(el)`: fixed overlay layer; 13 product logos + 5 F logos + 55 paper bits in site colours (sky, navy, teal, amber, lilac). Each piece gets a simulated path (upward cone launch, drag, gravity, sway, spin; paper tumbles) played with the Web Animations API, fades out, and the layer removes itself (~3s).
+- F is drawn in the page's `--text` colour so it shows in light and dark themes. Skipped with reduced motion.
+- Fires in Contact.jsx `submit` (only after the browser's own required-field checks pass), from the submit button, before the Web3Forms request.
+- Tested with a throwaway page that faked the Web3Forms call (no real email sent).
+- This branch also contains the hero logo explosion; pushing it puts both live.
+- Next: owner to review at http://localhost:4173/#contact and say "push".
+
 ## Hero F: product logos explode out on hover (branch hero-burst, PREVIEW)
 - Hovering/clicking the F still splits and rebuilds it; on the same frame the 13 product logos (HERO_LOGOS) explode out from the centre.
 - Owner feedback on v1 (neat staggered ring): "make it look more natural, with bounce and at the same time as the F... random like an explosion". v2 uses the Web Animations API (`explode()` in Hero.jsx): every hover picks random direction (jittered round the circle), distance, spin and size; overshoot bounce on the way out, a little gravity drift, then each snaps back in at its own moment as the F rebuilds (~1.5s total).

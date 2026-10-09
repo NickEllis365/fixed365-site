@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Logo from './Logo.jsx';
 import { SIZES } from '../data.js';
+import { throwConfetti } from '../confetti.js';
 
 // Web3Forms access key (https://web3forms.com). It's a public key meant to live in
 // front-end code; submissions are emailed to the address registered with Web3Forms.
@@ -14,6 +15,7 @@ export default function Contact() {
 
   const submit = async (e) => {
     e.preventDefault();
+    throwConfetti(e.nativeEvent.submitter || e.target.querySelector('.submit'));
     const fd = new FormData(e.target);
     if (!WEB3FORMS_KEY) { setSent(true); return; }
     setSending(true);
