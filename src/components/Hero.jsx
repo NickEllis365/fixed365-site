@@ -20,8 +20,33 @@ function HeroMark({ built }) {
   );
 }
 
+// Hovering the F throws the product logos out in a ring around it, then pulls them back in.
+// Positions are in % of the mark's width (container units), alternating near/far for a scattered look.
+const BURST = HERO_LOGOS.map(([file], i) => {
+  const a = (i / HERO_LOGOS.length) * 2 * Math.PI - Math.PI / 2;
+  const r = i % 2 ? 44 : 56;
+  return { file, x: Math.cos(a) * r, y: Math.sin(a) * r, rot: (i % 3 - 1) * 14 };
+});
+
+function LogoBurst({ out }) {
+  return (
+    <div className="hero-burst">
+      {BURST.map((b, i) => (
+        <img key={b.file} src={`/logos/${b.file}.svg`} alt="" className="hero-burst-logo" style={{
+          transform: out
+            ? `translate(-50%, -50%) translate(${b.x}cqw, ${b.y}cqw) rotate(${b.rot}deg) scale(1)`
+            : 'translate(-50%, -50%) scale(.2)',
+          opacity: out ? 1 : 0,
+          transitionDelay: out ? `${i * 30}ms` : `${(BURST.length - i) * 20}ms`
+        }} />
+      ))}
+    </div>
+  );
+}
+
 export default function Hero() {
   const [built, setBuilt] = useState(false);
+  const [burst, setBurst] = useState(false);
   const busy = useRef(false);
   const timers = useRef([]);
 
@@ -34,9 +59,11 @@ export default function Hero() {
     if (busy.current) return;
     busy.current = true;
     setBuilt(false);
+    setBurst(true);
     timers.current.push(
       setTimeout(() => setBuilt(true), 380),
-      setTimeout(() => { busy.current = false; }, 2200)
+      setTimeout(() => setBurst(false), 1900),
+      setTimeout(() => { busy.current = false; }, 2600)
     );
   };
 
@@ -53,6 +80,7 @@ export default function Hero() {
         </div>
         <div className="hero-mark-wrap">
           <div className="hero-mark" onMouseEnter={replay} onClick={replay} aria-hidden="true">
+            <LogoBurst out={burst} />
             <HeroMark built={built} />
           </div>
         </div>

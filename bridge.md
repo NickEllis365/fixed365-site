@@ -1,5 +1,11 @@
 # Fixed365 site — working log
 
+## Hero F: product logos burst out on hover (branch hero-burst, PREVIEW)
+- Hovering/clicking the F still splits and rebuilds it; now the 13 product logos (HERO_LOGOS) also fly out in a ring around it, staggered, then get pulled back in ~1.9s later.
+- Hero.jsx: `LogoBurst` + `burst` state in `replay()`. Positions use container units (`.hero-mark { container-type: inline-size }`), so the ring scales with the F.
+- Hidden on narrow screens (F is only 92px there) and with reduced motion. `.hero` gets `overflow-x: clip` so the ring can't cause sideways scroll.
+- Next: owner to review at http://localhost:4173/ and say "push".
+
 ## 2026-10-08 — Header logo: "365" in blue (branch `logo-365`)
 
 - Owner didn't like the all-white "Fixed365" in the header. We mocked up 4 options on the real header; the owner chose A: "Fixed" white, "365" in the logo blue #2BA3D9 (matches the F's blue block). `Header.jsx` wraps the wordmark in one span (so the flex gap doesn't split it), and adds `.brand-365`.
