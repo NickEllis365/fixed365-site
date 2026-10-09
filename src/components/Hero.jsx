@@ -20,35 +20,45 @@ function HeroMark({ built }) {
   );
 }
 
-// Hovering the F throws the product logos out in a ring around it, then pulls them back in.
-// Positions are in % of the mark's width (container units), alternating near/far for a scattered look.
-const BURST = HERO_LOGOS.map(([file], i) => {
-  const a = (i / HERO_LOGOS.length) * 2 * Math.PI - Math.PI / 2;
-  const r = i % 2 ? 44 : 56;
-  return { file, x: Math.cos(a) * r, y: Math.sin(a) * r, rot: (i % 3 - 1) * 14 };
-});
+// Hovering the F blows the product logos out like an explosion, at the same moment the blocks split,
+// then they fall back in as the F rebuilds. Every hover picks new random directions, distances and spins.
+const rand = (a, b) => a + Math.random() * (b - a);
 
-function LogoBurst({ out }) {
-  return (
-    <div className="hero-burst">
-      {BURST.map((b, i) => (
-        <img key={b.file} src={`/logos/${b.file}.svg`} alt="" className="hero-burst-logo" style={{
-          transform: out
-            ? `translate(-50%, -50%) translate(${b.x}cqw, ${b.y}cqw) rotate(${b.rot}deg) scale(1)`
-            : 'translate(-50%, -50%) scale(.2)',
-          opacity: out ? 1 : 0,
-          transitionDelay: out ? `${i * 30}ms` : `${(BURST.length - i) * 20}ms`
-        }} />
-      ))}
-    </div>
-  );
+function explode(burstEl) {
+  if (!burstEl || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const w = burstEl.offsetWidth;
+  const n = burstEl.children.length;
+  [...burstEl.children].forEach((el, i) => {
+    el.getAnimations().forEach(a => a.cancel());
+    const angle = (i / n) * 2 * Math.PI + rand(-0.35, 0.35);   // spread round, but never evenly
+    const dist = w * rand(0.34, 0.66);
+    const x = Math.cos(angle) * dist, y = Math.sin(angle) * dist;
+    const spin = rand(-260, 260), size = rand(0.75, 1.15);
+    const fall = w * rand(0.04, 0.1);                            // a little gravity while they hang
+    const back = rand(0.62, 0.74);                               // each one turns back at its own moment
+    const at = (dx, dy, r, sc) => `translate(-50%, -50%) translate(${dx}px, ${dy}px) rotate(${r}deg) scale(${sc})`;
+    el.animate([
+      { offset: 0, transform: at(0, 0, 0, 0.3), opacity: 0, easing: 'cubic-bezier(.12,.9,.3,1.35)' },
+      { offset: 0.06, opacity: 1 },
+      { offset: 0.34, transform: at(x, y, spin * 0.6, size), opacity: 1, easing: 'ease-in-out' },
+      { offset: back, transform: at(x * 1.05, y * 1.05 + fall, spin, size), opacity: 1, easing: 'cubic-bezier(.55,-0.35,.75,.2)' },
+      { offset: 0.94, transform: at(0, 0, spin * 1.3, 0.45), opacity: 1 },
+      { offset: 1, transform: at(0, 0, spin * 1.3, 0.3), opacity: 0 }
+    ], { duration: 1500, fill: 'none' });
+  });
 }
+
+const LogoBurst = ({ burstRef }) => (
+  <div className="hero-burst" ref={burstRef}>
+    {HERO_LOGOS.map(([file]) => <img key={file} src={`/logos/${file}.svg`} alt="" className="hero-burst-logo" />)}
+  </div>
+);
 
 export default function Hero() {
   const [built, setBuilt] = useState(false);
-  const [burst, setBurst] = useState(false);
   const busy = useRef(false);
   const timers = useRef([]);
+  const burstRef = useRef(null);
 
   useEffect(() => {
     timers.current.push(setTimeout(() => setBuilt(true), 250));
@@ -59,11 +69,10 @@ export default function Hero() {
     if (busy.current) return;
     busy.current = true;
     setBuilt(false);
-    setBurst(true);
+    explode(burstRef.current);
     timers.current.push(
       setTimeout(() => setBuilt(true), 380),
-      setTimeout(() => setBurst(false), 1900),
-      setTimeout(() => { busy.current = false; }, 2600)
+      setTimeout(() => { busy.current = false; }, 2200)
     );
   };
 
@@ -80,7 +89,7 @@ export default function Hero() {
         </div>
         <div className="hero-mark-wrap">
           <div className="hero-mark" onMouseEnter={replay} onClick={replay} aria-hidden="true">
-            <LogoBurst out={burst} />
+            <LogoBurst burstRef={burstRef} />
             <HeroMark built={built} />
           </div>
         </div>

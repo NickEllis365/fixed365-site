@@ -1,9 +1,9 @@
 # Fixed365 site — working log
 
-## Hero F: product logos burst out on hover (branch hero-burst, PREVIEW)
-- Hovering/clicking the F still splits and rebuilds it; now the 13 product logos (HERO_LOGOS) also fly out in a ring around it, staggered, then get pulled back in ~1.9s later.
-- Hero.jsx: `LogoBurst` + `burst` state in `replay()`. Positions use container units (`.hero-mark { container-type: inline-size }`), so the ring scales with the F.
-- Hidden on narrow screens (F is only 92px there) and with reduced motion. `.hero` gets `overflow-x: clip` so the ring can't cause sideways scroll.
+## Hero F: product logos explode out on hover (branch hero-burst, PREVIEW)
+- Hovering/clicking the F still splits and rebuilds it; on the same frame the 13 product logos (HERO_LOGOS) explode out from the centre.
+- Owner feedback on v1 (neat staggered ring): "make it look more natural, with bounce and at the same time as the F... random like an explosion". v2 uses the Web Animations API (`explode()` in Hero.jsx): every hover picks random direction (jittered round the circle), distance, spin and size; overshoot bounce on the way out, a little gravity drift, then each snaps back in at its own moment as the F rebuilds (~1.5s total).
+- Hidden on narrow screens (F is only 92px there) and skipped with reduced motion. `.hero` has `overflow-x: clip` so stray logos can't cause sideways scroll.
 - Next: owner to review at http://localhost:4173/ and say "push".
 
 ## 2026-10-08 — Header logo: "365" in blue (branch `logo-365`)
