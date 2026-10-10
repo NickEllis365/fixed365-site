@@ -40,6 +40,12 @@
 ---
 # Change log (newest first)
 
+## 2026-10-10 — Hero logo explosion on phones (branch `mobile-burst`, LIVE)
+- Owner asked for the hero F logo explosion on mobile too (it was hidden under 900px).
+- Under 900px the burst now shows: logos are a fixed 30px (12cqw of the 92px mark was ~11px), and `explode()` sizes the spread from `max(mark width, 60% of screen width)` so they fly across the hero. Tap the small F to trigger. Desktop unchanged; still skipped with reduced motion.
+- This machine had no Node.js; installed Node LTS via winget and ran `npm install`. Preview served with `--host` so the owner could check on their phone.
+- Status: LIVE. Merged into `main` and pushed on owner's "push".
+
 ## Contact form: confetti on submit (LIVE)
 - Owner asked: confetti when the form's button is clicked, made of the product logos and the F logo too.
 - `src/confetti.js` `throwConfetti(el)`: fixed overlay layer; 13 product logos + 5 F logos + 55 paper bits in site colours (sky, navy, teal, amber, lilac). Each piece gets a simulated path (upward cone launch, drag, gravity, sway, spin; paper tumbles) played with the Web Animations API, fades out, and the layer removes itself (~3s).

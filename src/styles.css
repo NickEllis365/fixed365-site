@@ -376,7 +376,7 @@ button { -webkit-tap-highlight-color: transparent; }
   .hero-inner { position: relative; }
   .hero-mark-wrap { position: absolute; top: clamp(56px, 9vw, 112px); right: var(--pad-x); }
   .hero-mark { width: 92px; margin: -15px 0 0 0; }
-  .hero-burst { display: none; }
+  .hero-burst-logo { width: 30px; height: 30px; }
   .hero-title { padding-right: 100px; }
 }
 @media (min-width: 900px) {
