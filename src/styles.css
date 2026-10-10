@@ -115,9 +115,9 @@ button { -webkit-tap-highlight-color: transparent; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
 .hero-mark-wrap { flex: 1 1 320px; min-width: 0; display: flex; justify-content: center; }
 .hero-mark { width: min(100%, 400px); aspect-ratio: 1; position: relative; cursor: pointer; container-type: inline-size; }
-.hero-burst { position: absolute; inset: 0; pointer-events: none; }
+.hero-burst { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
 .hero-burst-logo {
-  position: absolute; left: 50%; top: 50%; width: min(12cqw, 5.2vh); height: min(12cqw, 5.2vh);
+  position: absolute; left: 50%; top: 50%; width: min(12cqw, 6vh); height: min(12cqw, 6vh);
   filter: drop-shadow(0 6px 14px rgba(0,0,0,.25));
   transform: translate(-50%, -50%) scale(.3); opacity: 0;
 }
