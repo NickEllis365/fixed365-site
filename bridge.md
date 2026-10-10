@@ -1,5 +1,45 @@
 # Fixed365 site — working log
 
+## START HERE: project overview (for anyone picking this up)
+
+**What it is:** the marketing site for **Fixed365**, a Microsoft 365 / Azure support business for small UK businesses. Live at https://www.fixed365.co.uk. Repo: https://github.com/NickEllis365/fixed365-site (branch `main` = live).
+
+**Business facts (don't get these wrong):**
+- Not a registered company yet: no company number, no "Ltd", no address on the site until the owner says so.
+- Phone 07950 428513, email hello@fixed365.co.uk, LinkedIn https://www.linkedin.com/company/fixed-365/
+- Services: Microsoft 365 (Exchange, Teams, SharePoint, OneDrive), security (Entra ID, Defender, Purview), Cyber Essentials support, domain hosting, email security, backup, Intune/Autopilot, licensing, Azure, Power Automate, Copilot, Power BI.
+- Copy rules: plain UK English, no hype; never claim "we know every setting".
+
+**Stack:** Vite 5 + React 18 single page. `npm run build` outputs to `dist/`. No backend.
+- Hosting: Azure Static Web Apps (Free/Standard tier, flat price; visitor animations cost nothing). Deployed by GitHub Actions `.github/workflows/azure-static-web-apps-kind-bay-05cfc8410.yml` on every push to `main` (app_location `/`, output_location `dist`). Pushing any other branch does NOT deploy.
+- Contact form: Web3Forms (public access key in `src/components/Contact.jsx`), with a hidden `botcheck` spam trap. Confirmed working by the owner.
+
+**Files:**
+- `src/data.js`: all content lists: `CATS` (product groups for "What we look after"), `LOGOS`, `CAT_BLURBS`, `HERO_LOGOS`, `BLOCKS` (the animated F), `SVCS`, `TICKET`, `DEVICES`, `SIZES`.
+- `src/components/`: `Header` (logo "Fixed" white + "365" blue, nav), `Hero` (interactive F + logo explosion on hover + scrolling logo strip), `WhatWeCover` (tile explorer with detail panel; swipeable strip on phones), `Services` ("How we help": panel on desktop, accordion on phones), `GettingStarted` ("How it starts"), `Contact` (form + confetti), `Footer`, `Logo` (the F mark).
+- `src/confetti.js`: confetti on form submit. `src/theme.js`: `darkBand` class for the always-dark bands (header, hero, How we help, footer).
+- `src/styles.css`: one stylesheet. CSS variables; `html.theme-light` for the light theme; breakpoints 899px (narrow) and 560px (phone); hover effects only inside `@media (hover:hover)`; reduced-motion block at the end.
+- `public/logos/*.svg`: real Microsoft product icons from Wikimedia Commons (owner's deliberate choice). Products without a Microsoft logo (Backup, Autopilot, Licensing, Domain hosting, Email security, Cyber Essentials) use simple line icons in `WhatWeCover.jsx`.
+
+**Design rules from the owner:**
+- Keep their design: Archivo font, navy/sky palette (dark #10243B, accent #2BA3D9), the interactive block "F".
+- It must not "look AI": no gradient blobs, coloured circles, emoji-style icons or generic SaaS layouts.
+- Don't redesign beyond what's asked. A big unrequested redesign once upset the owner.
+- Phones matter: check every change at phone width too.
+- Compact, interactive sections are preferred over walls of text.
+
+**Workflow:**
+1. Make each change on its own branch.
+2. Build it and show the owner a preview (`npx vite preview --port 4173`, then http://localhost:4173/).
+3. Only when the owner says "push" / "go live", merge into `main` and push.
+4. Wait for the GitHub Actions run to succeed, then confirm the live site's CSS/JS contains the change.
+5. Log every change in this file (newest first), and commit and push before ending a session.
+
+**Ideas offered, not yet requested:** link previews (Open Graph), robots.txt + sitemap, prerendering for SEO, self-hosted fonts, security headers, a privacy notice for the form, real photos/quotes/prices, analytics and a "How did you hear about us?" field, company details once registered.
+
+---
+# Change log (newest first)
+
 ## Contact form: confetti on submit (LIVE)
 - Owner asked: confetti when the form's button is clicked, made of the product logos and the F logo too.
 - `src/confetti.js` `throwConfetti(el)`: fixed overlay layer; 13 product logos + 5 F logos + 55 paper bits in site colours (sky, navy, teal, amber, lilac). Each piece gets a simulated path (upward cone launch, drag, gravity, sway, spin; paper tumbles) played with the Web Animations API, fades out, and the layer removes itself (~3s).
