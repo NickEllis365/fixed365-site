@@ -42,7 +42,8 @@
 
 ## 2026-10-10 — Hero logo explosion on phones (branch `mobile-burst`, LIVE)
 - Owner asked for the hero F logo explosion on mobile too (it was hidden under 900px).
-- Under 900px the burst now shows: logos are a fixed 30px (12cqw of the 92px mark was ~11px), and `explode()` sizes the spread from `max(mark width, 60% of screen width)` so they fly across the hero. Tap the small F to trigger. Desktop unchanged; still skipped with reduced motion.
+- Under 900px the burst now shows: logos are a fixed 30px (12cqw of the 92px mark was ~11px), and `explode()` sizes the spread from `max(mark width, 60% of screen width)` so they fly across the hero. Tap the small F to trigger. Still skipped with reduced motion.
+- Owner: the burst was too big on a 16" laptop (fine on a 27" monitor). The first version wrongly applied the screen-width spread on desktop too. Now desktop spread = `min(F width, 42% of window height)` and logos are `min(12cqw, 5.2vh)`, so shorter laptop screens get a smaller burst; big monitors look as before.
 - This machine had no Node.js; installed Node LTS via winget and ran `npm install`. Preview served with `--host` so the owner could check on their phone.
 - Status: LIVE. Merged into `main` and pushed on owner's "push".
 

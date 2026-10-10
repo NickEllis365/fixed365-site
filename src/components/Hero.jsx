@@ -27,7 +27,8 @@ const rand = (a, b) => a + Math.random() * (b - a);
 function explode(burstEl) {
   if (!burstEl || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   // On phones the F is a small 92px mark, so the spread is sized from the screen instead.
-  const w = Math.max(burstEl.offsetWidth, window.innerWidth * 0.6);
+  // On desktop it follows the F's size, kept within the screen height so laptops get a smaller burst.
+  const w = innerWidth < 900 ? innerWidth * 0.6 : Math.min(burstEl.offsetWidth, innerHeight * 0.42);
   const n = burstEl.children.length;
   [...burstEl.children].forEach((el, i) => {
     el.getAnimations().forEach(a => a.cancel());
