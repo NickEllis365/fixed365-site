@@ -40,6 +40,14 @@
 ---
 # Change log (newest first)
 
+## 2026-10-11 — Privacy notice (branch `privacy-notice`, LIVE)
+- Needed for the contact form and the planned cold-email outreach (UK GDPR / PECR).
+- New page `/privacy.html` (second Vite entry: `privacy.html` + `src/privacy.jsx` + `src/components/PrivacyNotice.jsx`; `vite.config.js` has `rollupOptions.input`). Styles under `.legal` in styles.css.
+- Names the controller as "Fixed365 is the trading name of Nick Ellis" (owner confirmed it's fine). Retention: enquiries 2 years, contacted businesses 12 months, opt-out list kept, clients 6 years.
+- `Header` takes a `base` prop so its links go to `/#section` from the privacy page. Footer has a "Privacy" link; the contact form has a one-line note linking to it.
+- Owner advised to pay the ICO data protection fee (ico.org.uk/fee); add the registration number to the notice once they have it.
+- Status: LIVE on owner's "push privacy notice".
+
 ## 2026-10-10 — Hero logo explosion on phones (branch `mobile-burst`, LIVE)
 - Owner asked for the hero F logo explosion on mobile too (it was hidden under 900px).
 - Under 900px the burst now shows: logos are a fixed 30px (12cqw of the 92px mark was ~11px), and `explode()` sizes the spread from `max(mark width, 60% of screen width)` so they fly across the hero. Tap the small F to trigger. Still skipped with reduced motion.
