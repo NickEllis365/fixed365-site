@@ -83,7 +83,7 @@ export default function Hero() {
       <div className="hero-inner">
         <div className="hero-copy">
           <h1 className="hero-title">Microsoft 365, set up right and kept that way.</h1>
-          <p className="hero-lede">We set up, secure and support Microsoft 365 and Azure for small UK businesses. It's all we work on.</p>
+          <p className="hero-lede">We set up, secure and support Microsoft 365 and Azure for small UK businesses, and help you put AI like Copilot to work safely.</p>
           <div className="hero-actions">
             <a href="#contact" className="btn-sky btn-lg">Book a free health check</a>
             <a href="#stack" className="btn-outline btn-lg">See what we cover</a>

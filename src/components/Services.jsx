@@ -115,7 +115,43 @@ function Support() {
   );
 }
 
-const PANELS = [Migrate, Secure, Devices, Support];
+function AI() {
+  return (
+    <div className="diagram">
+      <div className="diagram-label">Getting AI working for your business</div>
+      <div className="migrate-grid">
+        <div className="migrate-step">Your systems</div>
+        <div className="migrate-sources">
+          <div className="box">Email &amp; calendars</div>
+          <div className="box">Files &amp; SharePoint</div>
+          <div className="box">CRM &amp; accounts</div>
+          <div className="box">Forms &amp; spreadsheets</div>
+        </div>
+        <div className="migrate-lines">
+          {[0, 0.55, 1.1, 1.65].map(d => (
+            <div key={d} className="flow-line"><span className="flow-dot" style={{ animationDelay: d + 's' }} /></div>
+          ))}
+        </div>
+        <div className="migrate-step migrate-step-to" aria-hidden="true">↓ Put to work</div>
+        <div className="migrate-targets">
+          <div className="azure-target">
+            <div className="migrate-target-title"><Logo name="copilot" size={22} />Copilot ready</div>
+            <div className="azure-row"><span>Permissions checked</span></div>
+            <div className="azure-row"><span>Team trained</span></div>
+          </div>
+          <div className="azure-target">
+            <div className="migrate-target-title"><Logo name="power-automate" size={22} />Linked with AI</div>
+            <div className="azure-row"><span>Systems talking</span></div>
+            <div className="azure-row"><span>Admin automated</span></div>
+          </div>
+        </div>
+      </div>
+      <p className="diagram-note">We tidy up who can see what before Copilot goes on, so it only shows people what they should see. Then we connect your systems so AI can draft, sort and update records for you.</p>
+    </div>
+  );
+}
+
+const PANELS = [Migrate, Secure, Devices, Support, AI];
 
 // Under 900px the services become an accordion: each one is a panel that opens (and closes) in place.
 const NARROW = '(max-width: 899px)';

@@ -24,9 +24,10 @@ export const CATS = [
     ['Lc', 'Licensing', 'Pay for what you use, nothing more.', ['Right plan for each person (Basic, Standard, Premium)', 'Unused licences found and removed', 'Renewals and changes handled for you']],
     ['Az', 'Azure', 'Cloud servers and storage, without the server room.', ['Old on-site servers moved to Azure', 'Azure Virtual Desktop for remote working', 'Spend limits and cost alerts set up']]
   ]},
-  { name: 'Automate', color: '#B49CF0', items: [
+  { name: 'AI & Automate', color: '#B49CF0', items: [
+    ['Cp', 'Copilot readiness', 'Microsoft\'s AI, rolled out safely.', ['Readiness check of your data, permissions and licences', 'Oversharing in SharePoint and OneDrive fixed before it\'s switched on', 'Practical training so your team actually uses it']],
+    ['Ai', 'AI integrations', 'Your systems linked up with AI.', ['Connect your CRM, accounts and inboxes to AI tools', 'Emails, forms and documents sorted and summarised automatically', 'Kept secure, with your data staying in your control']],
     ['Pa', 'Power Automate', 'Repetitive admin, done automatically.', ['Approvals, forms and notifications automated', 'Connect Microsoft 365 to the apps you already use', 'Built and documented by us']],
-    ['Cp', 'Copilot', 'Microsoft\'s AI, rolled out safely.', ['Data permissions checked before switching it on', 'Licences for the people who\'ll actually use it', 'Practical training for your team']],
     ['Bi', 'Power BI', 'Your numbers in one dashboard.', ['Reports from Excel, SharePoint and your systems', 'Shared securely inside Microsoft 365', 'Refreshed automatically']]
   ]}
 ];
@@ -35,7 +36,8 @@ export const SVCS = [
   ['Migrate', 'Move email and files onto Microsoft 365 with no downtime.'],
   ['Secure', 'Lock down accounts, devices and data in layers.'],
   ['Manage devices', 'Every laptop and phone set up, patched and protected.'],
-  ['Support', 'A real engineer who knows your setup, when you need one.']
+  ['Support', 'A real engineer who knows your setup, when you need one.'],
+  ['AI', 'Get Copilot ready and link your systems with AI.']
 ];
 
 
@@ -59,7 +61,7 @@ export const CAT_BLURBS = {
   Secure: 'Sign-ins, threats, sensitive data and Cyber Essentials.',
   Essentials: 'Domains, email security and backups.',
   Manage: 'Laptops, phones, licences and cloud servers.',
-  Automate: 'Less admin, better numbers, AI used sensibly.'
+  'AI & Automate': 'Copilot, AI linked to your systems, and less admin.'
 };
 
 // Logos in the hero carousel (scrolls in this order, then loops).
