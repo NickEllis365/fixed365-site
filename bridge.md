@@ -40,6 +40,14 @@
 ---
 # Change log (newest first)
 
+## 2026-10-11 — AI services (branch `ai-services`, LIVE)
+- Owner wants to advertise AI work: linking business systems with AI, and getting businesses Copilot ready.
+- Hero lede: "…and help you put AI like Copilot to work safely." (replaced "It's all we work on.")
+- `CATS`: "Automate" group renamed "AI & Automate" (CAT_BLURBS key too). Copilot became "Copilot readiness"; new "AI integrations" item (`Ai`, line icon in WhatWeCover.jsx).
+- `SVCS`: new "AI" service; `AI()` panel in Services.jsx reuses the migrate diagram classes (systems → "Copilot ready" / "Linked with AI").
+- index.html meta description mentions Copilot/AI readiness.
+- Status: LIVE on owner's "push all".
+
 ## 2026-10-11 — Privacy notice (branch `privacy-notice`, LIVE)
 - Needed for the contact form and the planned cold-email outreach (UK GDPR / PECR).
 - New page `/privacy.html` (second Vite entry: `privacy.html` + `src/privacy.jsx` + `src/components/PrivacyNotice.jsx`; `vite.config.js` has `rollupOptions.input`). Styles under `.legal` in styles.css.
