@@ -23,83 +23,53 @@ function ProductIcon({ sym, size = 28 }) {
   );
 }
 
-// Every product, flattened, so the detail panel can look one up by its symbol.
-const ITEMS = CATS.flatMap(c => c.items.map(([sym, name, what, we]) => ({ sym, name, what, we, cat: c.name })));
-const find = (sym) => ITEMS.find(it => it.sym === sym);
-
-function Details({ item, size }) {
-  return (
-    <>
-      <div className="cover-detail-head">
-        <ProductIcon sym={item.sym} size={size} />
-        <div>
-          <p className="cover-detail-cat">{item.cat}</p>
-          <p className="cover-detail-title">{item.name}</p>
-        </div>
-      </div>
-      <p className="cover-detail-what">{item.what}</p>
-      <ul>{item.we.map(w => <li key={w}>{w}</li>)}</ul>
-      <a href="#contact" className="cover-ask">Ask us about {item.name}</a>
-    </>
-  );
-}
-
-// Wide screens: tiles on the left, one detail panel on the right that follows hover, focus and clicks.
-// Narrow screens: no side panel; a tapped tile opens its details under its own group (tap again to close).
+// An index of the five areas on the left; the chosen area's products as cards on the right, each
+// showing what it is and what we do with it. On narrow screens the index becomes a swipeable row of
+// buttons, and each card opens with a tap (the first one starts open).
 export default function WhatWeCover() {
-  const [sel, setSel] = useState('Ex');      // what the detail panel shows
-  const current = find(sel);
+  const [cat, setCat] = useState(0);
+  const [open, setOpen] = useState(0);       // narrow screens: which card is open (-1 = none)
+  const c = CATS[cat];
+  const pick = (i) => { setCat(i); setOpen(0); };
 
   return (
     <section id="stack" className="section">
       <div className="section-inner">
         <div className="cover-intro">
           <h2 className="h2">What we look after</h2>
-          <p className="cover-note">It all comes with Microsoft 365 or Azure, plus the essentials around it. Pick a product to see what we do with it.</p>
+          <p className="cover-note">It all comes with Microsoft 365 or Azure, plus the essentials around it. Pick an area to see what we do with each part.</p>
         </div>
 
-        <div className="cover-explorer">
-          {/* Wide screens: grouped tiles; the panel follows hover, focus and clicks. */}
-          <div className="cover-groups">
-            {CATS.map(c => (
-              <div key={c.name} className="cover-group">
-                <h3 className="cover-group-head">{c.name} <span>{CAT_BLURBS[c.name]}</span></h3>
-                <div className="cover-tiles">
-                  {c.items.map(([sym, name]) => (
-                    <button key={sym} type="button" className="cover-tile" aria-pressed={sel === sym}
-                      onClick={() => setSel(sym)} onMouseEnter={() => setSel(sym)} onFocus={() => setSel(sym)}>
-                      <ProductIcon sym={sym} />
-                      <span>{name}</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
+        <div className="lk">
+          <div className="lk-index" role="tablist" aria-label="Areas we look after">
+            {CATS.map((g, i) => (
+              <button key={g.name} type="button" role="tab" className="lk-cat" aria-selected={i === cat} onClick={e => { pick(i); e.currentTarget.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' }); }}>
+                <span className="lk-num">{String(i + 1).padStart(2, '0')}</span>
+                <span className="lk-cat-text">
+                  <span className="lk-cat-name">{g.name}</span>
+                  <span className="lk-cat-blurb">{CAT_BLURBS[g.name]}</span>
+                </span>
+                <span className="lk-count">{g.items.length}</span>
+              </button>
             ))}
           </div>
 
-          {/* Narrow screens: one swipeable strip of every product, grouped by label; tap to show it in the panel below. */}
-          <div className="cover-strip-wrap">
-            <div className="cover-strip">
-              {CATS.map(c => (
-                <div key={c.name} className="strip-group" role="group" aria-label={c.name}>
-                  <span className="strip-label">{c.name}</span>
-                  <div className="strip-items">
-                    {c.items.map(([sym, name]) => (
-                      <button key={sym} type="button" className="strip-tile" aria-pressed={sel === sym} onClick={() => setSel(sym)}>
-                        <ProductIcon sym={sym} size={32} />
-                        <span>{name}</span>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-            <p className="strip-hint">Swipe for more. Tap a product to see what we do with it.</p>
+          <div className="lk-cards" key={cat} role="tabpanel" aria-label={c.name}>
+            {c.items.map(([sym, name, what, we], i) => (
+              <article key={sym} className="lk-card" data-open={i === open || undefined}>
+                <button type="button" className="lk-card-head" aria-expanded={i === open} onClick={() => setOpen(i === open ? -1 : i)}>
+                  <ProductIcon sym={sym} size={40} />
+                  <span className="lk-card-title">
+                    <span className="lk-name">{name}</span>
+                    <span className="lk-what">{what}</span>
+                  </span>
+                  <svg className="lk-chev" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6" /></svg>
+                </button>
+                <ul className="lk-we">{we.map(w => <li key={w}>{w}</li>)}</ul>
+              </article>
+            ))}
+            <a href="#contact" className="lk-ask">Ask us about any of these →</a>
           </div>
-
-          <aside className="cover-panel" aria-live="polite">
-            <div key={current.sym} className="cover-panel-inner"><Details item={current} size={56} /></div>
-          </aside>
         </div>
       </div>
     </section>

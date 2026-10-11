@@ -46,6 +46,7 @@
 - `SVCS`: new "Websites" service; `Websites()` panel in Services.jsx reuses the migrate diagram (what you give us → your website / hosted on Azure).
 - index.html meta description mentions websites.
 - Then (same branch) owner asked for a new "what we do" design: "How we help" became **What we do**, with tabs **Microsoft 365 / Websites / AI** (`SVC_GROUPS` in data.js replaces `SVCS`). Microsoft 365 keeps the 4-item list + diagram (accordion on phones); Websites and AI show a summary card (`.svc-intro`: title, "From £400" badge for websites, square-bullet points, "Ask about…" button) beside their diagram, stacked on phones. Nav link renamed "What we do". Tabs switch instantly (a colour fade looked broken mid-switch).
+- Then owner said the clutter they meant was **What we look after**. Redesigned (WhatWeCover.jsx): an index of the five areas on the left ("01 Collaborate" + blurb + product count, sticky), and only the chosen area's 3–4 products on the right as cards (logo, name, one-liner, and the "what we do" bullets shown directly). The old 21-tile grid, separate detail panel and phone strip are gone (their CSS removed; `.lk-*` classes now). Phones: areas become a swipeable row of buttons (tapped one scrolls into view), cards stack and open with a tap (first starts open). Link under the cards: "Ask us about any of these →".
 - Status: preview only, waiting for owner's "push".
 
 ## 2026-10-11 — Header: floating glass bar (branches `glass-header` + `float-header`, LIVE)
