@@ -73,6 +73,7 @@ export default function Contact() {
               <button type="submit" className="submit" disabled={sending}>
                 {sending ? 'Sending…' : 'Request my health check'}
               </button>
+              <p className="form-note">We'll only use your details to reply to you. See our <a href="/privacy.html">privacy notice</a>.</p>
               {err && <div className="form-error">Something went wrong. Please call or email us instead.</div>}
             </form>
           ) : (

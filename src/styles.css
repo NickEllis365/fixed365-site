@@ -307,9 +307,25 @@ button { -webkit-tap-highlight-color: transparent; }
 .submit:hover { background: #2BA3D9; color: #0B1219; }
 .submit:disabled { cursor: progress; }
 .form-error { font-size: 15px; color: var(--warn); }
+.form-note { margin: 0; font-size: 14px; line-height: 1.5; color: var(--muted-2); }
+.form-note a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 .sent { display: flex; flex-direction: column; gap: 16px; animation: f365up .5s ease-out both; }
 .sent-title { font-family: var(--font-heading); font-weight: 800; font-size: 40px; letter-spacing: -.03em; }
 .sent-text { font-size: 17px; line-height: 1.55; color: var(--muted); }
+
+/* — privacy notice page — */
+.legal { border-bottom: 1px solid var(--line); }
+.legal-inner { max-width: 760px; margin: 0 auto; padding: clamp(40px, 7vw, 80px) var(--pad-x); font-size: 17px; line-height: 1.65; color: var(--muted); }
+.legal-inner .h2 { color: var(--text); }
+.legal-updated { margin: 8px 0 32px; font-size: 15px; color: var(--muted-2); }
+.legal-inner h2 { margin: 40px 0 12px; font-family: var(--font-heading); font-weight: 800; font-size: 24px; letter-spacing: -.01em; color: var(--text); }
+.legal-inner h3 { margin: 24px 0 8px; font-weight: 700; font-size: 18px; color: var(--text); }
+.legal-inner p { margin: 0 0 14px; }
+.legal-inner ul { margin: 0 0 14px; padding-left: 22px; }
+.legal-inner li { margin-bottom: 6px; }
+.legal-inner strong { color: var(--text); }
+.legal-inner a { color: var(--eyebrow); text-underline-offset: 3px; }
+.legal-back { margin-top: 40px !important; }
 
 /* — footer — */
 .site-footer { padding: 40px var(--pad-x); }
