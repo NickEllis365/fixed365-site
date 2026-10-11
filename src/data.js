@@ -33,13 +33,20 @@ export const CATS = [
   ]}
 ];
 
-export const SVCS = [
-  ['Migrate', 'Move email and files onto Microsoft 365 with no downtime.'],
-  ['Secure', 'Lock down accounts, devices and data in layers.'],
-  ['Manage devices', 'Every laptop and phone set up, patched and protected.'],
-  ['Support', 'A real engineer who knows your setup, when you need one.'],
-  ['AI', 'Get Copilot ready and link your systems with AI.'],
-  ['Websites', 'A simple, fast website, built and hosted for you.']
+// "What we do": three areas, picked with tabs. An area with several services shows them as a list
+// next to the diagram; an area with one service shows a summary card (intro, price, points) instead.
+export const SVC_GROUPS = [
+  { label: 'Microsoft 365', items: [
+    ['Migrate', 'Move email and files onto Microsoft 365 with no downtime.'],
+    ['Secure', 'Lock down accounts, devices and data in layers.'],
+    ['Manage devices', 'Every laptop and phone set up, patched and protected.'],
+    ['Support', 'A real engineer who knows your setup, when you need one.']
+  ]},
+  { label: 'Websites', items: [['Websites', 'A simple, fast website for your business, built and looked after for you.']],
+    price: 'From £400',
+    points: ['Designed around your business', 'Looks right on phones', 'Your own domain, with a secure padlock', 'Enquiries straight to your inbox', 'Changes made when you need them'] },
+  { label: 'AI', items: [['AI', 'Microsoft Copilot rolled out safely, and your systems linked up with AI.']],
+    points: ['Permissions checked before Copilot goes on', 'Licences for the people who will use it', 'CRM, accounts and inboxes linked to AI', 'Practical training for your team'] }
 ];
 
 

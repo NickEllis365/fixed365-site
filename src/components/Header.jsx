@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Logo from './Logo.jsx';
 import { darkBand } from '../theme.js';
 
-const LINKS = [['#stack', 'What we look after'], ['#services', 'How we help'], ['#start', 'How it starts']];
+const LINKS = [['#stack', 'What we look after'], ['#services', 'What we do'], ['#start', 'How it starts']];
 
 // base="/" on other pages (e.g. privacy.html) so the section links go back to the home page.
 export default function Header({ base = "" }) {

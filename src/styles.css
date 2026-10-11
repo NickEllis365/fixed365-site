@@ -231,7 +231,29 @@ button { -webkit-tap-highlight-color: transparent; }
 .start-text strong { color: var(--text); }
 
 .layer-name { color: #5ED1B6; color: color-mix(in srgb, #5ED1B6, #000 var(--label-mix)); }
-/* — services — */
+/* — services ("What we do") — */
+/* Area tabs: Microsoft 365 / Websites / AI. */
+.svc-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: -8px 0 4px; }
+.svc-tab {
+  padding: 12px 20px; border: 1px solid var(--line-2); border-radius: var(--r-md); background: transparent;
+  color: var(--muted); font-family: var(--font-heading); font-weight: 800; font-size: 17px; letter-spacing: -.01em;
+  cursor: pointer;
+}
+.svc-tab[aria-selected="true"] { background: #2BA3D9; border-color: #2BA3D9; color: #0B1219; }
+@media (hover: hover) { .svc-tab[aria-selected="false"]:hover { border-color: #2BA3D9; color: var(--text); } }
+/* Single-service areas: summary card beside the diagram. */
+.svc-intro {
+  flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 16px;
+  padding: clamp(22px, 3vw, 32px); border: 1px solid var(--line-2); border-radius: var(--r-md); background: var(--panel);
+  animation: f365up .5s ease-out both;
+}
+.svc-intro-title { margin: 0; font-family: var(--font-heading); font-weight: 800; font-size: 30px; letter-spacing: -.02em; }
+.svc-price { padding: 6px 12px; border-radius: var(--r-sm); background: #2BA3D9; color: #0B1219; font-weight: 800; font-size: 15px; }
+.svc-intro-line { margin: 0; font-size: 17px; line-height: 1.55; color: var(--muted); }
+.svc-points { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.svc-points li { position: relative; padding-left: 22px; font-size: 15px; font-weight: 600; line-height: 1.45; }
+.svc-points li::before { content: ""; position: absolute; left: 0; top: .45em; width: 9px; height: 9px; background: #2BA3D9; }
+.svc-ask { margin-top: 8px; padding: 12px 18px; }
 .svc-body { display: flex; flex-wrap: wrap; gap: 32px; align-items: stretch; }
 .svc-list { flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; border-top: 1px solid var(--line-2); }
 .svc-btn {
@@ -412,6 +434,12 @@ button { -webkit-tap-highlight-color: transparent; }
   .svc-chev { display: block; }
   .svc-btn[aria-expanded="true"] .svc-chev { transform: rotate(180deg); color: #2BA3D9; }
   .svc-inline .diagram { gap: 20px; }
+  /* Single-service areas keep their diagram on phones, stacked under the summary card. */
+  .svc-single { gap: 16px; }
+  .svc-single .svc-intro { flex-basis: 100%; }
+  .svc-single .svc-panel { display: flex; flex-basis: 100%; min-height: 0; padding: 20px; }
+  .svc-tabs { gap: 6px; }
+  .svc-tab { flex: 1 1 auto; padding: 11px 12px; font-size: 15px; }
   .hero-actions > a { flex: 1 1 100%; min-height: 56px; }
   .start { grid-template-columns: minmax(0, 1fr); }
   .cover-explorer { grid-template-columns: minmax(0, 1fr); gap: 16px; }
