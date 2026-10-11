@@ -40,6 +40,13 @@
 ---
 # Change log (newest first)
 
+## 2026-10-11 — Websites as a service (branch `websites`)
+- Owner now offers websites, hosted the same way as this site (GitHub → Azure Static Web Apps, one app per client).
+- `CATS` Essentials: new first item "Websites" (`Wb`, browser line icon in WhatWeCover.jsx); blurb "Websites, domains, email security and backups."
+- `SVCS`: new "Websites" service; `Websites()` panel in Services.jsx reuses the migrate diagram (what you give us → your website / hosted on Azure).
+- index.html meta description mentions websites.
+- Status: preview only, waiting for owner's "push".
+
 ## 2026-10-11 — Header: floating glass bar (branches `glass-header` + `float-header`, LIVE)
 - Owner wanted the header "crisp and maybe glassy". Option A (`glass-header`): full-width bar that turns frosted on scroll. Option B (`float-header`, built on A): on scroll the bar lifts into a floating rounded frosted-glass panel. Owner said "push all", so B is live.
 - At the top of the page the header is solid hero navy (a see-through bar showed the light page background and looked grey). Once `scrollY > 8` it gets `.is-floating`: header goes transparent, `.header-bar` becomes the glass panel (rgba(13,30,50,.8), blur 18px + saturate, hairline border, 14px radius, shadow). Header stays 73px tall in both states so the page doesn't jump.

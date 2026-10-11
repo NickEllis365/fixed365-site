@@ -151,7 +151,43 @@ function AI() {
   );
 }
 
-const PANELS = [Migrate, Secure, Devices, Support, AI];
+function Websites() {
+  return (
+    <div className="diagram">
+      <div className="diagram-label">From your ideas to a live website</div>
+      <div className="migrate-grid">
+        <div className="migrate-step">You give us</div>
+        <div className="migrate-sources">
+          <div className="box">What you do</div>
+          <div className="box">Logo &amp; photos</div>
+          <div className="box">Your domain name</div>
+          <div className="box">Where enquiries go</div>
+        </div>
+        <div className="migrate-lines">
+          {[0, 0.55, 1.1, 1.65].map(d => (
+            <div key={d} className="flow-line"><span className="flow-dot" style={{ animationDelay: d + 's' }} /></div>
+          ))}
+        </div>
+        <div className="migrate-step migrate-step-to" aria-hidden="true">↓ You get</div>
+        <div className="migrate-targets">
+          <div className="azure-target">
+            <div className="migrate-target-title">Your website</div>
+            <div className="azure-row"><span>Looks right on phones</span></div>
+            <div className="azure-row"><span>Enquiries to your inbox</span></div>
+          </div>
+          <div className="azure-target">
+            <div className="migrate-target-title"><Logo name="azure" size={22} />Hosted on Azure</div>
+            <div className="azure-row"><span>Fast and secure</span></div>
+            <div className="azure-row"><span>Changes when you need them</span></div>
+          </div>
+        </div>
+      </div>
+      <p className="diagram-note">We build it, put it live on your own domain and look after it, the same way this site is built and hosted.</p>
+    </div>
+  );
+}
+
+const PANELS = [Migrate, Secure, Devices, Support, AI, Websites];
 
 // Under 900px the services become an accordion: each one is a panel that opens (and closes) in place.
 const NARROW = '(max-width: 899px)';
