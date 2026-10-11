@@ -40,6 +40,14 @@
 ---
 # Change log (newest first)
 
+## 2026-10-11 — Header: floating glass bar (branches `glass-header` + `float-header`, LIVE)
+- Owner wanted the header "crisp and maybe glassy". Option A (`glass-header`): full-width bar that turns frosted on scroll. Option B (`float-header`, built on A): on scroll the bar lifts into a floating rounded frosted-glass panel. Owner said "push all", so B is live.
+- At the top of the page the header is solid hero navy (a see-through bar showed the light page background and looked grey). Once `scrollY > 8` it gets `.is-floating`: header goes transparent, `.header-bar` becomes the glass panel (rgba(13,30,50,.8), blur 18px + saturate, hairline border, 14px radius, shadow). Header stays 73px tall in both states so the page doesn't jump.
+- Phone menu open: `.is-open` turns floating off and makes the bar nearly solid so links stay readable.
+- Nav links: sky underline grows on hover; the section on screen gets `aria-current` (IntersectionObserver) and stays underlined.
+- To go back to option A: revert commit 90fe9e3.
+- Status: LIVE on owner's "push all website changes".
+
 ## 2026-10-11 — AI services (branch `ai-services`, LIVE)
 - Owner wants to advertise AI work: linking business systems with AI, and getting businesses Copilot ready.
 - Hero lede: "…and help you put AI like Copilot to work safely." (replaced "It's all we work on.")
