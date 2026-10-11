@@ -7,7 +7,7 @@ const LINKS = [['#stack', 'What we look after'], ['#services', 'How we help'], [
 // base="/" on other pages (e.g. privacy.html) so the section links go back to the home page.
 export default function Header({ base = "" }) {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);   // page scrolled: bar tightens and gets a shadow
+  const [scrolled, setScrolled] = useState(false);   // page scrolled: bar floats as a glass panel
   const [active, setActive] = useState('');          // section currently on screen, underlined in the nav
   const close = () => setOpen(false);
 
@@ -33,7 +33,7 @@ export default function Header({ base = "" }) {
   }, []);
 
   return (
-    <header className={"site-header" + darkBand + (scrolled ? " is-scrolled" : "") + (open ? " is-open" : "")}>
+    <header className={"site-header" + darkBand + (scrolled && !open ? " is-floating" : "") + (open ? " is-open" : "")}>
       <div className="header-bar">
         <a href={base + "#top"} className="brand"><Logo /><span>Fixed<span className="brand-365">365</span></span></a>
         <nav className="nav-wide">

@@ -73,27 +73,36 @@ button { -webkit-tap-highlight-color: transparent; }
 .btn-lg { padding: 18px 22px; font-size: 17px; }
 
 /* — header — */
-/* At the top it's the hero's own navy, so the two read as one. Once the page scrolls it turns to frosted glass:
-   see-through navy, blurred and slightly saturated, with a hairline edge, a faint top highlight and a soft shadow. */
+/* At the top it's a full-width bar in the hero's own navy, so the two read as one. Once the page scrolls the bar
+   lifts off the edges into a floating frosted-glass panel: see-through navy, blurred and slightly saturated,
+   with a hairline edge, a faint top highlight and a soft shadow. The header keeps the same overall height
+   (73px) in both states so the page never jumps. */
 .site-header {
   position: sticky; top: 0; z-index: 20;
   background: rgba(16,36,59,1);
-  -webkit-backdrop-filter: blur(18px) saturate(170%); backdrop-filter: blur(18px) saturate(170%);
   border-bottom: 1px solid rgba(255,255,255,.08);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
-  transition: background-color .3s, box-shadow .3s;
-}
-.site-header.is-scrolled {
-  background: rgba(13,30,50,.82);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 8px 24px rgba(5,12,22,.28);
+  padding: 0;
+  transition: background-color .3s, border-color .3s, padding .3s;
 }
 .header-bar {
   max-width: 1280px; margin: 0 auto; height: 72px; padding: 0 var(--pad-x);
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  transition: height .3s;
+  border: 1px solid transparent; border-radius: 0; background: transparent;
+  transition: height .3s, max-width .3s, padding .3s, border-radius .3s, background-color .3s, border-color .3s, box-shadow .3s;
 }
-.is-scrolled .header-bar { height: 62px; }
-.site-header.is-open { background: rgba(13,30,50,.94); }
+.site-header.is-floating {
+  background: transparent; border-bottom-color: transparent;
+  padding: 8px clamp(10px, 2vw, 24px) 7px;
+}
+.is-floating .header-bar {
+  height: 57px; max-width: 1180px; padding: 0 10px 0 22px; border-radius: 14px;
+  background: rgba(13,30,50,.8); border-color: rgba(255,255,255,.12);
+  -webkit-backdrop-filter: blur(18px) saturate(170%); backdrop-filter: blur(18px) saturate(170%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 10px 30px rgba(5,12,22,.3);
+}
+.is-floating .nav-cta { padding: 10px 16px; }
+.is-floating .menu-btn { width: 42px; height: 42px; }
+.site-header.is-open { background: rgba(13,30,50,.96); }
 .brand {
   display: flex; align-items: center; gap: 12px; color: var(--text);
   font-family: var(--font-heading); font-weight: 800; font-size: 24px; letter-spacing: -.02em;
