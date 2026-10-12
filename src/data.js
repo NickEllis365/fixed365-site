@@ -14,6 +14,7 @@ export const CATS = [
     ['Ce', 'Cyber Essentials', 'Help getting certified, and staying certified.', ['Gap check against the Cyber Essentials requirements', 'Fixes made in Microsoft 365, Intune and Defender', 'Support with the questionnaire and yearly renewal']]
   ]},
   { name: 'Essentials', color: '#2BA3D9', items: [
+    ['Wb', 'Websites', 'A fast, simple website, built and hosted for you.', ['Designed and built around your business, and looks right on phones', 'Hosted on Microsoft Azure with your own domain and a secure padlock', 'Contact form straight to your inbox, and changes made when you need them']],
     ['Dm', 'Domain hosting', 'Your domain names and DNS, looked after.', ['Domains registered and renewed so they never lapse', 'DNS records managed for your email and website', 'One place for it all, not logins scattered across old providers']],
     ['Es', 'Email security', 'Phishing and spam stopped before they reach anyone.', ['Phishing, malware and impersonation filtering', 'SPF, DKIM and DMARC set up and monitored', 'Suspicious messages quarantined and checked']],
     ['Bk', 'Backup', 'Your Microsoft 365 data, recoverable.', ['Mail, OneDrive, SharePoint and Teams backed up daily', 'Restores of a file or a whole mailbox on request', 'Tested so it works when you need it']]
@@ -32,12 +33,20 @@ export const CATS = [
   ]}
 ];
 
-export const SVCS = [
-  ['Migrate', 'Move email and files onto Microsoft 365 with no downtime.'],
-  ['Secure', 'Lock down accounts, devices and data in layers.'],
-  ['Manage devices', 'Every laptop and phone set up, patched and protected.'],
-  ['Support', 'A real engineer who knows your setup, when you need one.'],
-  ['AI', 'Get Copilot ready and link your systems with AI.']
+// "What we do": three areas, picked with tabs. An area with several services shows them as a list
+// next to the diagram; an area with one service shows a summary card (intro, price, points) instead.
+export const SVC_GROUPS = [
+  { label: 'Microsoft 365', items: [
+    ['Migrate', 'Move email and files onto Microsoft 365 with no downtime.'],
+    ['Secure', 'Lock down accounts, devices and data in layers.'],
+    ['Manage devices', 'Every laptop and phone set up, patched and protected.'],
+    ['Support', 'A real engineer who knows your setup, when you need one.']
+  ]},
+  { label: 'Websites', items: [['Websites', 'A simple, fast website for your business, built and looked after for you.']],
+    price: 'From £400',
+    points: ['Designed around your business', 'Looks right on phones', 'Your own domain, with a secure padlock', 'Enquiries straight to your inbox', 'Changes made when you need them'] },
+  { label: 'AI', items: [['AI', 'Microsoft Copilot rolled out safely, and your systems linked up with AI.']],
+    points: ['Permissions checked before Copilot goes on', 'Licences for the people who will use it', 'CRM, accounts and inboxes linked to AI', 'Practical training for your team'] }
 ];
 
 
@@ -59,7 +68,7 @@ export const LOGOS = {
 export const CAT_BLURBS = {
   Collaborate: 'Email, chat, meetings and files.',
   Secure: 'Sign-ins, threats, sensitive data and Cyber Essentials.',
-  Essentials: 'Domains, email security and backups.',
+  Essentials: 'Websites, domains, email security and backups.',
   Manage: 'Laptops, phones, licences and cloud servers.',
   'AI & Automate': 'Copilot, AI linked to your systems, and less admin.'
 };

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { SVCS, TICKET, DEVICES } from '../data.js';
+import { SVC_GROUPS, TICKET, DEVICES } from '../data.js';
 import { darkBand } from '../theme.js';
 
 function Logo({ name, size = 20 }) {
@@ -151,7 +151,43 @@ function AI() {
   );
 }
 
-const PANELS = [Migrate, Secure, Devices, Support, AI];
+function Websites() {
+  return (
+    <div className="diagram">
+      <div className="diagram-label">From your ideas to a live website</div>
+      <div className="migrate-grid">
+        <div className="migrate-step">You give us</div>
+        <div className="migrate-sources">
+          <div className="box">What you do</div>
+          <div className="box">Logo &amp; photos</div>
+          <div className="box">Your domain name</div>
+          <div className="box">Where enquiries go</div>
+        </div>
+        <div className="migrate-lines">
+          {[0, 0.55, 1.1, 1.65].map(d => (
+            <div key={d} className="flow-line"><span className="flow-dot" style={{ animationDelay: d + 's' }} /></div>
+          ))}
+        </div>
+        <div className="migrate-step migrate-step-to" aria-hidden="true">↓ You get</div>
+        <div className="migrate-targets">
+          <div className="azure-target">
+            <div className="migrate-target-title">Your website</div>
+            <div className="azure-row"><span>Looks right on phones</span></div>
+            <div className="azure-row"><span>Enquiries to your inbox</span></div>
+          </div>
+          <div className="azure-target">
+            <div className="migrate-target-title"><Logo name="azure" size={22} />Hosted on Azure</div>
+            <div className="azure-row"><span>Fast and secure</span></div>
+            <div className="azure-row"><span>Changes when you need them</span></div>
+          </div>
+        </div>
+      </div>
+      <p className="diagram-note">We build it, put it live on your own domain and look after it, the same way this site is built and hosted.</p>
+    </div>
+  );
+}
+
+const PANELS = { Migrate, Secure, 'Manage devices': Devices, Support, AI, Websites };
 
 // Under 900px the services become an accordion: each one is a panel that opens (and closes) in place.
 const NARROW = '(max-width: 899px)';
@@ -165,12 +201,34 @@ function Chevron() {
   );
 }
 
+// An area with a single service (Websites, AI): summary card on the left, its diagram on the right.
+function Summary({ group }) {
+  const [title, line] = group.items[0];
+  const Panel = PANELS[title];
+  return (
+    <div className="svc-body svc-single">
+      <div className="svc-intro">
+        <h3 className="svc-intro-title">{group.label}</h3>
+        {group.price && <span className="svc-price">{group.price}</span>}
+        <p className="svc-intro-line">{line}</p>
+        <ul className="svc-points">{group.points.map(p => <li key={p}>{p}</li>)}</ul>
+        <a href="#contact" className="btn-sky svc-ask">Ask about {group.label === 'AI' ? 'AI and Copilot' : group.label.toLowerCase()}</a>
+      </div>
+      <div className="svc-panel"><Panel /></div>
+    </div>
+  );
+}
+
 export default function Services() {
+  const [group, setGroup] = useState(0);
+  const g = SVC_GROUPS[group];
+  const SVCS = g.items;
   // -1 = all closed (only possible on narrow screens); the desktop panel then falls back to the first service.
   const [svc, setSvc] = useState(0);
-  const Panel = PANELS[Math.max(svc, 0)];
+  const Panel = PANELS[SVCS[Math.max(svc, 0)][0]];
   const buttons = useRef([]);
   const tapped = useRef(false);
+  const pickGroup = (i) => { setGroup(i); setSvc(0); };
 
   // On narrow screens, bring the tapped service to the top once its details have opened
   // (closing the previous one can shift it upwards, off screen).
@@ -190,9 +248,16 @@ export default function Services() {
     <section id="services" className={"section section-dark" + darkBand}>
       <div className="section-inner">
         <div className="heading-group" style={{ maxWidth: 720 }}>
-          <h2 className="h2">How we help</h2>
-          <p className="section-lede">Pick a service to see how it works in practice.</p>
+          <h2 className="h2">What we do</h2>
+          <p className="section-lede">Microsoft 365, websites and AI, done properly. Pick one to see how it works in practice.</p>
         </div>
+        <div className="svc-tabs" role="tablist" aria-label="What we do">
+          {SVC_GROUPS.map((t, i) => (
+            <button key={t.label} type="button" role="tab" className="svc-tab" aria-selected={i === group}
+              onClick={() => pickGroup(i)}>{t.label}</button>
+          ))}
+        </div>
+        {SVCS.length === 1 ? <Summary key={group} group={g} /> : (
         <div className="svc-body">
           <div className="svc-list">
             {SVCS.map(([title, line], i) => (
@@ -210,6 +275,7 @@ export default function Services() {
             <Panel key={svc} />
           </div>
         </div>
+        )}
       </div>
     </section>
   );
