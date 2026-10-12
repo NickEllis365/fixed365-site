@@ -47,7 +47,7 @@
 - index.html meta description mentions websites.
 - Then (same branch) owner asked for a new "what we do" design: "How we help" became **What we do**, with tabs **Microsoft 365 / Websites / AI** (`SVC_GROUPS` in data.js replaces `SVCS`). Microsoft 365 keeps the 4-item list + diagram (accordion on phones); Websites and AI show a summary card (`.svc-intro`: title, "From £400" badge for websites, square-bullet points, "Ask about…" button) beside their diagram, stacked on phones. Nav link renamed "What we do". Tabs switch instantly (a colour fade looked broken mid-switch).
 - Tried and rejected by the owner ("nope dont like that"): a What we look after redesign with an area index on the left and product cards on the right (commit e050237, reverted in de9da93). The original tile grid stays.
-- Status: preview only, waiting for owner's "push".
+- Status: LIVE (merged to main and pushed 12 Oct 2026 on owner's "push").
 
 ## 2026-10-11 — Header: floating glass bar (branches `glass-header` + `float-header`, LIVE)
 - Owner wanted the header "crisp and maybe glassy". Option A (`glass-header`): full-width bar that turns frosted on scroll. Option B (`float-header`, built on A): on scroll the bar lifts into a floating rounded frosted-glass panel. Owner said "push all", so B is live.
