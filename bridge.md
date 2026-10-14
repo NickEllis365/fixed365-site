@@ -259,7 +259,7 @@
 - A "local firm" restyle preview was rejected; the owner wants to keep their own design. Nothing from it was used.
 - Real phone number 07950 428513 added to the old `index.html` and pushed (commit f484df1).
 
-## 2026-10-14 — Glass hero fix (branch `glass-hero-fix`, preview, not pushed)
+## 2026-10-14 — Glass hero fix (branch `glass-hero-fix`, merged and pushed on owner's "push")
 - Removed the faint squares behind the hero product strip (they showed past its ends; owner said they looked weird).
 - The logo strip's fade now sits on an inner `.logo-window` (Hero.jsx), so logos fade before the glass edge instead of being cut off.
 - Owner asked for "squares floating around behind the header, blues and whites": `.hero-float` with 10 faint sky/white squares (HERO_SQUARES in Hero.jsx) drifting slowly (`f365drift`, 14–26s). Kept clear of the headline and the logo strip; phones show only 3. Reduced motion stops them.
