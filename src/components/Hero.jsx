@@ -99,13 +99,15 @@ export default function Hero() {
           <p className="hero-logos-label">The Microsoft tools we look after every day</p>
           {/* The list is rendered twice so the strip can loop seamlessly; the copy is hidden from screen readers. */}
           <div className="logo-marquee">
-            <ul className="logo-track">
-              {[...HERO_LOGOS, ...HERO_LOGOS].map(([file, name], i) => (
-                <li key={i} aria-hidden={i >= HERO_LOGOS.length || undefined}>
-                  <img src={`/logos/${file}.svg`} alt="" width="40" height="40" />{name}
-                </li>
-              ))}
-            </ul>
+            <div className="logo-window">
+              <ul className="logo-track">
+                {[...HERO_LOGOS, ...HERO_LOGOS].map(([file, name], i) => (
+                  <li key={i} aria-hidden={i >= HERO_LOGOS.length || undefined}>
+                    <img src={`/logos/${file}.svg`} alt="" width="40" height="40" />{name}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>

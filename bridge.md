@@ -258,3 +258,7 @@
 ## 2026-10-07 — Earlier: redesign abandoned, phone number update
 - A "local firm" restyle preview was rejected; the owner wants to keep their own design. Nothing from it was used.
 - Real phone number 07950 428513 added to the old `index.html` and pushed (commit f484df1).
+
+## 2026-10-14 — Glass hero fix (branch `glass-hero-fix`, preview, not pushed)
+- Removed the faint squares behind the hero product strip (they showed past its ends; owner said they looked weird).
+- The logo strip's fade now sits on an inner `.logo-window` (Hero.jsx), so logos fade before the glass edge instead of being cut off.
