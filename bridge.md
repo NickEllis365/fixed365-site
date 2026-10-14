@@ -40,7 +40,7 @@
 ---
 # Change log (newest first)
 
-## 2026-10-14 — Glass look (branch `glass-look`, MOCKUP, not pushed)
+## 2026-10-14 — Glass look (merged to main and pushed on owner's "push"; revert = `git revert -m 1 faf025c`)
 - The owner asked for the site to have the same "glassy modern look" as FixedOne (the leads dashboard), with a mockup before any push.
 - This is a refinement, not a redesign. Layout, copy, Archivo, the navy/sky palette and the block F are unchanged. All changes are one block at the end of `src/styles.css` ("Glass: frosted panes over the Fixed365 blocks").
 - **Panes:** the product tiles, detail panel, What we do tabs, list, panel and summary card, the How it starts text, the product strip and the contact form side are frosted glass. Each has a translucent fill, a hairline edge, a top highlight and a soft shadow. Dark and light variants come from `--glass*` variables on `.theme-dark` and `.theme-light`.
