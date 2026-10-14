@@ -40,6 +40,15 @@
 ---
 # Change log (newest first)
 
+## 2026-10-14 — Glass look (branch `glass-look`, MOCKUP, not pushed)
+- The owner asked for the site to have the same "glassy modern look" as FixedOne (the leads dashboard), with a mockup before any push.
+- This is a refinement, not a redesign. Layout, copy, Archivo, the navy/sky palette and the block F are unchanged. All changes are one block at the end of `src/styles.css` ("Glass: frosted panes over the Fixed365 blocks").
+- **Panes:** the product tiles, detail panel, What we do tabs, list, panel and summary card, the How it starts text, the product strip and the contact form side are frosted glass. Each has a translucent fill, a hairline edge, a top highlight and a soft shadow. Dark and light variants come from `--glass*` variables on `.theme-dark` and `.theme-light`.
+- **What shows through the glass:** large, flat, faint squares in the brand colours (the F's blocks) behind each section, through `::before`. There are no gradient blobs. Blocks are placed to sit behind panes; the hero blocks are switched off on phones.
+- **Shape and accents:** buttons, tabs and team-size buttons are pills; panels are 16px; tiles are 12px. The selected What we do item has a sky outline, replacing the 4px left stripe (the design check flagged that stripe). Form fields are rounded with a sky focus ring.
+- **Fallback:** without backdrop-filter, panes turn solid.
+- Status: waiting for the owner's review. Preview: `npx vite preview --port 4173`.
+
 ## 2026-10-11 — Websites as a service (branch `websites`)
 - Owner now offers websites, hosted the same way as this site (GitHub → Azure Static Web Apps, one app per client).
 - `CATS` Essentials: new first item "Websites" (`Wb`, browser line icon in WhatWeCover.jsx); blurb "Websites, domains, email security and backups."

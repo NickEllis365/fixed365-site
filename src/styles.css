@@ -477,6 +477,123 @@ button { -webkit-tap-highlight-color: transparent; }
   .sizes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cover-group-head span { display: block; margin: 4px 0 0; }
 }
+/* ———— Glass: frosted panes over the Fixed365 blocks ————
+   The same language as FixedOne (the dashboard): see-through panels with a hairline light edge, a top
+   highlight and soft depth. What shows through the glass is the brand's own block geometry, the squares of
+   the F, placed large and faint behind each section; the frost softens them. No colour blobs. */
+:root {
+  --glass-blur: blur(18px) saturate(160%);
+  --r-glass: 16px;
+}
+:root, .theme-dark {
+  --glass: rgba(255,255,255,.045); --glass-strong: rgba(255,255,255,.07);
+  --glass-edge: rgba(255,255,255,.12); --glass-hi: inset 0 1px 0 rgba(255,255,255,.08);
+  --glass-shadow: 0 18px 40px rgba(4,10,20,.32);
+}
+.theme-light {
+  --glass: rgba(255,255,255,.58); --glass-strong: rgba(255,255,255,.74);
+  --glass-edge: rgba(16,36,59,.09); --glass-hi: inset 0 1px 0 rgba(255,255,255,.95);
+  --glass-shadow: 0 14px 34px rgba(16,36,59,.08);
+}
+::selection { background: rgba(43,163,217,.35); }
+
+/* The blocks behind each section (square, flat, brand colours; positions are per section). */
+.hero, #stack, #services, #start, .contact { position: relative; isolation: isolate; }
+.hero::before, #stack::before, #services::before, #start::before, .contact::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background-repeat: no-repeat;
+}
+.hero::before {
+  background-image: linear-gradient(rgba(43,163,217,.2), rgba(43,163,217,.2)), linear-gradient(rgba(255,255,255,.05), rgba(255,255,255,.05)), linear-gradient(rgba(43,163,217,.12), rgba(43,163,217,.12));
+  /* Tucked behind the product strip (it sits about 112px above the hero's bottom edge), so they only show through the glass. */
+  background-size: 210px 74px, 420px 56px, 120px 50px;
+  background-position: left 13% bottom 128px, right 13% bottom 136px, left 56% bottom 150px;
+}
+#stack::before {
+  background-image: linear-gradient(rgba(43,163,217,.16), rgba(43,163,217,.16));
+  background-size: 260px 260px;
+  background-position: 94% 30%;
+}
+#services::before {
+  background-image: linear-gradient(rgba(43,163,217,.22), rgba(43,163,217,.22)), linear-gradient(rgba(255,255,255,.05), rgba(255,255,255,.05)), linear-gradient(rgba(43,163,217,.12), rgba(43,163,217,.12));
+  background-size: 300px 300px, 260px 120px, 140px 140px;
+  background-position: 90% 52%, 42% 88%, 4% 46%;
+}
+#start::before {
+  background-image: linear-gradient(rgba(43,163,217,.14), rgba(43,163,217,.14));
+  background-size: 240px 150px;
+  background-position: 86% 30%;
+}
+.contact::before {
+  background-image: linear-gradient(rgba(43,163,217,.18), rgba(43,163,217,.18));
+  background-size: 260px 260px;
+  background-position: 97% 22%;
+}
+
+/* One recipe for every pane. */
+.cover-tile, .strip-tile, .cover-panel, .svc-panel, .svc-intro, .svc-tab, .svc-btn[aria-pressed="true"], .start-text,
+.logo-marquee, .contact-form-wrap, .btn-outline {
+  background: var(--glass); border: 1px solid var(--glass-edge);
+  -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-hi);
+}
+.cover-panel, .svc-panel, .svc-intro, .start-text, .contact-inner { border-radius: var(--r-glass); box-shadow: var(--glass-hi), var(--glass-shadow); }
+.cover-panel, .svc-intro { background: var(--glass-strong); }
+
+/* Hero: the product strip becomes a glass shelf over the blocks. */
+.logo-marquee { border-radius: var(--r-glass); -webkit-mask-image: none; mask-image: none; padding: 0 6px; }
+.logo-track { -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.logo-track li { color: var(--muted); }
+
+/* What we look after: glass tiles; the chosen one lights up in sky. */
+.cover-tile, .strip-tile { border-radius: 12px; transition: border-color .15s, box-shadow .15s, background-color .15s, transform .15s; }
+@media (hover: hover) { .cover-tile:hover { border-color: rgba(43,163,217,.5); background: var(--glass-strong); transform: translateY(-1px); } }
+.cover-tile[aria-pressed="true"], .strip-tile[aria-pressed="true"] {
+  background: var(--glass-strong); border-color: #2BA3D9; box-shadow: var(--glass-hi), inset 0 0 0 1px #2BA3D9, 0 8px 22px rgba(43,163,217,.18);
+}
+
+/* Buttons: rounded like FixedOne; sky ones carry a soft sky shadow. */
+.btn-sky, .btn-outline, .nav-cta, .submit, .svc-ask { border-radius: 999px; }
+.btn-sky { box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 8px 20px rgba(43,163,217,.28); }
+.btn-outline { border-color: var(--glass-edge); }
+.btn-lg { padding: 17px 26px; }
+@media (hover: hover) { .btn-outline:hover { border-color: #2BA3D9; background: var(--glass-strong); } }
+
+/* What we do: glass tabs, list and diagram panel. */
+.svc-tab { border-radius: 999px; color: var(--muted); }
+.svc-tab[aria-selected="true"] { background: #2BA3D9; border-color: #2BA3D9; color: #0B1219; box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 8px 20px rgba(43,163,217,.28); }
+.svc-btn { border-radius: 14px; }
+.svc-btn[aria-pressed="true"] { border: 1px solid rgba(43,163,217,.6); box-shadow: var(--glass-hi), 0 10px 26px rgba(4,10,20,.25); }
+.box, .device, .layer, .azure-target { border-radius: 12px; background: rgba(255,255,255,.03); }
+.migrate-target, .layer-core, .intune-bar { border-radius: 12px; }
+.svc-price { border-radius: 999px; }
+
+/* How it starts: the three steps sit on one pane. */
+.start-text { padding: clamp(24px, 3.4vw, 40px); }
+
+/* Contact: the blue side keeps its colour with a glass sheen; the form side is frosted. */
+.contact-inner { border: 1px solid var(--glass-edge); }
+.contact-pitch { box-shadow: inset 0 1px 0 rgba(255,255,255,.35); }
+.contact-form-wrap { border: 0; border-left: 1px solid var(--glass-edge); }
+.field input { border-radius: 12px; background: rgba(255,255,255,.7); border-color: rgba(16,36,59,.14); transition: border-color .15s, box-shadow .15s; }
+.field input:focus { outline: none; border-color: #2BA3D9; box-shadow: 0 0 0 3px rgba(43,163,217,.2); }
+.sizes button { border-radius: 999px; }
+
+@media (max-width: 899px) {
+  .svc-item { border-radius: 14px; background: var(--glass); border-color: var(--glass-edge);
+    -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); box-shadow: var(--glass-hi); }
+  .svc-item[data-open] { border-color: #2BA3D9; background: var(--glass-strong); }
+  .svc-btn, .svc-btn[aria-pressed="true"] { background: transparent; border: 0; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .contact-form-wrap { border-left: 0; border-top: 1px solid var(--glass-edge); }
+  .hero::before { content: none; }                               /* the phone strip is too small to hide blocks behind */
+  #services::before { background-size: 200px 200px, 160px 90px, 90px 90px; background-position: 100% 26%, 30% 70%, 0% 90%; }
+  #stack::before { background-size: 180px 180px; background-position: 100% 40%; }
+}
+/* Older browsers without backdrop blur: make panes a little more solid so text stays readable. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .theme-dark .svc-panel, .theme-dark .logo-marquee { background: #163050; }
+  .cover-panel, .cover-tile, .start-text, .contact-form-wrap { background: #FFFFFF; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
