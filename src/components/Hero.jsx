@@ -20,6 +20,15 @@ function HeroMark({ built }) {
   );
 }
 
+// The drifting squares behind the hero: [left, top, size, colour, seconds per drift, start offset].
+// Kept mostly to the edges and the right so they sit around the headline, not under it.
+const HERO_SQUARES = [
+  ['2%', '8%', 54, 'sky', 22, 3], ['9%', '62%', 26, 'white', 18, 9], ['31%', '6%', 18, 'white', 16, 5],
+  ['44%', '61%', 40, 'sky-soft', 24, 12], ['52%', '12%', 30, 'white-soft', 20, 2], ['60%', '48%', 16, 'sky', 15, 7],
+  ['86%', '8%', 70, 'sky-soft', 26, 14], ['93%', '46%', 24, 'white', 19, 4], ['79%', '64%', 44, 'white-soft', 23, 10],
+  ['70%', '24%', 12, 'white', 14, 6],
+];
+
 // Hovering the F blows the product logos out like an explosion, at the same moment the blocks split,
 // then they fall back in as the F rebuilds. Every hover picks new random directions, distances and spins.
 const rand = (a, b) => a + Math.random() * (b - a);
@@ -80,6 +89,13 @@ export default function Hero() {
 
   return (
     <section id="top" className={"hero" + darkBand}>
+      {/* Faint brand squares drifting slowly behind the hero (decoration only). */}
+      <div className="hero-float" aria-hidden="true">
+        {HERO_SQUARES.map(([x, y, s, kind, dur, delay], i) => (
+          <span key={i} className={"hero-sq hero-sq-" + kind}
+            style={{ left: x, top: y, width: s, height: s, animationDuration: dur + "s", animationDelay: -delay + "s" }} />
+        ))}
+      </div>
       <div className="hero-inner">
         <div className="hero-copy">
           <h1 className="hero-title">Microsoft 365, set up right and kept that way.</h1>
@@ -99,13 +115,15 @@ export default function Hero() {
           <p className="hero-logos-label">The Microsoft tools we look after every day</p>
           {/* The list is rendered twice so the strip can loop seamlessly; the copy is hidden from screen readers. */}
           <div className="logo-marquee">
-            <ul className="logo-track">
-              {[...HERO_LOGOS, ...HERO_LOGOS].map(([file, name], i) => (
-                <li key={i} aria-hidden={i >= HERO_LOGOS.length || undefined}>
-                  <img src={`/logos/${file}.svg`} alt="" width="40" height="40" />{name}
-                </li>
-              ))}
-            </ul>
+            <div className="logo-window">
+              <ul className="logo-track">
+                {[...HERO_LOGOS, ...HERO_LOGOS].map(([file, name], i) => (
+                  <li key={i} aria-hidden={i >= HERO_LOGOS.length || undefined}>
+                    <img src={`/logos/${file}.svg`} alt="" width="40" height="40" />{name}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>

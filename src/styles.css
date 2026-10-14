@@ -498,15 +498,10 @@ button { -webkit-tap-highlight-color: transparent; }
 ::selection { background: rgba(43,163,217,.35); }
 
 /* The blocks behind each section (square, flat, brand colours; positions are per section). */
-.hero, #stack, #services, #start, .contact { position: relative; isolation: isolate; }
-.hero::before, #stack::before, #services::before, #start::before, .contact::before {
+/* None behind the hero: they showed past the ends of the product strip. */
+#stack, #services, #start, .contact { position: relative; isolation: isolate; }
+#stack::before, #services::before, #start::before, .contact::before {
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background-repeat: no-repeat;
-}
-.hero::before {
-  background-image: linear-gradient(rgba(43,163,217,.2), rgba(43,163,217,.2)), linear-gradient(rgba(255,255,255,.05), rgba(255,255,255,.05)), linear-gradient(rgba(43,163,217,.12), rgba(43,163,217,.12));
-  /* Tucked behind the product strip (it sits about 112px above the hero's bottom edge), so they only show through the glass. */
-  background-size: 210px 74px, 420px 56px, 120px 50px;
-  background-position: left 13% bottom 128px, right 13% bottom 136px, left 56% bottom 150px;
 }
 #stack::before {
   background-image: linear-gradient(rgba(43,163,217,.16), rgba(43,163,217,.16));
@@ -539,9 +534,27 @@ button { -webkit-tap-highlight-color: transparent; }
 .cover-panel, .svc-panel, .svc-intro, .start-text, .contact-inner { border-radius: var(--r-glass); box-shadow: var(--glass-hi), var(--glass-shadow); }
 .cover-panel, .svc-intro { background: var(--glass-strong); }
 
-/* Hero: the product strip becomes a glass shelf over the blocks. */
+/* Hero: faint sky and white squares drift slowly behind everything (the F's own blocks, loose). */
+.hero { position: relative; isolation: isolate; }
+.hero-inner { position: relative; z-index: 1; }
+.hero-float { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.hero-sq { position: absolute; animation: f365drift ease-in-out infinite alternate; will-change: transform; }
+.hero-sq-sky { background: rgba(43,163,217,.30); }
+.hero-sq-sky-soft { background: rgba(43,163,217,.14); }
+.hero-sq-white { background: rgba(255,255,255,.14); }
+.hero-sq-white-soft { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.10); }
+@keyframes f365drift {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(14px, -22px); }
+  100% { transform: translate(-10px, 16px); }
+}
+/* Phones: just three at the edges, clear of the headline and the F. */
+@media (max-width: 899px) { .hero-sq:not(:nth-child(3), :nth-child(5), :nth-child(8)) { display: none; } }
+
+/* Hero: the product strip becomes a glass shelf. */
 .logo-marquee { border-radius: var(--r-glass); -webkit-mask-image: none; mask-image: none; padding: 0 6px; }
-.logo-track { -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+/* The fade lives on an inner window (fixed width at each end) so the glass pane keeps its edge and the logos fade before it. */
+.logo-window { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 56px, #000 calc(100% - 56px), transparent); mask-image: linear-gradient(90deg, transparent, #000 56px, #000 calc(100% - 56px), transparent); }
 .logo-track li { color: var(--muted); }
 
 /* What we look after: glass tiles; the chosen one lights up in sky. */
@@ -584,7 +597,6 @@ button { -webkit-tap-highlight-color: transparent; }
   .svc-item[data-open] { border-color: #2BA3D9; background: var(--glass-strong); }
   .svc-btn, .svc-btn[aria-pressed="true"] { background: transparent; border: 0; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
   .contact-form-wrap { border-left: 0; border-top: 1px solid var(--glass-edge); }
-  .hero::before { content: none; }                               /* the phone strip is too small to hide blocks behind */
   #services::before { background-size: 200px 200px, 160px 90px, 90px 90px; background-position: 100% 26%, 30% 70%, 0% 90%; }
   #stack::before { background-size: 180px 180px; background-position: 100% 40%; }
 }
@@ -599,6 +611,6 @@ button { -webkit-tap-highlight-color: transparent; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .logo-track { animation: none !important; width: auto; flex-wrap: wrap; justify-content: center; }
   .logo-track li[aria-hidden="true"] { display: none; }
-  .logo-marquee { -webkit-mask-image: none; mask-image: none; }
+  .logo-marquee, .logo-window { -webkit-mask-image: none; mask-image: none; }
   .hero-burst { display: none; }
 }
