@@ -534,6 +534,23 @@ button { -webkit-tap-highlight-color: transparent; }
 .cover-panel, .svc-panel, .svc-intro, .start-text, .contact-inner { border-radius: var(--r-glass); box-shadow: var(--glass-hi), var(--glass-shadow); }
 .cover-panel, .svc-intro { background: var(--glass-strong); }
 
+/* Hero: faint sky and white squares drift slowly behind everything (the F's own blocks, loose). */
+.hero { position: relative; isolation: isolate; }
+.hero-inner { position: relative; z-index: 1; }
+.hero-float { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.hero-sq { position: absolute; animation: f365drift ease-in-out infinite alternate; will-change: transform; }
+.hero-sq-sky { background: rgba(43,163,217,.30); }
+.hero-sq-sky-soft { background: rgba(43,163,217,.14); }
+.hero-sq-white { background: rgba(255,255,255,.14); }
+.hero-sq-white-soft { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.10); }
+@keyframes f365drift {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(14px, -22px); }
+  100% { transform: translate(-10px, 16px); }
+}
+/* Phones: just three at the edges, clear of the headline and the F. */
+@media (max-width: 899px) { .hero-sq:not(:nth-child(3), :nth-child(5), :nth-child(8)) { display: none; } }
+
 /* Hero: the product strip becomes a glass shelf. */
 .logo-marquee { border-radius: var(--r-glass); -webkit-mask-image: none; mask-image: none; padding: 0 6px; }
 /* The fade lives on an inner window (fixed width at each end) so the glass pane keeps its edge and the logos fade before it. */
