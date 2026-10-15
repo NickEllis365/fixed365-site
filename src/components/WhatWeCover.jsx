@@ -54,7 +54,7 @@ export default function WhatWeCover() {
     <section id="stack" className="section">
       <div className="section-inner">
         <div className="cover-intro">
-          <h2 className="h2">What we look after</h2>
+          <h2 className="h2">What we <span className="accent">look after</span></h2>
           <p className="cover-note">It all comes with Microsoft 365 or Azure, plus the essentials around it. Pick a product to see what we do with it.</p>
         </div>
 

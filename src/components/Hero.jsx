@@ -90,6 +90,7 @@ export default function Hero() {
   return (
     <section id="top" className={"hero" + darkBand}>
       {/* Faint brand squares drifting slowly behind the hero (decoration only). */}
+      <div className="hero-dots" aria-hidden="true" />
       <div className="hero-float" aria-hidden="true">
         {HERO_SQUARES.map(([x, y, s, kind, dur, delay], i) => (
           <span key={i} className={"hero-sq hero-sq-" + kind}
@@ -98,6 +99,7 @@ export default function Hero() {
       </div>
       <div className="hero-inner">
         <div className="hero-copy">
+          <p className="hero-kicker">Microsoft 365 and cloud support for small UK businesses</p>
           <h1 className="hero-title">Microsoft 365, set up right and kept that way.</h1>
           <p className="hero-lede">We set up, secure and support Microsoft 365 and Azure for small UK businesses, and help you put AI like Copilot to work safely.</p>
           <div className="hero-actions">

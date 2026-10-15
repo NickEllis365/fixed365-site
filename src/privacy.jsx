@@ -9,6 +9,6 @@ createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Header base="/" />
     <main><PrivacyNotice /></main>
-    <Footer />
+    <Footer base="/" />
   </React.StrictMode>
 );

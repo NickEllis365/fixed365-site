@@ -225,10 +225,7 @@ button { -webkit-tap-highlight-color: transparent; }
 .strip-hint { margin: 6px 0 0; font-size: 13px; color: var(--muted-2); }
 
 /* — how it starts — */
-.start { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 32px 64px; align-items: start; }
-.start-text p { margin: 0 0 18px; font-size: 18px; line-height: 1.6; color: var(--muted); max-width: 640px; }
-.start-text p:last-child { margin-bottom: 0; }
-.start-text strong { color: var(--text); }
+.start { gap: 40px; }
 
 .layer-name { color: #5ED1B6; color: color-mix(in srgb, #5ED1B6, #000 var(--label-mix)); }
 /* — services ("What we do") — */
@@ -381,13 +378,29 @@ button { -webkit-tap-highlight-color: transparent; }
 .legal-back { margin-top: 40px !important; }
 
 /* — footer — */
-.site-footer { padding: 40px var(--pad-x); }
+/* Brand and a button on the left, link columns on the right, a thin base line under a hairline. */
+.site-footer { padding: clamp(48px, 6vw, 72px) var(--pad-x) 28px; }
 .footer-inner {
-  max-width: 1280px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px;
-  font-size: 14px; color: var(--muted-2);
+  max-width: calc(1280px - 2 * var(--pad-x)); margin: 0 auto; display: grid; grid-template-columns: minmax(0, 2fr) repeat(2, minmax(0, 1fr));
+  gap: 40px; font-size: 15px; color: var(--muted-2);
 }
-.footer-inner a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
-.footer-inner a:hover { color: var(--eyebrow); }
+.footer-brand { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+.footer-brand p { margin: 0; max-width: 320px; color: var(--muted); }
+.footer-cta { padding: 12px 20px; font-size: 15px; margin-top: 4px; }
+.footer-col { display: flex; flex-direction: column; gap: 12px; }
+.footer-col h3 { margin: 0 0 4px; font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--eyebrow); }
+.footer-col a { color: var(--muted); width: fit-content; }
+.footer-col a:hover { color: var(--text); }
+.footer-base {
+  max-width: calc(1280px - 2 * var(--pad-x)); margin: clamp(40px, 5vw, 56px) auto 0; padding-top: 22px; border-top: 1px solid var(--glass-edge, var(--line));
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 14px; color: var(--muted-2);
+}
+.footer-base a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.footer-base a:hover { color: var(--eyebrow); }
+@media (max-width: 699px) {
+  .footer-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 24px; }
+  .footer-brand { grid-column: 1 / -1; }
+}
 
 /* — official Microsoft icons (diagrams only) — */
 .ms-icon { display: block; flex: none; }
@@ -441,7 +454,6 @@ button { -webkit-tap-highlight-color: transparent; }
   .svc-tabs { gap: 6px; }
   .svc-tab { flex: 1 1 auto; padding: 11px 12px; font-size: 15px; }
   .hero-actions > a { flex: 1 1 100%; min-height: 56px; }
-  .start { grid-template-columns: minmax(0, 1fr); }
   .cover-explorer { grid-template-columns: minmax(0, 1fr); gap: 16px; }
   .cover-groups { display: none; }
   .cover-strip-wrap { display: block; }
@@ -525,13 +537,13 @@ button { -webkit-tap-highlight-color: transparent; }
 }
 
 /* One recipe for every pane. */
-.cover-tile, .strip-tile, .cover-panel, .svc-panel, .svc-intro, .svc-tab, .svc-btn[aria-pressed="true"], .start-text,
+.cover-tile, .strip-tile, .cover-panel, .svc-panel, .svc-intro, .svc-tab, .svc-btn[aria-pressed="true"], .step,
 .logo-marquee, .contact-form-wrap, .btn-outline {
   background: var(--glass); border: 1px solid var(--glass-edge);
   -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur);
   box-shadow: var(--glass-hi);
 }
-.cover-panel, .svc-panel, .svc-intro, .start-text, .contact-inner { border-radius: var(--r-glass); box-shadow: var(--glass-hi), var(--glass-shadow); }
+.cover-panel, .svc-panel, .svc-intro, .step, .contact-inner { border-radius: var(--r-glass); box-shadow: var(--glass-hi), var(--glass-shadow); }
 .cover-panel, .svc-intro { background: var(--glass-strong); }
 
 /* Hero: faint sky and white squares drift slowly behind everything (the F's own blocks, loose). */
@@ -580,8 +592,25 @@ button { -webkit-tap-highlight-color: transparent; }
 .migrate-target, .layer-core, .intune-bar { border-radius: 12px; }
 .svc-price { border-radius: 999px; }
 
-/* How it starts: the three steps sit on one pane. */
-.start-text { padding: clamp(24px, 3.4vw, 40px); }
+/* How it starts: three numbered glass cards in a row, joined by a sky line that runs behind them. */
+.steps { list-style: none; margin: 0; padding: 0; position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.steps::before {
+  content: ""; position: absolute; z-index: -1; left: 8%; right: 8%; top: 54px; height: 2px;
+  background: linear-gradient(90deg, rgba(43,163,217,.15), #2BA3D9 20%, #2BA3D9 80%, rgba(43,163,217,.15));
+}
+.step { padding: clamp(24px, 2.6vw, 32px); display: flex; flex-direction: column; gap: 12px; background: var(--glass-strong); }
+.step-num {
+  width: 44px; height: 44px; display: grid; place-items: center; border-radius: 12px; margin-bottom: 8px;
+  background: #2BA3D9; color: #0B1219; font-weight: 800; font-size: 15px; letter-spacing: .02em;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 8px 20px rgba(43,163,217,.28);
+}
+.step-title { margin: 0; font-size: 20px; font-weight: 800; line-height: 1.25; letter-spacing: -.01em; }
+.step-text { margin: 0; font-size: 16px; line-height: 1.6; color: var(--muted); }
+@media (max-width: 899px) {
+  .steps { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .steps::before { left: 43px; right: auto; top: 40px; bottom: 40px; width: 2px; height: auto;
+    background: linear-gradient(180deg, rgba(43,163,217,.15), #2BA3D9 15%, #2BA3D9 85%, rgba(43,163,217,.15)); }
+}
 
 /* Contact: the blue side keeps its colour with a glass sheen; the form side is frosted. */
 .contact-inner { border: 1px solid var(--glass-edge); }
@@ -603,7 +632,98 @@ button { -webkit-tap-highlight-color: transparent; }
 /* Older browsers without backdrop blur: make panes a little more solid so text stays readable. */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .theme-dark .svc-panel, .theme-dark .logo-marquee { background: #163050; }
-  .cover-panel, .cover-tile, .start-text, .contact-form-wrap { background: #FFFFFF; }
+  .cover-panel, .cover-tile, .step, .contact-form-wrap { background: #FFFFFF; }
+}
+
+/* ———— Ideas from inforcer.com, in Fixed365's own navy and sky ———— */
+/* Hero: the navy lifts into a sky glow along the bottom edge, with a dot grid behind the F. */
+.hero.theme-dark {
+  background:
+    linear-gradient(180deg, rgba(16,36,59,0) 45%, rgba(43,163,217,.2) 82%, rgba(43,163,217,.34) 100%),
+    linear-gradient(100deg, #10243B 30%, #0F2C4C 70%, #12375E 100%);
+}
+.hero-dots {
+  position: absolute; z-index: 0; pointer-events: none; top: 6%; right: 0; width: 50%; height: 64%;
+  background-image: radial-gradient(rgba(124,203,238,.38) 1.2px, transparent 1.6px); background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 60% 45%, #000 30%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 70% at 60% 45%, #000 30%, transparent 75%);
+}
+.hero-kicker { margin: 0 0 -6px; font-size: 16px; font-weight: 700; color: var(--eyebrow); letter-spacing: .01em; }
+@media (max-width: 899px) {
+  .hero-dots { width: 70%; height: 40%; top: 2%; }
+  .hero-kicker { font-size: 14px; padding-right: 100px; }
+}
+
+/* Headings: the key words in sky. */
+.accent { color: #2BA3D9; }
+.theme-light .accent { color: #1679A8; }
+.theme-dark .accent { color: #2BA3D9; }
+
+/* Contact: a soft sky wash rising behind the form card. */
+.contact { background: linear-gradient(180deg, var(--bg) 35%, #E3F1F9 100%); }
+
+/* Contact card, redesigned (2026-10-15): the pitch side is the hero's navy with its sky glow and dot grid,
+   a checklist of what you get and contact rows with line icons; the form side is a bright pane with paired
+   fields, choice chips and a sky button. */
+.contact-pitch {
+  position: relative; isolation: isolate; overflow: hidden; gap: 22px; color: var(--text); box-shadow: none;
+  background:
+    linear-gradient(180deg, rgba(16,36,59,0) 40%, rgba(43,163,217,.22) 100%),
+    linear-gradient(120deg, #10243B 35%, #12375E 100%);
+}
+.contact-pitch::before {
+  content: ""; position: absolute; z-index: -1; inset: 0 0 auto auto; width: 70%; height: 60%; pointer-events: none;
+  background-image: radial-gradient(rgba(124,203,238,.32) 1.2px, transparent 1.6px); background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 80% 20%, #000 20%, transparent 70%);
+  mask-image: radial-gradient(ellipse 70% 70% at 80% 20%, #000 20%, transparent 70%);
+}
+.contact-kicker { margin: 0; font-size: 14px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--eyebrow); }
+.contact-title { color: var(--text); }
+.contact-lede { color: var(--muted); }
+.contact-gets { list-style: none; margin: -4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.contact-gets li { display: flex; align-items: center; gap: 12px; font-size: 17px; font-weight: 700; }
+.contact-gets li::before {
+  content: ""; flex: none; width: 22px; height: 22px; border-radius: 6px; background: #2BA3D9
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230B1219' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12 4 4 8-8'/%3E%3C/svg%3E") center / 14px no-repeat;
+  box-shadow: 0 4px 12px rgba(43,163,217,.35);
+}
+.contact-links { border-top: 0; margin-top: auto; padding-top: 12px; gap: 10px; }
+.contact-links a {
+  justify-content: flex-start; align-items: center; gap: 14px; padding: 12px 14px; border: 1px solid var(--glass-edge); border-radius: 14px;
+  background: var(--glass); box-shadow: var(--glass-hi); color: var(--text); font-size: 16px;
+  transition: border-color .15s, background-color .15s, transform .15s;
+}
+.contact-links a small { display: block; font-size: 12px; font-weight: 600; color: var(--muted-2); letter-spacing: .02em; }
+.contact-links a:hover { color: var(--text); padding-left: 14px; border-color: rgba(43,163,217,.6); background: var(--glass-strong); transform: translateX(3px); }
+.contact-ico { flex: none; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 10px; background: rgba(43,163,217,.16); color: #7CCBEE; }
+
+.contact-form { gap: 20px; }
+.form-head h3 { margin: 0 0 6px; font-size: 22px; font-weight: 800; letter-spacing: -.01em; }
+.form-head p { margin: 0; font-size: 15px; color: var(--muted-2); }
+.field-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.field { font-size: 14px; }
+.optional { font-weight: 500; color: var(--muted-2); margin-left: 4px; }
+.field input { height: 52px; font-size: 16px; }
+.field input::placeholder { color: #9AABBA; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  height: 42px; padding: 0 16px; border: 1px solid rgba(16,36,59,.16); border-radius: 999px; background: rgba(255,255,255,.75);
+  color: var(--text); font-weight: 700; font-size: 15px; cursor: pointer; transition: border-color .15s, background-color .15s, box-shadow .15s;
+}
+.sizes .chip { height: 46px; padding: 0; border-color: rgba(16,36,59,.16); }
+.sizes .chip[aria-pressed="true"] { border-color: #2BA3D9; }
+@media (hover: hover) { .chip:hover { border-color: #2BA3D9; } }
+.chip[aria-pressed="true"] { background: #2BA3D9; border-color: #2BA3D9; color: #0B1219; box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 6px 16px rgba(43,163,217,.25); }
+.submit {
+  height: 58px; margin-top: 4px; padding: 0 24px; background: #2BA3D9; color: #0B1219;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 10px 24px rgba(43,163,217,.3);
+}
+.submit:hover { background: #57B9E4; }
+.submit svg { transition: transform .2s; }
+.submit:hover svg { transform: translateX(4px); }
+@media (max-width: 560px) {
+  .field-row { grid-template-columns: minmax(0, 1fr); }
+  .chip { height: 40px; padding: 0 14px; font-size: 14px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
