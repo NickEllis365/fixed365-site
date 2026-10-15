@@ -248,7 +248,7 @@ export default function Services() {
     <section id="services" className={"section section-dark" + darkBand}>
       <div className="section-inner">
         <div className="heading-group" style={{ maxWidth: 720 }}>
-          <h2 className="h2">What we do</h2>
+          <h2 className="h2">What we <span className="accent">do</span></h2>
           <p className="section-lede">Microsoft 365, websites and AI, done properly. Pick one to see how it works in practice.</p>
         </div>
         <div className="svc-tabs" role="tablist" aria-label="What we do">

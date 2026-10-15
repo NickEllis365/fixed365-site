@@ -263,3 +263,12 @@
 - Removed the faint squares behind the hero product strip (they showed past its ends; owner said they looked weird).
 - The logo strip's fade now sits on an inner `.logo-window` (Hero.jsx), so logos fade before the glass edge instead of being cut off.
 - Owner asked for "squares floating around behind the header, blues and whites": `.hero-float` with 10 faint sky/white squares (HERO_SQUARES in Hero.jsx) drifting slowly (`f365drift`, 14–26s). Kept clear of the headline and the logo strip; phones show only 3. Reduced motion stops them.
+
+## 2026-10-15 — Ideas from inforcer.com (branch `inforcer-ideas`, not merged or pushed)
+- Owner pointed at inforcer.com as the look they like. Borrowed five elements, in Fixed365's own navy/sky and Archivo (no new colours, no copied layout):
+  - Hero: navy lifts into a sky glow along the bottom edge; faint dot grid behind the F (`.hero-dots`); small sky line above the headline (`.hero-kicker`, wording from the meta description).
+  - Section headings: key words in sky (`.accent`): What we *look after*, What we *do*, How it *starts*.
+  - How it starts: three numbered glass cards (01–03) joined by a sky line (vertical on phones). Same wording as before.
+  - Contact: soft sky wash rising behind the form card.
+  - Footer: brand + button, Explore and Contact columns, base line with © and Privacy notice. No address or company number. Privacy page passes base="/".
+- Verified: `npm run build` passes; screenshots at 1440px and 390px phone.
