@@ -40,6 +40,12 @@
 ---
 # Change log (newest first)
 
+## 2026-10-17 — Two redesigns tried and rejected (site unchanged)
+- The owner asked to recreate the site with the new design skills. Two attempts, both turned down; the owner said "lets leave it how it is". Nothing was merged or pushed.
+  - `redesign-v6`: same layout restyled (wide Archivo headlines, one accent, scroll-driven example health check). Owner: "nah not good".
+  - `redesign-v7`: complete redesign (hero built as a giant F, sliding area panels, stacking service cards, rising step bars, sky contact band). Owner: "nah not cool".
+- Lesson: the owner likes the current design. Don't propose a redesign again unless asked; small, specific changes only.
+
 ## 2026-10-14 — Glass look (merged to main and pushed on owner's "push"; revert = `git revert -m 1 faf025c`)
 - The owner asked for the site to have the same "glassy modern look" as FixedOne (the leads dashboard), with a mockup before any push.
 - This is a refinement, not a redesign. Layout, copy, Archivo, the navy/sky palette and the block F are unchanged. All changes are one block at the end of `src/styles.css` ("Glass: frosted panes over the Fixed365 blocks").
