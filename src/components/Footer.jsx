@@ -16,6 +16,7 @@ export default function Footer({ base = "" }) {
           <a href={base + "#stack"}>What we look after</a>
           <a href={base + "#services"}>What we do</a>
           <a href={base + "#start"}>How it starts</a>
+          <a href="/email-check/">Free email security check</a>
         </nav>
         <div className="footer-col">
           <h3>Contact</h3>

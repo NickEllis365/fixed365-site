@@ -363,6 +363,38 @@ button { -webkit-tap-highlight-color: transparent; }
 .sent-title { font-family: var(--font-heading); font-weight: 800; font-size: 40px; letter-spacing: -.03em; }
 .sent-text { font-size: 17px; line-height: 1.55; color: var(--muted); }
 
+/* — free email security check page (/email-check/) — */
+.ec { border-bottom: 1px solid var(--line); }
+.ec-inner { max-width: 820px; margin: 0 auto; padding: clamp(40px, 7vw, 88px) var(--pad-x); display: flex; flex-direction: column; gap: 20px; }
+.ec-lede { margin: 0; font-size: 18px; line-height: 1.55; color: var(--muted); max-width: 62ch; }
+.ec-form { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: end; margin-top: 8px; }
+.ec-go { height: 56px; margin: 0; border-radius: 999px; justify-content: center; padding: 0 26px; white-space: nowrap; }
+.ec-result { display: flex; flex-direction: column; gap: 14px; margin-top: 12px; outline: none; animation: f365up .4s ease-out both; }
+.ec-verdict { padding: 22px 24px; border-radius: 16px; border: 1px solid var(--line); background: var(--panel); }
+.ec-verdict.is-bad { border-color: color-mix(in srgb, #E5484D 45%, var(--line)); background: color-mix(in srgb, #E5484D 6%, var(--panel)); }
+.ec-verdict.is-good { border-color: color-mix(in srgb, #2F9E6B 45%, var(--line)); background: color-mix(in srgb, #2F9E6B 6%, var(--panel)); }
+.ec-domain { margin: 0 0 6px; font-size: 14px; font-weight: 700; color: var(--muted-2); }
+.ec-verdict h2 { margin: 0 0 8px; font-family: var(--font-heading); font-weight: 800; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.2; letter-spacing: -.01em; text-wrap: balance; }
+.ec-verdict p { margin: 0; color: var(--muted); line-height: 1.55; }
+.ec-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.ec-item { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 16px; align-items: start; padding: 16px 18px; border-radius: 14px; border: 1px solid var(--line); background: var(--panel); }
+.ec-item h3 { margin: 0 0 4px; font-size: 16px; font-weight: 800; }
+.ec-item p { margin: 0; color: var(--muted); line-height: 1.5; }
+.ec-item .ec-fix { margin-top: 6px; color: var(--text); font-weight: 600; }
+.ec-pill { justify-self: start; padding: 4px 10px; border-radius: 999px; font-size: 13px; font-weight: 800; background: var(--hover); color: var(--muted); }
+.ec-item.is-good .ec-pill { background: color-mix(in srgb, #2F9E6B 16%, transparent); color: #1E7A50; }
+.ec-item.is-warn .ec-pill { background: color-mix(in srgb, #F2B84B 22%, transparent); color: var(--warn); }
+.ec-item.is-bad .ec-pill { background: color-mix(in srgb, #E5484D 14%, transparent); color: #B4262B; }
+.ec-cta { display: flex; justify-content: space-between; align-items: center; gap: 18px 28px; flex-wrap: wrap; padding: 22px 24px; border-radius: 16px; background: var(--band); }
+.ec-cta h3 { margin: 0 0 6px; font-size: 20px; font-weight: 800; }
+.ec-cta p { margin: 0; color: var(--muted); line-height: 1.55; max-width: 46ch; }
+.ec-cta-acts { display: flex; gap: 10px; flex-wrap: wrap; }
+@media (max-width: 600px) {
+  .ec-form { grid-template-columns: 1fr; }
+  .ec-item { grid-template-columns: 1fr; gap: 8px; }
+  .ec-cta-acts, .ec-cta-acts a { width: 100%; justify-content: center; }
+}
+
 /* — privacy notice page — */
 .legal { border-bottom: 1px solid var(--line); }
 .legal-inner { max-width: 760px; margin: 0 auto; padding: clamp(40px, 7vw, 80px) var(--pad-x); font-size: 17px; line-height: 1.65; color: var(--muted); }
