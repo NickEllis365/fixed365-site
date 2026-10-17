@@ -273,3 +273,8 @@
   - Footer: brand + button, Explore and Contact columns, base line with © and Privacy notice. No address or company number. Privacy page passes base="/".
 - Verified: `npm run build` passes; screenshots at 1440px and 390px phone.
 - Contact form redesigned (same branch): the pitch side is navy with the hero's glow and dots, a "Free health check" kicker, a ticked list (what's set up right / what's risky / what it would take to fix) and glass contact rows with line icons. Form side: "Tell us a little about you", name+company and email+phone (optional) in pairs, new optional "What would you like help with?" chips (multi-select, sent as `help_with`), team-size chips, sky submit button with an arrow. Fields stack on phones. FixedOne's enquiry reader (fixed365-leads outlook.mjs) now picks up Phone and Help with.
+
+## 2026-10-17 — Flour & Flame preview page (branch `flour-and-flame-preview`, not pushed)
+- Owner wants a link to send Flour & Flame. Their mock-up (from fixed365-leads data/mockups/flour-and-flame) is copied to `public/preview/flour-and-flame/` with only the 20 images it uses (7.4MB). Live address once pushed: https://fixed365.co.uk/preview/flour-and-flame/
+- `noindex, nofollow` added so search engines don't list it. Nothing on the Fixed365 site links to it; the main site is unchanged.
+- Verified: `npm run build` passes; local preview returns the page and images.
