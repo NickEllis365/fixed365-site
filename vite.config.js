@@ -5,6 +5,6 @@ export default defineConfig({
   plugins: [react()],
   build: {
     outDir: 'dist',
-    rollupOptions: { input: { main: 'index.html', privacy: 'privacy.html' } }
+    rollupOptions: { input: { main: 'index.html', privacy: 'privacy.html', emailCheck: 'email-check/index.html' } }
   }
 });

@@ -284,3 +284,9 @@
 - Owner wants a link to send Flour & Flame. Their mock-up (from fixed365-leads data/mockups/flour-and-flame) is copied to `public/preview/flour-and-flame/` with only the 20 images it uses (7.4MB). Live address once pushed: https://fixed365.co.uk/preview/flour-and-flame/
 - `noindex, nofollow` added so search engines don't list it. Nothing on the Fixed365 site links to it; the main site is unchanged.
 - Verified: `npm run build` passes; local preview returns the page and images.
+
+## 2026-10-17 — Free email security check (branch `email-check`, not pushed)
+- Owner said yes to a free checker that ties in with the new email-security cold emails. New page at `/email-check/` (`email-check/index.html`, `src/emailcheck.jsx`, `src/components/EmailCheck.jsx`, styles under "free email security check page" in styles.css; added to vite.config.js inputs). Footer "Explore" gets a "Free email security check" link; nothing else on the site changes.
+- Enter a domain or email address: checks where email goes (MX: Microsoft 365, Google Workspace or other), SPF, DMARC and DKIM, and says in plain words whether someone could send email pretending to be them, with a "To fix" line for each gap and "Ask me to fix it" (mailto) / "Book a free health check" buttons. Mentions Nick is in Newton Abbot and covers Devon.
+- Runs entirely in the visitor's browser via Cloudflare's public DNS over HTTPS; no backend, nothing stored (said on the page). `?d=domain` runs the check straight away, so cold emails can link to a business's own result.
+- Verified: `npm run build` passes; local preview screenshots at 1440px and 390px for a spoofable domain, fixed365.co.uk (all good) and a domain that doesn't exist.
