@@ -108,7 +108,8 @@ p { margin: 0; }
 .timer span { color: #A9A39A; font-size: 15px; }
 .pizza-wrap { position: relative; height: 100%; display: grid; place-items: center; }
 .pizza { width: min(34vw, 460px); aspect-ratio: 1; border-radius: 50%; overflow: hidden; box-shadow: 0 0 0 10px rgba(245,241,234,.06), 0 40px 80px rgba(0,0,0,.6); }
-.pizza img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.32); }
+/* Whole pizza in the circle: centred on the pizza and sized to its outer crust, so the puffy, leopard-spotted cornicione shows. */
+.pizza img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.1); transform-origin: 48.5% 50.7%; }
 @media (max-width: 860px) {
   .oven-stage { grid-template-columns: minmax(0, 1fr); align-content: center; }
   .oven-copy { padding: 56px var(--gutter) 8px; justify-self: start; }
