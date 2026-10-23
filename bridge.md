@@ -296,6 +296,6 @@
 - Verified: `npm run build` passes and dist/ has no preview folder.
 
 ## 2026-10-23 — Aaron's Google review on the site (branch `aaron-review`, not pushed)
-- Owner pasted Aaron's 5-star Google review and asked for it on the website. Added to the contact card (Contact.jsx), between "What you get" and the call/email rows: five sky stars, one sentence from the review, "Aaron, Google review. Worked with Nick for four years." Credited as a colleague, not a customer (that's what the review says).
-- Styles: `.contact-review` block at the end of styles.css (sky left rule, text/muted-2 tokens). No other changes.
+- Owner pasted Aaron's 5-star Google review and asked for it on the website. Added to the contact card (Contact.jsx), between "What you get" and the call/email rows: a hairline above, five sky stars, one sentence from the review, "Aaron, Google review. Worked with Nick for four years." Credited as a colleague, not a customer (that's what the review says).
+- Styles: `.contact-review` block at the end of styles.css (hairline top rule, text/muted-2 tokens; a thick left accent bar was tried and dropped as an AI tell). No other changes.
 - Verified: `npm run build` passes; screenshots at 1366px and 390px, no sideways scroll on phones.
