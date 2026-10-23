@@ -766,3 +766,11 @@ button { -webkit-tap-highlight-color: transparent; }
   .logo-marquee, .logo-window { -webkit-mask-image: none; mask-image: none; }
   .hero-burst { display: none; }
 }
+
+/* Aaron's review in the contact card: a quiet quote under a hairline, between the checklist and the contact rows. */
+.contact-review { margin: 6px 0 0; padding: 20px 0 0; border-top: 1px solid rgba(124,203,238,.25); max-width: 480px; }
+.contact-review-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.contact-google { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: #fff; flex: none; }
+.contact-stars { color: #2BA3D9; font-size: 15px; letter-spacing: 3px; line-height: 1; }
+.contact-review blockquote { margin: 0; font-size: 17px; line-height: 1.55; color: var(--text); }
+.contact-review figcaption { margin-top: 10px; font-size: 14px; color: var(--muted-2); }
