@@ -766,3 +766,9 @@ button { -webkit-tap-highlight-color: transparent; }
   .logo-marquee, .logo-window { -webkit-mask-image: none; mask-image: none; }
   .hero-burst { display: none; }
 }
+
+/* Aaron's review in the contact card: a quiet quote with a sky rule, between the checklist and the contact rows. */
+.contact-review { margin: 6px 0 0; padding: 2px 0 2px 18px; border-left: 3px solid #2BA3D9; max-width: 480px; }
+.contact-stars { color: #2BA3D9; font-size: 15px; letter-spacing: 3px; line-height: 1; margin-bottom: 10px; }
+.contact-review blockquote { margin: 0; font-size: 17px; line-height: 1.55; color: var(--text); }
+.contact-review figcaption { margin-top: 10px; font-size: 14px; color: var(--muted-2); }

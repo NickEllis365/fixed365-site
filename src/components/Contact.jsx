@@ -68,6 +68,13 @@ export default function Contact() {
             <li>What's risky</li>
             <li>What it would take to fix</li>
           </ul>
+          {/* Aaron's Google review (owner pasted it, 2026-10-23). He worked with Nick for four years, so he's credited
+              as a colleague, not a customer. */}
+          <figure className="contact-review">
+            <div className="contact-stars" role="img" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>“Nick understands how to deliver secure, effective IT solutions that meet business needs, and he's always someone you can trust to get to the bottom of a problem.”</blockquote>
+            <figcaption>Aaron, Google review. Worked with Nick for four years.</figcaption>
+          </figure>
           <div className="contact-links">
             <a href="tel:+447950428513"><span className="contact-ico"><Icon d={PHONE} /></span><span><small>Call</small>07950 428513</span></a>
             <a href="mailto:hello@fixed365.co.uk"><span className="contact-ico"><Icon d={MAIL} /></span><span><small>Email</small>hello@fixed365.co.uk</span></a>
