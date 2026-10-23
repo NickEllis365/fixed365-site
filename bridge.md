@@ -290,3 +290,7 @@
 - Enter a domain or email address: checks where email goes (MX: Microsoft 365, Google Workspace or other), SPF, DMARC and DKIM, and says in plain words whether someone could send email pretending to be them, with a "To fix" line for each gap and "Ask me to fix it" (mailto) / "Book a free health check" buttons. Mentions Nick is in Newton Abbot and covers Devon.
 - Runs entirely in the visitor's browser via Cloudflare's public DNS over HTTPS; no backend, nothing stored (said on the page). `?d=domain` runs the check straight away, so cold emails can link to a business's own result.
 - Verified: `npm run build` passes; local preview screenshots at 1440px and 390px for a spoofable domain, fixed365.co.uk (all good) and a domain that doesn't exist.
+
+## 2026-10-23 — Flour & Flame preview removed (branch `remove-flour-preview`)
+- Owner: "remove the flour and flame preview from the site now… ignored me". Deleted `public/preview/` (page + images). The mock-up itself stays in fixed365-leads data/mockups/flour-and-flame.
+- Verified: `npm run build` passes and dist/ has no preview folder.
