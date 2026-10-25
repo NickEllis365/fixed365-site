@@ -299,3 +299,8 @@
 - Owner pasted Aaron's 5-star Google review and asked for it on the website. Added to the contact card (Contact.jsx), between "What you get" and the call/email rows: a hairline above, Google's "G" on a white circle with five sky stars, one sentence from the review, "Aaron, Google review. Worked with Nick for four years." Credited as a colleague, not a customer (that's what the review says).
 - Styles: `.contact-review` block at the end of styles.css (hairline top rule, text/muted-2 tokens; a thick left accent bar was tried and dropped as an AI tell). No other changes.
 - Verified: `npm run build` passes; screenshots at 1366px and 390px, no sideways scroll on phones.
+
+## 2026-10-25 — Pearce & Clatworthy preview (branch `pearce-preview`)
+- Owner: "publish to preview on my site". Five-page website concept for Pearce & Clatworthy (Teignmouth builders), built in fixed365-leads data/mockups/pearce-and-clatworthy (rebuild there with `node src/build.mjs`), copied to `public/preview/pearce-and-clatworthy/` with the 7 images it uses (2.4MB).
+- Live address: https://www.fixed365.co.uk/preview/pearce-and-clatworthy/ (pages link to each other: services.html, portfolio.html, about.html, quote.html). `noindex, nofollow` on every page; nothing on the Fixed365 site links to it.
+- Verified: `npm run build` passes and copies the folder into dist.
