@@ -321,3 +321,4 @@
 
 - 2026-10-27 dashboards-first: home page leads with AI dashboards (hero, dashboard example straight under it, nav and footer order, "Talk to us" CTA, page title/description). Microsoft 365 stays as the second offer.
 - 2026-10-27 tech-company: owner didn't want dashboards as the main thing. Hero is now a tech company with four specialisms (Microsoft 365 security, AI dashboards, websites, Azure); dashboard example back after Services; nav Microsoft 365 first.
+- 2026-10-27 tech-company (cont.): hero after integral365/inforcer: "Everything your business runs on, set up properly." No name, location or Azure hosting; not only small businesses; websites out of the hero.
