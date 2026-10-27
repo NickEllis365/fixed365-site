@@ -99,12 +99,12 @@ export default function Hero() {
       </div>
       <div className="hero-inner">
         <div className="hero-copy">
-          <p className="hero-kicker">Microsoft 365 and cloud support for small UK businesses</p>
-          <h1 className="hero-title">Microsoft 365, set up right and kept that way.</h1>
-          <p className="hero-lede">We set up, secure and support Microsoft 365 and Azure for small UK businesses, and help you put AI like Copilot to work safely.</p>
+          <p className="hero-kicker">AI dashboards and Microsoft 365 for small UK businesses</p>
+          <h1 className="hero-title">All your business numbers on one screen.</h1>
+          <p className="hero-lede">We connect your accounts, sales and jobs into one live dashboard in Microsoft 365, so you can see how the business is doing and ask it questions. We also set up, secure and look after Microsoft 365 itself.</p>
           <div className="hero-actions">
-            <a href="#contact" className="btn-sky btn-lg">Book a free health check</a>
-            <a href="#stack" className="btn-outline btn-lg">See what we cover</a>
+            <a href="#dashboards" className="btn-sky btn-lg">Try the example dashboard</a>
+            <a href="#contact" className="btn-outline btn-lg">Talk to us</a>
           </div>
         </div>
         <div className="hero-mark-wrap">

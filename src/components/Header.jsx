@@ -3,10 +3,10 @@ import Logo from './Logo.jsx';
 import { darkBand } from '../theme.js';
 
 // The service pages, plus "How it starts" on the home page. A page link is underlined while you're on that page.
-const LINKS = [['/microsoft-365/', 'Microsoft 365'], ['/websites/', 'Websites'], ['/ai-dashboards/', 'AI dashboards'], ['/#start', 'How it starts']];
+const LINKS = [['/ai-dashboards/', 'AI dashboards'], ['/microsoft-365/', 'Microsoft 365'], ['/websites/', 'Websites'], ['/#start', 'How it starts']];
 
 // base="/" on other pages (e.g. privacy.html) so the home links go back to the home page.
-// cta: where "Free health check" goes. Service pages have their own contact form, so they pass "#contact".
+// cta: where "Talk to us" goes. Service pages have their own contact form, so they pass "#contact".
 export default function Header({ base = "", cta = base + "#contact" }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);   // page scrolled: bar floats as a glass panel
@@ -46,7 +46,7 @@ export default function Header({ base = "", cta = base + "#contact" }) {
           {LINKS.map(([href, label]) => (
             <a key={href} href={href} className="nav-link" aria-current={active === href ? 'true' : undefined}>{label}</a>
           ))}
-          <a href={cta} className="btn-sky nav-cta">Free health check</a>
+          <a href={cta} className="btn-sky nav-cta">Talk to us</a>
         </nav>
         <button type="button" className="menu-btn" aria-label="Menu" aria-expanded={open} onClick={() => setOpen(o => !o)}>
           <span /><span /><span />
@@ -55,7 +55,7 @@ export default function Header({ base = "", cta = base + "#contact" }) {
       {open && (
         <div className="mobile-menu">
           {LINKS.map(([href, label]) => <a key={href} href={href} onClick={close}>{label}</a>)}
-          <a href={cta} onClick={close} className="mobile-cta">Free health check</a>
+          <a href={cta} onClick={close} className="mobile-cta">Talk to us</a>
         </div>
       )}
     </header>
