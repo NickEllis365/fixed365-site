@@ -318,3 +318,5 @@
 
 ## 2026-10-27 — AI page apps on phones (branch `mobile-apps`)
 - Owner: "fix the apps as well". On phones the app logos sit in two slim columns either side of the phone (12 apps, small drift) instead of a grid below it, and the intro data flow now runs on phones too (only reduced motion skips it). The flight layer is its own `.app-flow` in the hero (not inside the desktop orbit) and aims at the monitor or phone frame as shown.
+
+- 2026-10-27 dashboards-first: home page leads with AI dashboards (hero, dashboard example straight under it, nav and footer order, "Talk to us" CTA, page title/description). Microsoft 365 stays as the second offer.
