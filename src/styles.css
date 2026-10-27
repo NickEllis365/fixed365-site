@@ -913,7 +913,7 @@ button { -webkit-tap-highlight-color: transparent; }
 @media (prefers-reduced-motion: reduce) { .app-tile, .app-strip-track { animation: none; } }
 
 /* The data flow on the AI page: labels (then dots) flying from the apps into the dashboard, under its edge. */
-.app-flow { position: absolute; inset: 0; z-index: 2; }
+.app-flow { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
 .app-float .app-tile { z-index: 1; }
 .packet { position: absolute; left: 0; top: 0; padding: 5px 10px; border-radius: 999px; background: #2BA3D9; color: #0B1219;
   font-size: 12.5px; font-weight: 800; white-space: nowrap; box-shadow: 0 6px 16px rgba(3,10,20,.4); opacity: 0; }
@@ -1095,4 +1095,38 @@ button { -webkit-tap-highlight-color: transparent; }
   .monitor:not(.is-scaled) .dash-asked { font-size: 12.5px; }
   .monitor:not(.is-scaled) .dash-q { font-size: 11.5px; }
   .monitor:not(.is-scaled) .dash-table { font-size: 11.5px; }
+}
+
+/* Phones: the apps in two columns beside the phone (desktop keeps the orbit). */
+.app-side { display: none; }
+@media (max-width: 899px) {
+  .app-row { display: none !important; }
+  .page-hero .page-hero-side { position: relative; }
+  .app-side { display: block; position: absolute; inset: 0; margin: 0; padding: 0; list-style: none; pointer-events: none; }
+  .app-side li { position: absolute; width: 24px; height: 24px; animation: f365drift 14s ease-in-out infinite alternate; }
+  .app-side li img { width: 100%; height: 100%; object-fit: contain; display: block; filter: drop-shadow(0 4px 8px rgba(3,10,20,.5)); }
+  .app-side li img.app-dark { filter: brightness(0) invert(1) drop-shadow(0 4px 8px rgba(3,10,20,.5)); }
+  .app-side li:nth-child(-n+6) { left: -6px; }
+  .app-side li:nth-child(n+7) { right: -6px; }
+  .app-side li:nth-child(1) { top: 6%; animation-delay: -0s; }
+  .app-side li:nth-child(7) { top: 13%; animation-delay: -0.6s; }
+  .app-side li:nth-child(2) { top: 21%; animation-delay: -1.3s; }
+  .app-side li:nth-child(8) { top: 28%; animation-delay: -1.9s; }
+  .app-side li:nth-child(3) { top: 36%; animation-delay: -2.6s; }
+  .app-side li:nth-child(9) { top: 43%; animation-delay: -3.2s; }
+  .app-side li:nth-child(4) { top: 51%; animation-delay: -3.9000000000000004s; }
+  .app-side li:nth-child(10) { top: 58%; animation-delay: -4.5s; }
+  .app-side li:nth-child(5) { top: 66%; animation-delay: -5.2s; }
+  .app-side li:nth-child(11) { top: 73%; animation-delay: -5.8s; }
+  .app-side li:nth-child(6) { top: 81%; animation-delay: -6.5s; }
+  .app-side li:nth-child(12) { top: 88%; animation-delay: -7.1s; }
+}
+@media (max-width: 899px) {
+  .app-side li { animation-name: appsidedrift; animation-duration: 9s; }
+}
+@keyframes appsidedrift { 0% { transform: translate(0, 0); } 50% { transform: translate(-3px, -8px); } 100% { transform: translate(3px, 6px); } }
+@media (prefers-reduced-motion: reduce) { .app-side li { animation: none; } }
+@media (max-width: 899px) {
+  .app-side li:nth-child(-n+6) { left: -11px; }
+  .app-side li:nth-child(n+7) { right: -11px; }
 }
