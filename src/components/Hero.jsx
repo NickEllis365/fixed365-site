@@ -99,9 +99,9 @@ export default function Hero() {
       </div>
       <div className="hero-inner">
         <div className="hero-copy">
-          <p className="hero-kicker">Newton Abbot, Devon</p>
-          <h1 className="hero-title">Your IT, sorted.</h1>
-          <p className="hero-lede">I'm Nick. Most of what I do is Microsoft 365: setting it up, keeping it secure and fixing it when it goes wrong. I also build dashboards and websites. If something breaks, you ring me, not a helpdesk.</p>
+          <p className="hero-kicker">Microsoft 365 specialists</p>
+          <h1 className="hero-title">Get more from the Microsoft 365 you already pay for.</h1>
+          <p className="hero-lede">Most businesses are paying for security features nobody has switched on. We set Microsoft 365 up properly, lock it down, keep watch and support your team. Then we bring your security and your business data into dashboards, so you can see everything in one place.</p>
           <div className="hero-actions">
             <a href="#contact" className="btn-sky btn-lg">Book a free health check</a>
             <a href="#services" className="btn-outline btn-lg">See what we do</a>

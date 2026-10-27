@@ -133,7 +133,7 @@ export default function EmailCheck() {
               <div className="ec-cta">
                 <div>
                   <h3>Want these fixed?</h3>
-                  <p>It's usually a short job, done without disturbing your email. I'm Nick, based in Newton Abbot, and I look after this for small businesses around Devon.</p>
+                  <p>It's usually a short job, done without disturbing your email. We look after this for businesses of every size.</p>
                 </div>
                 <div className="ec-cta-acts">
                   <a className="btn-sky btn-lg" href={mail}>Ask me to fix it</a>
