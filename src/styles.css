@@ -1065,3 +1065,34 @@ button { -webkit-tap-highlight-color: transparent; }
 .monitor.is-scaled .dash-svc-table td { height: 25px; padding-top: 3px; padding-bottom: 3px; }
 .monitor.is-scaled .dash-svc .dash-card-head .dash-add { margin-bottom: 2px; }
 .monitor.is-scaled .svc-bar { display: none; }
+
+/* Phones: the example dashboard sits on a phone, not a portrait monitor. A rounded handset with a Dynamic Island,
+   the dashboard scrolling inside its screen like an app, view tabs as icons, no stand. */
+@media (max-width: 899px) {
+  .page-hero .hero-actions > a { flex: 0 0 auto; min-height: 0; }
+  .monitor:not(.is-scaled) .monitor-body { width: min(300px, 84vw); margin: 0 auto; padding: 9px; border-radius: 44px;
+    box-shadow: 0 0 0 1.5px #9AA3AD, 0 0 0 3px #3A424B, 0 30px 50px -20px rgba(3,10,20,.8); }
+  .monitor:not(.is-scaled) .monitor-cam { top: 19px; width: 84px; height: 24px; margin-left: -42px; border-radius: 999px; background: #000; z-index: 3; }
+  .monitor:not(.is-scaled) .monitor-screen { border-radius: 36px; max-height: 590px; overflow-y: auto; scrollbar-width: none; }
+  .monitor:not(.is-scaled) .monitor-screen::-webkit-scrollbar { display: none; }
+  .monitor:not(.is-scaled) + .monitor-stand, .monitor:not(.is-scaled) .monitor-stand { display: none; }
+  .monitor:not(.is-scaled) .dash-head { padding: 46px 14px 10px; }
+  .monitor:not(.is-scaled) .dash-title { font-size: 14px; }
+  .monitor:not(.is-scaled) .dash-tag { font-size: 10.5px; padding: 2px 7px; }
+  .monitor:not(.is-scaled) .dash-live { font-size: 11.5px; }
+  .monitor:not(.is-scaled) .dash-rail { justify-content: space-around; }
+  .monitor:not(.is-scaled) .dash-rail button span { display: none; }
+  .monitor:not(.is-scaled) .dash-rail button { padding: 8px 14px; }
+  .monitor:not(.is-scaled) .dash-main { padding: 10px; gap: 8px; }
+  .monitor:not(.is-scaled) .dash-view { gap: 8px; }
+  .monitor:not(.is-scaled) .dash-kpis { gap: 6px; }
+  .monitor:not(.is-scaled) .dash-kpi { min-height: 0; padding: 7px 8px; }
+  .monitor:not(.is-scaled) .dash-kpi-label, .monitor:not(.is-scaled) .dash-kpi-note { font-size: 10px; }
+  .monitor:not(.is-scaled) .dash-kpi strong { font-size: 15px; }
+  .monitor:not(.is-scaled) .dch { height: 120px; }
+  .monitor:not(.is-scaled) .dash-donut { width: 64px; height: 64px; }
+  .monitor:not(.is-scaled) .dash-donut span { width: 40px; height: 40px; }
+  .monitor:not(.is-scaled) .dash-asked { font-size: 12.5px; }
+  .monitor:not(.is-scaled) .dash-q { font-size: 11.5px; }
+  .monitor:not(.is-scaled) .dash-table { font-size: 11.5px; }
+}
