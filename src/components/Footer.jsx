@@ -8,13 +8,13 @@ export default function Footer({ base = "" }) {
       <div className="footer-inner">
         <div className="footer-brand">
           <a href={base + "#top"} className="brand"><Logo /><span>Fixed<span className="brand-365">365</span></span></a>
-          <p>AI dashboards and Microsoft 365 for small businesses.</p>
+          <p>Microsoft 365 security, AI dashboards, websites and Azure for small businesses.</p>
           <a href={base + "#contact"} className="btn-sky footer-cta">Talk to us</a>
         </div>
         <nav className="footer-col" aria-label="Site">
           <h3>Explore</h3>
-          <a href="/ai-dashboards/">AI dashboards</a>
           <a href="/microsoft-365/">Microsoft 365</a>
+          <a href="/ai-dashboards/">AI dashboards</a>
           <a href="/websites/">Websites</a>
           <a href={base + "#start"}>How it starts</a>
           <a href="/email-check/">Free email security check</a>
