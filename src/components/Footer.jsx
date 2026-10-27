@@ -8,7 +8,7 @@ export default function Footer({ base = "" }) {
       <div className="footer-inner">
         <div className="footer-brand">
           <a href={base + "#top"} className="brand"><Logo /><span>Fixed<span className="brand-365">365</span></span></a>
-          <p>Microsoft 365 security, AI dashboards, websites and Azure for small businesses.</p>
+          <p>Microsoft 365 security, AI dashboards and websites.</p>
           <a href={base + "#contact"} className="btn-sky footer-cta">Talk to us</a>
         </div>
         <nav className="footer-col" aria-label="Site">

@@ -6,7 +6,7 @@ import Contact from '../components/Contact.jsx';
 const INCLUDED = [
   ['Designed around your business', 'Built around what you do, with your own logo and photos.'],
   ['Looks right on phones', 'Laid out for phones as well as laptops, so it reads properly wherever people find you.'],
-  ['Your own domain, with a padlock', 'Hosted for you on Microsoft Azure, on your own web address, with a secure padlock.'],
+  ['Your own domain, with a padlock', 'Hosted for you, on your own web address, with a secure padlock.'],
   ['Enquiries straight to your inbox', 'A contact form that sends every enquiry to your email.'],
   ['Changes when you need them', 'New prices, new photos, a new service: ask and we update it.'],
 ];

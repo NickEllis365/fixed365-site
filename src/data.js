@@ -14,7 +14,7 @@ export const CATS = [
     ['Ce', 'Cyber Essentials', 'Help getting certified, and staying certified.', ['Gap check against the Cyber Essentials requirements', 'Fixes made in Microsoft 365, Intune and Defender', 'Support with the questionnaire and yearly renewal']]
   ]},
   { name: 'Essentials', color: '#2BA3D9', items: [
-    ['Wb', 'Websites', 'A fast, simple website, built and hosted for you.', ['Designed and built around your business, and looks right on phones', 'Hosted on Microsoft Azure with your own domain and a secure padlock', 'Contact form straight to your inbox, and changes made when you need them']],
+    ['Wb', 'Websites', 'A fast, simple website, built and hosted for you.', ['Designed and built around your business, and looks right on phones', 'Hosted for you on your own domain, with a secure padlock', 'Contact form straight to your inbox, and changes made when you need them']],
     ['Dm', 'Domain hosting', 'Your domain names and DNS, looked after.', ['Domains registered and renewed so they never lapse', 'DNS records managed for your email and website', 'One place for it all, not logins scattered across old providers']],
     ['Es', 'Email security', 'Phishing and spam stopped before they reach anyone.', ['Phishing, malware and impersonation filtering', 'SPF, DKIM and DMARC set up and monitored', 'Suspicious messages quarantined and checked']],
     ['Bk', 'Backup', 'Your Microsoft 365 data, recoverable.', ['Mail, OneDrive, SharePoint and Teams backed up daily', 'Restores of a file or a whole mailbox on request', 'Tested so it works when you need it']]
