@@ -187,7 +187,7 @@ function Websites() {
   );
 }
 
-const PANELS = { Migrate, Secure, 'Manage devices': Devices, Support, AI, Websites };
+export const PANELS = { Migrate, Secure, 'Manage devices': Devices, Support, AI, Websites };
 
 // Under 900px the services become an accordion: each one is a panel that opens (and closes) in place.
 const NARROW = '(max-width: 899px)';
@@ -213,15 +213,18 @@ function Summary({ group }) {
         <p className="svc-intro-line">{line}</p>
         <ul className="svc-points">{group.points.map(p => <li key={p}>{p}</li>)}</ul>
         <a href="#contact" className="btn-sky svc-ask">Ask about {group.label === 'AI' ? 'AI and Copilot' : group.label.toLowerCase()}</a>
+        {group.page && <a href={group.page} className="svc-more">More about {group.label.toLowerCase()}</a>}
       </div>
       <div className="svc-panel"><Panel /></div>
     </div>
   );
 }
 
-export default function Services() {
+// groups: which areas to show. The Microsoft 365 page passes just that one, and the tabs go.
+export default function Services({ groups = SVC_GROUPS, title = <>What we <span className="accent">do</span></>,
+  lede = 'Microsoft 365, websites and AI, done properly. Pick one to see how it works in practice.' }) {
   const [group, setGroup] = useState(0);
-  const g = SVC_GROUPS[group];
+  const g = groups[group];
   const SVCS = g.items;
   // -1 = all closed (only possible on narrow screens); the desktop panel then falls back to the first service.
   const [svc, setSvc] = useState(0);
@@ -248,15 +251,15 @@ export default function Services() {
     <section id="services" className={"section section-dark" + darkBand}>
       <div className="section-inner">
         <div className="heading-group" style={{ maxWidth: 720 }}>
-          <h2 className="h2">What we <span className="accent">do</span></h2>
-          <p className="section-lede">Microsoft 365, websites and AI, done properly. Pick one to see how it works in practice.</p>
+          <h2 className="h2">{title}</h2>
+          <p className="section-lede">{lede}</p>
         </div>
-        <div className="svc-tabs" role="tablist" aria-label="What we do">
-          {SVC_GROUPS.map((t, i) => (
+        {groups.length > 1 && <div className="svc-tabs" role="tablist" aria-label="What we do">
+          {groups.map((t, i) => (
             <button key={t.label} type="button" role="tab" className="svc-tab" aria-selected={i === group}
               onClick={() => pickGroup(i)}>{t.label}</button>
           ))}
-        </div>
+        </div>}
         {SVCS.length === 1 ? <Summary key={group} group={g} /> : (
         <div className="svc-body">
           <div className="svc-list">
