@@ -23,7 +23,6 @@ const ORBIT = [[55, 6], [63, 6], [71, 6], [79, 6], [87, 6], [95, 6], [96, 26], [
 function Orbit() {
   return (
     <div className="app-float" aria-hidden="true">
-      <div className="app-flow" />
       {ORBIT.map(([x, y], i) => (
         <span key={APPS[i][1]} data-app={APPS[i][1]} className="app-tile" style={{ left: x + '%', top: y + '%', animationDelay: -(i * 0.8) + 's' }}>{Logo(APPS[i])}</span>
       ))}
@@ -38,19 +37,20 @@ const SAYS = { Xero: 'Invoice', QuickBooks: 'Bill', Sage: 'Payroll', HubSpot: 'N
 
 // The data flow: each app in turn pulses and sends a label curving in towards the dashboard, speeding up as it goes
 // and slipping under the panel's edge. When the last one is in, the dashboard fills (onFilled); after that a dot
-// trickles in from a random app every second or so. Phones and reduced motion skip straight to the filled dashboard.
+// trickles in from a random app every second or so. It flies from whichever logos are on screen (the orbit on
+// desktop, the two columns beside the phone on phones). Reduced motion skips straight to the filled dashboard.
 function useDataFlow(on, onFilled) {
   useEffect(() => {
     if (!on) return;
     const hero = document.querySelector('.page-hero'), layer = hero?.querySelector('.app-flow');
-    const tiles = [...(hero?.querySelectorAll('.app-tile') || [])];
-    const calm = matchMedia('(prefers-reduced-motion: reduce)').matches || matchMedia('(max-width: 899px)').matches;
+    const tiles = [...(hero?.querySelectorAll('.app-tile, .app-side li') || [])].filter(el => el.offsetParent);
+    const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!layer || !tiles.length || calm) { onFilled(); return; }
     const timers = [];
     const fly = (tile, label) => {
-      const panel = hero.querySelector('.dash-panel');
+      const panel = hero.querySelector('.dash-panel'), frame = hero.querySelector('.monitor-body') || panel;
       if (!panel) return;
-      const h = hero.getBoundingClientRect(), a = tile.getBoundingClientRect(), p = panel.getBoundingClientRect();
+      const h = hero.getBoundingClientRect(), a = tile.getBoundingClientRect(), p = frame.getBoundingClientRect();
       let x0 = a.left + a.width / 2 - h.left, y0 = a.top + a.height / 2 - h.top;
       const x1 = p.left + p.width * (0.3 + Math.random() * 0.4) - h.left, y1 = p.top + p.height * (0.45 + Math.random() * 0.3) - h.top;
       // Start just outside the logo, on the side facing the dashboard, so the label is seen leaving it.
@@ -98,11 +98,12 @@ function Strip() {
   );
 }
 
-// Phones (orbit version): the same apps as a tidy grid under the example, since floating logos would sit on the text.
-function AppRow() {
+// Phones: twelve of the apps in two slim columns either side of the phone, drifting like the desktop orbit, and
+// sending their data into it on load.
+function AppSides() {
   return (
-    <ul className="app-row" aria-label="Some of the apps it can work with">
-      {APPS.slice(0, 21).map(x => <li key={x[1]}>{Logo(x)}</li>)}
+    <ul className="app-side" aria-label="Some of the apps it can work with">
+      {APPS.slice(0, 12).map(x => <li key={x[1]} data-app={x[1]}>{Logo(x)}</li>)}
     </ul>
   );
 }
@@ -136,7 +137,7 @@ export default function AIDashboardsPage() {
         kicker="AI dashboards for small UK businesses"
         title="Ask your business a question."
         lede="We bring your sales, invoices and jobs together in one live dashboard in Microsoft 365. Then you can ask it things in plain English and get an answer, not a spreadsheet."
-        back={strip ? null : <Orbit />}
+        back={strip ? null : <><Orbit /><div className="app-flow" aria-hidden="true" /></>}
         after={strip ? <Strip /> : null}
         note="Works with the apps you already use: QuickBooks, Xero, Sage, Shopify, HubSpot, Google and Microsoft 365, and plenty more."
         actions={<>
@@ -144,7 +145,7 @@ export default function AIDashboardsPage() {
           <a href="#sources" className="btn-outline btn-lg">What goes in</a>
         </>}>
         <DashPanel filling={filling} />
-        {!strip && <AppRow />}
+        {!strip && <AppSides />}
       </PageHero>
 
       <section id="sources" className="section">

@@ -315,3 +315,6 @@
 
 ## 2026-10-27 — AI dashboard on phones (branch `mobile-phone`)
 - Owner: "fix the mobile version, its so stretched". Under 900px the example dashboard sits in a phone frame (rounded, Dynamic Island, scrolls inside, icon-only view tabs, no stand) instead of a portrait monitor; service page hero buttons keep their natural width. Desktop unchanged.
+
+## 2026-10-27 — AI page apps on phones (branch `mobile-apps`)
+- Owner: "fix the apps as well". On phones the app logos sit in two slim columns either side of the phone (12 apps, small drift) instead of a grid below it, and the intro data flow now runs on phones too (only reduced motion skips it). The flight layer is its own `.app-flow` in the hero (not inside the desktop orbit) and aims at the monitor or phone frame as shown.
