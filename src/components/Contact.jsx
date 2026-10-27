@@ -9,7 +9,7 @@ import { darkBand } from '../theme.js';
 const WEB3FORMS_KEY = '1166aaa0-0e28-4048-8f44-d16fbddaf765';
 
 // What they'd like help with (any number, optional). Matches "What we do".
-const HELP = ['Microsoft 365', 'Security', 'Devices', 'Websites', 'AI & Copilot', 'Not sure yet'];
+const HELP = ['Microsoft 365', 'Security', 'Devices', 'Websites', 'AI & Copilot', 'AI dashboards', 'Not sure yet'];
 
 // Small line icons for the contact rows (drawn in currentColor).
 const Icon = ({ d }) => (
@@ -29,9 +29,10 @@ const GOOGLE_G = (
 );
 const ARROW = <path d="M5 12h14M13 6l6 6-6 6" />;
 
-export default function Contact() {
+// preset: topics already ticked on a service page (e.g. ['Websites'] on /websites/).
+export default function Contact({ preset = [] }) {
   const [size, setSize] = useState(0);
-  const [help, setHelp] = useState([]);
+  const [help, setHelp] = useState(preset);
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [err, setErr] = useState(false);

@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react';
 import Logo from './Logo.jsx';
 import { darkBand } from '../theme.js';
 
-const LINKS = [['#stack', 'What we look after'], ['#services', 'What we do'], ['#start', 'How it starts']];
+// The service pages, plus "How it starts" on the home page. A page link is underlined while you're on that page.
+const LINKS = [['/microsoft-365/', 'Microsoft 365'], ['/websites/', 'Websites'], ['/ai-dashboards/', 'AI dashboards'], ['/#start', 'How it starts']];
 
-// base="/" on other pages (e.g. privacy.html) so the section links go back to the home page.
-export default function Header({ base = "" }) {
+// base="/" on other pages (e.g. privacy.html) so the home links go back to the home page.
+// cta: where "Free health check" goes. Service pages have their own contact form, so they pass "#contact".
+export default function Header({ base = "", cta = base + "#contact" }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);   // page scrolled: bar floats as a glass panel
   const [active, setActive] = useState('');          // section currently on screen, underlined in the nav
@@ -18,14 +20,18 @@ export default function Header({ base = "" }) {
     return () => removeEventListener('scroll', onScroll);
   }, []);
 
-  // A section counts as current while it crosses the middle band of the screen.
+  // On a service page its link stays underlined. On the home page "How it starts" is underlined while that
+  // section crosses the middle band of the screen.
   useEffect(() => {
-    const sections = LINKS.map(([href]) => document.querySelector(href)).filter(Boolean);
+    const page = LINKS.find(([href]) => !href.includes('#') && location.pathname.startsWith(href));
+    if (page) { setActive(page[0]); return; }
+    const sections = LINKS.filter(([href]) => href.startsWith('/#') && location.pathname === '/')
+      .map(([href]) => document.querySelector(href.slice(1))).filter(Boolean);
     if (!sections.length) return;
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => {
-        if (e.isIntersecting) setActive('#' + e.target.id);
-        else setActive(a => (a === '#' + e.target.id ? '' : a));
+        if (e.isIntersecting) setActive('/#' + e.target.id);
+        else setActive(a => (a === '/#' + e.target.id ? '' : a));
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
     sections.forEach(s => io.observe(s));
@@ -38,9 +44,9 @@ export default function Header({ base = "" }) {
         <a href={base + "#top"} className="brand"><Logo /><span>Fixed<span className="brand-365">365</span></span></a>
         <nav className="nav-wide">
           {LINKS.map(([href, label]) => (
-            <a key={href} href={base + href} className="nav-link" aria-current={active === href ? 'true' : undefined}>{label}</a>
+            <a key={href} href={href} className="nav-link" aria-current={active === href ? 'true' : undefined}>{label}</a>
           ))}
-          <a href={base + "#contact"} className="btn-sky nav-cta">Free health check</a>
+          <a href={cta} className="btn-sky nav-cta">Free health check</a>
         </nav>
         <button type="button" className="menu-btn" aria-label="Menu" aria-expanded={open} onClick={() => setOpen(o => !o)}>
           <span /><span /><span />
@@ -48,8 +54,8 @@ export default function Header({ base = "" }) {
       </div>
       {open && (
         <div className="mobile-menu">
-          {LINKS.map(([href, label]) => <a key={href} href={base + href} onClick={close}>{label}</a>)}
-          <a href={base + "#contact"} onClick={close} className="mobile-cta">Free health check</a>
+          {LINKS.map(([href, label]) => <a key={href} href={href} onClick={close}>{label}</a>)}
+          <a href={cta} onClick={close} className="mobile-cta">Free health check</a>
         </div>
       )}
     </header>

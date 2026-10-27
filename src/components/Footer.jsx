@@ -13,8 +13,9 @@ export default function Footer({ base = "" }) {
         </div>
         <nav className="footer-col" aria-label="Site">
           <h3>Explore</h3>
-          <a href={base + "#stack"}>What we look after</a>
-          <a href={base + "#services"}>What we do</a>
+          <a href="/microsoft-365/">Microsoft 365</a>
+          <a href="/websites/">Websites</a>
+          <a href="/ai-dashboards/">AI dashboards</a>
           <a href={base + "#start"}>How it starts</a>
           <a href="/email-check/">Free email security check</a>
         </nav>

@@ -43,7 +43,7 @@ export const SVC_GROUPS = [
     ['Support', 'A real engineer who knows your setup, when you need one.']
   ]},
   { label: 'Websites', items: [['Websites', 'A simple, fast website for your business, built and looked after for you.']],
-    price: 'From £400',
+    price: 'From £400', page: '/websites/',
     points: ['Designed around your business', 'Looks right on phones', 'Your own domain, with a secure padlock', 'Enquiries straight to your inbox', 'Changes made when you need them'] },
   { label: 'AI', items: [['AI', 'Microsoft Copilot rolled out safely, and your systems linked up with AI.']],
     points: ['Permissions checked before Copilot goes on', 'Licences for the people who will use it', 'CRM, accounts and inboxes linked to AI', 'Practical training for your team'] }
