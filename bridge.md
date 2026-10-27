@@ -312,3 +312,6 @@
 - Websites page uses only existing claims (From £400, the five points). AI dashboards "How we set it up" steps and sources (accounts software, CRM) are for the owner to confirm; no AI dashboards price yet.
 - The animated diagram fade (f365up) stuck in headless Edge inside the page heroes, so it is switched off there (`.page-hero .diagram`).
 - Verified: `npm run build` passes; screenshots at 1440px and 390px for all three pages, the dashboard views, typed questions and source connecting.
+
+## 2026-10-27 — AI dashboard on phones (branch `mobile-phone`)
+- Owner: "fix the mobile version, its so stretched". Under 900px the example dashboard sits in a phone frame (rounded, Dynamic Island, scrolls inside, icon-only view tabs, no stand) instead of a portrait monitor; service page hero buttons keep their natural width. Desktop unchanged.
