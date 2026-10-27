@@ -3,7 +3,7 @@ import Logo from './Logo.jsx';
 import { darkBand } from '../theme.js';
 
 // The service pages, plus "How it starts" on the home page. A page link is underlined while you're on that page.
-const LINKS = [['/ai-dashboards/', 'AI dashboards'], ['/microsoft-365/', 'Microsoft 365'], ['/websites/', 'Websites'], ['/#start', 'How it starts']];
+const LINKS = [['/microsoft-365/', 'Microsoft 365'], ['/ai-dashboards/', 'AI dashboards'], ['/websites/', 'Websites'], ['/#start', 'How it starts']];
 
 // base="/" on other pages (e.g. privacy.html) so the home links go back to the home page.
 // cta: where "Talk to us" goes. Service pages have their own contact form, so they pass "#contact".

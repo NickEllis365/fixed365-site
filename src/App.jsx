@@ -13,9 +13,9 @@ export default function App() {
       <Header />
       <main>
         <Hero />
-        <AIDashboards />
         <WhatWeCover />
         <Services />
+        <AIDashboards />
         <GettingStarted />
         <Contact />
       </main>
